@@ -21,7 +21,7 @@ jobs:
         run: pip install pelican markdown
 
       - name: Génération du site
-        run: pelican content -s publishconf.py
+        run: pelican content -s pelicanconf.py
 
       - name: Déploiement FTP vers OVH
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
