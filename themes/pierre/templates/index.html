@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg">
+    <img src="{{ SITEURL }}/theme/../images/hero.jpg" alt="Pierre Thenaisie" onerror="this.style.display='none'">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Ma vie.<br>Mes expériences.</h1>
+    <p>{{ SITESUBTITLE }}</p>
+  </div>
+</section>
+
+<!-- DERNIERS ARTICLES -->
+<section class="section">
+  <div class="section-header">
+    <span class="section-label">Blog — Derniers articles</span>
+  </div>
+  <div class="articles-grid">
+    {% for article in articles[:4] %}
+    <article class="article-card">
+      <div class="article-meta">
+        <span class="article-date">{{ article.date.strftime('%d %B %Y') }}</span>
+        <span class="article-category">{{ article.category }}</span>
+      </div>
+      <h2 class="article-title"><a href="{{ SITEURL }}/{{ article.url }}">{{ article.title }}</a></h2>
+      <p class="article-summary">{{ article.summary | striptags | truncate(160) }}</p>
+      <a href="{{ SITEURL }}/{{ article.url }}" class="article-link">Lire la suite →</a>
+    </article>
+    {% endfor %}
+  </div>
+  {% if articles|length > 4 %}
+  <div class="center">
+    <a href="{{ SITEURL }}/category/blog.html" class="btn-outline">Tous les articles</a>
+  </div>
+  {% endif %}
+</section>
+
+<!-- À PROPOS MINI -->
+<section class="section section-alt">
+  <div class="about-mini">
+    <div class="about-mini-img">
+      <img src="{{ SITEURL }}/theme/../images/portrait.jpg" alt="Pierre Thenaisie" onerror="this.parentElement.style.background='var(--color-light)'">
+    </div>
+    <div class="about-mini-text">
+      <span class="section-label">À propos</span>
+      <h2>Pierre Thenaisie</h2>
+      <p>Ingénieur, aventurier du quotidien, curieux de tout. Je raconte ma vie — les petites victoires, les grandes rencontres, les maladies qu'on traverse et les matins où tout repart.</p>
+      <a href="{{ SITEURL }}/pages/a-propos.html" class="btn-outline">En savoir plus</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

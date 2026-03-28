@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}{{ article.title }} — {{ SITENAME }}{% endblock %}
+{% block description %}{{ article.summary }}{% endblock %}
+
+{% block content %}
+
+<article>
+
+  <header class="article-header container">
+    <div class="category">{{ article.category }}</div>
+    <h1>{{ article.title }}</h1>
+    <div class="meta">{{ article.date.strftime('%d %B %Y') }}</div>
+  </header>
+
+  {% if article.cover %}
+  <img src="{{ SITEURL }}/{{ article.cover }}" alt="{{ article.title }}" class="article-hero-image">
+  {% endif %}
+
+  <div class="article-body">
+    {{ article.content }}
+  </div>
+
+</article>
+
+<!-- Navigation entre articles -->
+<div class="container" style="display:flex; justify-content:space-between; padding-bottom: 80px; border-top: 0.5px solid #e8e6e1; padding-top: 32px; font-size: 11px; letter-spacing: 0.15em; text-transform: uppercase;">
+  {% if article.prev_article %}
+  <a href="{{ SITEURL }}/{{ article.prev_article.url }}">← {{ article.prev_article.title }}</a>
+  {% else %}<span></span>{% endif %}
+  <a href="{{ SITEURL }}/blog/">Tous les articles</a>
+  {% if article.next_article %}
+  <a href="{{ SITEURL }}/{{ article.next_article.url }}">{{ article.next_article.title }} →</a>
+  {% else %}<span></span>{% endif %}
+</div>
+
+{% endblock %}
