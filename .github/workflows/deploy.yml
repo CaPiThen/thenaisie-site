@@ -29,6 +29,6 @@ jobs:
           server: ftp.cluster129.hosting.ovh.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./output/
+          local-dir: output/
           server-dir: www/
           dangerous-clean-slate: false
