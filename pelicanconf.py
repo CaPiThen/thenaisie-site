@@ -1,7 +1,7 @@
 AUTHOR = 'Pierre Thenaisie'
 SITENAME = 'Pierre Thenaisie'
 SITESUBTITLE = 'Ma vie, mes voyages, mes expériences.'
-SITEURL = ''
+SITEURL = 'https://thenaisiepierre.fr'
 
 PATH = 'content'
 THEME = 'themes/pierre'
