@@ -2,6 +2,7 @@ AUTHOR = 'Pierre Thenaisie'
 SITENAME = 'Pierre Thenaisie'
 SITESUBTITLE = 'Ma vie, mes voyages, mes expériences.'
 SITEURL = 'https://thenaisiepierre.fr'
+STATIC_PATHS = ['images', '.htaccess']
 
 PATH = 'content'
 THEME = 'themes/pierre'
