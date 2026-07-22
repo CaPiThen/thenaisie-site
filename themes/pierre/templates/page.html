@@ -1,12 +1,20 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} — {{ SITENAME }}{% endblock %}
 {% block content %}
-<div class="article-container">
-  <header class="article-header">
+
+<section class="page-hero shader-hero">
+  <div class="ethereal" data-color="91,140,62" data-scale="62" data-speed="90" data-seed="7" data-alpha="0.78"></div>
+  <div class="ethereal ethereal--accent" data-color="150,195,155" data-scale="46" data-speed="76" data-seed="21" data-alpha="0.58"></div>
+  <div class="shader-scrim" aria-hidden="true"></div>
+  <header class="page-header">
     <h1>{{ page.title }}</h1>
+    {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
   </header>
-  <div class="article-body">
-    {{ page.content }}
-  </div>
+</section>
+
+<div class="section-tight page-content">
+  {% include "_deco.html" %}
+  {{ page.content }}
 </div>
+
 {% endblock %}

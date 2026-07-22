@@ -1,0 +1,100 @@
+---
+registre: learnings
+id_format: LRN-XXX
+description: Patterns observés à réutiliser ou à surveiller sur le projet thenaisiepierre.fr.
+champs:
+  - id: identifiant unique LRN-XXX
+  - date: AAAA-MM-JJ
+  - pattern: ce qui a été observé, formulé comme un principe réutilisable
+  - contexte: la situation concrète qui a révélé le pattern
+  - application_future: comment s'en servir la prochaine fois
+---
+
+# Learnings — thenaisiepierre.fr
+
+## Index
+
+| ID | Date | Pattern |
+|---|---|---|
+| LRN-001 | 2026-07-21 | Mesurer le contraste en composant réellement shader + voile + carte, jamais « à l'œil » |
+| LRN-002 | 2026-07-20 | Toujours nettoyer `output/` avant un rebuild Pelican |
+| LRN-003 | 2026-07-22 | Valider une animation JS sur son état intermédiaire, pas seulement avant/après |
+| LRN-004 | 2026-07-22 | Calibrer un filtre SVG (feColorMatrix) sur la vraie distribution des valeurs, jamais en théorie |
+| LRN-005 | 2026-07-22 | La largeur réelle du texte peut dépasser largement l'hypothèse de mise en page d'origine |
+| LRN-006 | 2026-07-22 | Une config d'animation correcte peut sembler « lente » à cause du coût de rendu réel, pas de la config |
+| LRN-007 | 2026-07-22 | L'onglet de l'outil de prévisualisation ne passe jamais réellement au premier plan (document.hidden reste vrai) |
+| LRN-008 | 2026-07-22 | `scroll-behavior: smooth` casse le calcul de position de GSAP ScrollTrigger |
+| LRN-009 | 2026-07-22 | `perspective`/`transform` sur un ancêtre change le bloc de positionnement d'un `position:fixed` descendant |
+| LRN-010 | 2026-07-22 | Une couleur dupliquée en `rgba()` littéral se désynchronise silencieusement de sa variable CSS |
+
+## Entrées
+
+### LRN-001 — Mesurer le contraste en composant réellement les couches
+
+**Date :** 2026-07-21
+**Pattern observé :** Sur un fond animé (shader), la lisibilité d'un texte ne peut pas s'évaluer visuellement à un instant donné — le rendu change en continu. Un premier essai de carte en « verre clair » semblait juste à l'œil, mais recomposé pixel par pixel (shader + voile + verre, sur 12 instants d'animation), le texte tombait à 3,83:1, sous le seuil AA de 4,5:1.
+**Contexte :** Fusion du sommaire de l'accueil dans le hero à shader (BDR-002). Le passage à un verre **sombre** a corrigé le problème (13,17:1 / 8,65:1).
+**Application future :** Pour tout élément de texte posé sur un fond animé ou semi-transparent, toujours recompiler le shader hors-ligne, échantillonner les pixels sur plusieurs instants de `u_time`, et calculer le ratio de contraste réel avant de valider visuellement. Ne jamais se fier à une seule capture.
+
+### LRN-002 — Toujours nettoyer `output/` avant un rebuild Pelican
+
+**Date :** 2026-07-20
+**Pattern observé :** Pelican ne supprime pas les fichiers générés à partir de contenu source supprimé entre deux builds. Après suppression d'articles, les anciennes pages HTML restaient servies (contenu obsolète, liens vers du contenu qui n'existe plus en source).
+**Contexte :** Suppression des articles du journal et de la page « Blog » — l'ancien contenu restait visible tant qu'un `rm -rf output` n'avait pas été fait avant `pelican content`.
+**Application future :** Après toute suppression ou renommage de contenu, faire `rm -rf output` avant de relancer `pelican content -s pelicanconf.py`, sinon des pages fantômes ou des liens morts subsistent silencieusement.
+
+### LRN-003 — Valider une animation JS sur son état intermédiaire
+
+**Date :** 2026-07-22
+**Pattern observé :** Vérifier seulement l'état « avant » et l'état « après » d'une animation ne suffit pas à prouver qu'elle anime réellement — un bug pourrait sauter directement à l'état final sans transition, et le test avant/après ne le verrait pas. Un onglet de test réutilisé a aussi donné un faux résultat (élément déjà « animé » avant même le déclenchement), dû à un état résiduel du panneau de test (voir BLK-002), pas à un bug réel — repéré uniquement parce qu'un nouvel onglet propre donnait un résultat différent.
+**Contexte :** Vérification du tracé SVG (Anime.js `createDrawable`) et du compteur numérique sur la page Maladie.
+**Application future :** Toujours échantillonner un état intermédiaire (à mi-durée de l'animation) en plus de l'avant/après, et en cas de résultat qui semble déjà « acquis » avant tout déclenchement, retester dans un onglet fraîchement ouvert avant de conclure à un bug du site.
+
+### LRN-004 — Calibrer un filtre SVG sur la vraie distribution des valeurs
+
+**Date :** 2026-07-22
+**Pattern observé :** Deux pièges distincts en calibrant un `feColorMatrix` sur un bruit `feTurbulence` : (1) les filtres SVG opèrent par défaut en espace **linearRGB**, pas sRGB — une couleur configurée `79,191,106` sortait rendue `151,224,173` (bien plus claire), un décalage de gamma totalement imprévisible sans le savoir. Correction : attribut `color-interpolation-filters="sRGB"` sur le `<filter>`. (2) Un calcul théorique du poids/biais nécessaire (« chaque canal de bruit doit faire ~0,5 en moyenne ») s'est avéré faux d'un facteur ~3 — la vraie somme de 3 canaux de bruit ne variait qu'entre 0,86 et 1,70, pas 0 à 3. Un premier essai basé sur la théorie a donné une opacité quasiment constante (variance de 5 sur 255 seulement).
+**Contexte :** Recalibrage du fond « ethereal » (BDR-004) pour un mouvement bien plus visible, demandé par Pierre.
+**Application future :** Toujours (a) fixer `color-interpolation-filters="sRGB"` sur tout filtre où la couleur exacte compte, et (b) rendre et échantillonner la distribution RÉELLE de la valeur à calibrer (ici : rasteriser le bruit brut dans un canvas et lire l'histogramme des pixels) avant de calculer des coefficients — jamais déduire une plage de valeurs par hypothèse théorique.
+
+### LRN-005 — La largeur réelle du texte peut dépasser l'hypothèse de mise en page
+
+**Date :** 2026-07-22
+**Pattern observé :** Le voile de contraste des bandeaux à shader (`.shader-scrim`) supposait que le texte restait dans les premiers 58 % de la largeur (hérité d'une mise en page antérieure). Mesuré en vrai sur `.page-header h1` (qui utilise `clamp(…, 9vw, 124px)`) : le texte s'étend jusqu'à 88-90 % de la largeur du conteneur selon la taille d'écran (pic vers 1440px, avant que le `clamp` plafonne la taille de police). Une bonne partie du texte se trouvait donc dans la zone où le voile s'allégeait — contraste réel 3,17:1, sous le seuil AA, alors que la zone « supposée sûre » mesurait 5,53:1.
+**Contexte :** Recalibrage du voile après le passage aux fonds ethereal (BDR-004) — l'ancienne répartition 42%/58% du dégradé venait d'une génération précédente du design (bandeau warp.js) jamais revérifiée après les changements de typographie.
+**Application future :** Ne jamais réutiliser l'hypothèse de largeur d'une zone de texte sans la remesurer (`getBoundingClientRect`) sur plusieurs largeurs de viewport réelles (notamment autour du point où un `clamp()` en `vw` cesse de croître) — surtout après un changement de taille de police. Concevoir les dégradés de voile pour rester protecteurs jusqu'à 90-93 % de la largeur, pas 60 %.
+
+### LRN-006 — Une config d'animation correcte peut sembler « lente » à cause du coût de rendu réel
+
+**Date :** 2026-07-22
+**Pattern observé :** Pierre trouvait le shader « encore trop lent » alors que `gsap.globalTimeline.getChildren()[i].duration()` confirmait des cycles de 0,45 à 1,1 s — exactement la config voulue. La cause réelle : 4 filtres SVG animés en simultané (bruit + hueRotate + matrice + flou CSS, recalculés à chaque frame) faisaient chuter le navigateur à ~25 fps mesurés. GSAP a par défaut un « lag smoothing » qui, face à des frames manquées, ralentit son horloge interne pour éviter les à-coups — ce qui peut faire paraître une animation bien plus lente que sa config sans que la config soit fautive.
+**Contexte :** Recalibrage vitesse + palette noir/blanc/vert du fond ethereal (BDR-005). Avant de conclure que la durée était mal réglée, mesurer le fps réel (`requestAnimationFrame` sur 60-90 frames) a révélé le vrai goulot : le coût de rendu, pas la config.
+**Application future :** Quand une animation semble plus lente que sa configuration ne le suggère, mesurer le fps réel avant de retoucher les durées. Si le fps est bas avec plusieurs filtres/effets coûteux animés en simultané, réduire le nombre d'éléments réellement animés (geler ceux qui n'ont pas besoin de bouger) et désactiver `gsap.ticker.lagSmoothing(0)` pour que l'horloge GSAP reste fidèle à la config même sous charge.
+
+### LRN-007 — L'onglet de l'outil de prévisualisation ne passe jamais réellement au premier plan
+
+**Date :** 2026-07-22
+**Pattern observé :** Même après `tabs_select` sur l'onglet actif, `document.hidden` reste `true` et `document.visibilityState` reste `'hidden'` dans le navigateur de prévisualisation. Conséquence directe : un `setTimeout(fn, 800)` a mis 12,8 s réel à se déclencher, et `gsap.ticker.frame` n'a avancé que de 4 images sur cette même fenêtre — le navigateur applique son throttling « onglet en arrière-plan » en continu, y compris pendant l'exécution du script de test.
+**Contexte :** Tentative de mesurer la vitesse réelle de l'animation ethereal via `requestAnimationFrame`/`setTimeout` dans l'outil de prévisualisation (prolonge BLK-002).
+**Application future :** Ne jamais se fier à une mesure de vitesse/temps basée sur `requestAnimationFrame`, `setTimeout` ou le temps interne de GSAP à travers cet outil — le throttling d'arrière-plan fausse systématiquement le résultat. Pour vérifier qu'une animation est correctement réglée, interroger directement la configuration (`tween.duration()`, `tween.vars`) plutôt que d'observer son déroulé en temps réel ; pour le rendu visuel, s'en remettre à l'utilisateur testant dans son propre navigateur au premier plan.
+
+### LRN-008 — `scroll-behavior: smooth` casse le calcul de position de GSAP ScrollTrigger
+
+**Date :** 2026-07-22
+**Pattern observé :** Un `ScrollTrigger` épinglé (`pin: true`) restait figé à `progress ≈ 0` malgré un `window.scrollTo()` réel (confirmé par `window.scrollY` qui, lui, changeait bien) — jusqu'à découvrir que `html { scroll-behavior: smooth }` était déclaré globalement (pour les liens d'ancre comme `#sommaire`). Ce réglage anime le défilement natif du navigateur dans le temps, ce qui interfère avec le calcul de position de ScrollTrigger — un conflit explicitement documenté par GSAP lui-même, pas une hypothèse.
+**Contexte :** Mise en place du flip 3D hero/sommaire de l'accueil (BDR-013), premier test du `progress` d'un ScrollTrigger épinglé.
+**Application future :** Avant d'installer GSAP ScrollTrigger sur un projet existant, vérifier si `scroll-behavior: smooth` est déclaré quelque part (souvent sur `html` ou `body` pour des ancres) et le retirer — ScrollTrigger ne doit jamais cohabiter avec un défilement natif animé. Si un scroll animé vers une ancre reste nécessaire, utiliser `ScrollToPlugin` de GSAP plutôt que le CSS natif.
+
+### LRN-009 — `perspective`/`transform` sur un ancêtre change le bloc de positionnement d'un `position:fixed` descendant
+
+**Date :** 2026-07-22
+**Pattern observé :** Le fond ethereal de l'accueil (`.mesh-holder`, `position:fixed`, censé rester calé sur le viewport) était initialement un descendant du hero — jusqu'à ce que le hero soit englobé dans un conteneur portant `perspective` (pour le flip 3D, BDR-013). `perspective` (comme `transform`, `filter`, `will-change` nommant ces propriétés, ou `contain`) fait qu'un élément devient le bloc de positionnement de référence pour ses descendants `position:fixed` — le fond ethereal se serait alors calé sur ce conteneur plutôt que sur le viewport, cassant l'effet immersif dès que le conteneur défile.
+**Contexte :** Structuration du `.flip-stage` pour le flip 3D hero/sommaire — un commentaire existant dans le CSS avertissait déjà de ce risque pour tout futur ajout de `transform` sur un ancêtre, avant même que ce cas concret ne se présente.
+**Application future :** Avant d'ajouter `perspective`, `transform`, `filter` ou `will-change` sur un élément, vérifier qu'aucun descendant `position:fixed` n'en dépend pour rester calé sur le viewport — au besoin, sortir cet élément fixe pour en faire un frère plutôt qu'un descendant du conteneur transformé. Vérifier après coup avec `getBoundingClientRect()` que l'élément fixe reste bien à `{top:0, left:0}` quel que soit le défilement.
+
+### LRN-010 — Une couleur dupliquée en `rgba()` littéral se désynchronise silencieusement de sa variable CSS
+
+**Date :** 2026-07-22
+**Pattern observé :** `--sable-fonce` avait été éclairci de `#d8c3a0` à `#e6d2b0` (BDR-012), mais plusieurs règles utilisant une version semi-transparente de cette couleur (`.hero-sub`, `.btn-verre`, `.picto`, les lueurs `.deco-layer`, `.hero-scroll`) étaient écrites en `rgba(216, 195, 160, X)` littéral — la variable ne pouvant pas s'interpoler directement dans `rgba()` sans une variable « -rgb » dédiée, ces valeurs avaient été dupliquées à la main lors de leur création puis jamais remises à jour au changement suivant de la variable. Le bug est resté invisible plusieurs tours de retouche (BDR-012 puis nouvelle demande) avant d'être repéré par un `grep` systématique des anciennes valeurs.
+**Contexte :** Nouveau resserrage de `--sable-fonce` vers le blanc (BDR-015) — un grep de la valeur RGB précédente a révélé plusieurs occurrences encore sur l'AVANT-dernière valeur, pas la dernière.
+**Application future :** Dès qu'une couleur a une variante `rgba()` à opacité variable ET une variable CSS de référence, soit définir une variable compagnon `--xxx-rgb: r, g, b` (utilisable comme `rgba(var(--xxx-rgb), 0.5)`), soit, à défaut, `grep` systématiquement l'ancienne valeur RGB littérale dans tout le fichier avant de considérer un changement de teinte comme terminé — ne jamais supposer qu'éditer la variable seule suffit.
