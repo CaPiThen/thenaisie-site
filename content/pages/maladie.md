@@ -4,7 +4,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
 <div class="callout callout--warn">
 <span class="callout-label">À lire avant tout</span>
-<p>Je ne suis pas médecin. Cette page mêle mon expérience personnelle et des informations issues de sources publiques que je cite systématiquement. <strong>Rien ici ne remplace l'avis de votre gastro-entérologue</strong>, qui connaît votre dossier — et chaque MICI est différente. Ne modifiez jamais un traitement sur la foi d'un site personnel, le mien compris.</p>
+<p>Je ne suis pas médecin. Cette page mêle mon expérience personnelle et des informations issues de sources publiques que je cite systématiquement. <strong>Rien ici ne remplace l'avis de votre gastro-entérologue</strong>, qui connaît votre dossier, et chaque MICI est différente. Ne modifiez jamais un traitement sur la foi d'un site personnel, le mien compris.</p>
 </div>
 
 <nav class="toc">
@@ -28,7 +28,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
 <p>Je suis persuadé que rien n'arrive jamais sans rien, mais surtout sans raison. Je pense aussi qu'on peut toujours modifier ce qu'on appelle le destin.</p>
 
-<p>Les Vikings étaient convaincus que le fil rouge de leur destin était tracé, qu'il leur était impossible d'en modifier le cours sans froisser les dieux. Ils acceptaient le sort qui leur était réservé — si un accident survenait, c'est que leurs divinités en avaient décidé ainsi. Mais cette habitude a maintenant plus de dix siècles, et je préfère croire qu'on garde une prise sur ce qui nous arrive. Y compris sur une maladie chronique.</p>
+<p>Les Vikings étaient convaincus que le fil rouge de leur destin était tracé, qu'il leur était impossible d'en modifier le cours sans froisser les dieux. Ils acceptaient le sort qui leur était réservé&nbsp;: si un accident survenait, c'est que leurs divinités en avaient décidé ainsi. Mais cette habitude a maintenant plus de dix siècles, et je préfère croire qu'on garde une prise sur ce qui nous arrive. Y compris sur une maladie chronique.</p>
 
 <p>Longtemps, j'ai cru que mon corps suivrait toujours. Douze ans de basketball, dix ans d'athlétisme, des qualifications aux championnats de France juniors : le corps était un outil fiable, qui répondait. Puis il a cessé de répondre.</p>
 
@@ -36,7 +36,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
 <p>Si vous êtes tombé sur cette page, c'est probablement que vous vous posez les mêmes questions que moi à l'époque :</p>
 
-<blockquote>Pourquoi moi ? Qu'est-ce que j'ai fait ? Suis-je le seul ? Et le regard des autres — j'en fais quoi ? Comment on s'en sort, au quotidien ?</blockquote>
+<blockquote>Pourquoi moi ? Qu'est-ce que j'ai fait ? Suis-je le seul ? Et le regard des autres, j'en fais quoi ? Comment on s'en sort, au quotidien ?</blockquote>
 
 <p>La réponse courte à la deuxième question, et c'est la plus importante : <strong>vous n'avez rien fait</strong>. La RCH n'est pas une punition, ni le résultat d'une hygiène de vie ratée. Le reste de cette page explique pourquoi.</p>
 
@@ -91,19 +91,19 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 </figure>
 
 <div class="stat-row">
-<div class="stat"><span class="stat-n" data-count-to="212700">212 700</span><span class="stat-l">personnes traitées pour une MICI en France en 2015 — dont 40 % pour une RCH<sup><a href="#src-inserm">1</a></sup></span></div>
+<div class="stat"><span class="stat-n">212 700</span><span class="stat-l">personnes traitées pour une MICI en France en 2015, dont 40 % pour une RCH<sup><a href="#src-inserm">1</a></sup></span></div>
 <div class="stat"><span class="stat-n">~1/1000</span><span class="stat-l">personnes concernées par la RCH en France<sup><a href="#src-ameli">2</a></sup></span></div>
 <div class="stat"><span class="stat-n">20–30 ans</span><span class="stat-l">âge le plus fréquent au diagnostic ; 15 % des cas sont des enfants<sup><a href="#src-inserm">1</a></sup></span></div>
-<div class="stat"><span class="stat-n" data-count-to="170" data-suffix="+">170+</span><span class="stat-l">gènes de susceptibilité identifiés, chacun au poids modeste<sup><a href="#src-inserm">1</a></sup></span></div>
+<div class="stat"><span class="stat-n">170+</span><span class="stat-l">gènes de susceptibilité identifiés, chacun au poids modeste<sup><a href="#src-inserm">1</a></sup></span></div>
 </div>
 
 <div class="prose">
 
 <h3>D'où ça vient</h3>
 
-<p>Il n'y a pas <em>une</em> cause. L'INSERM décrit une origine multifactorielle : une prédisposition génétique, des facteurs d'environnement, et un déséquilibre du microbiote intestinal — la <strong>dysbiose</strong> — qui se combinent pour dérégler la réponse immunitaire.<sup><a href="#src-inserm">1</a></sup></p>
+<p>Il n'y a pas <em>une</em> cause. L'INSERM décrit une origine multifactorielle : une prédisposition génétique, des facteurs d'environnement, et un déséquilibre du microbiote intestinal (la <strong>dysbiose</strong>) qui se combinent pour dérégler la réponse immunitaire.<sup><a href="#src-inserm">1</a></sup></p>
 
-<p>Parmi les facteurs environnementaux étudiés, l'INSERM cite notamment l'alimentation — en particulier les aliments ultra-transformés contenant des émulsifiants —, la dysbiose du microbiote et l'exposition à la pollution.<sup><a href="#src-inserm">1</a></sup> L'incidence augmente avec le niveau d'industrialisation, et reste la plus élevée en Amérique du Nord et en Europe du Nord.</p>
+<p>Parmi les facteurs environnementaux étudiés, l'INSERM cite notamment l'alimentation (en particulier les aliments ultra-transformés contenant des émulsifiants), la dysbiose du microbiote et l'exposition à la pollution.<sup><a href="#src-inserm">1</a></sup> L'incidence augmente avec le niveau d'industrialisation, et reste la plus élevée en Amérique du Nord et en Europe du Nord.</p>
 
 <p>Ce qu'il faut en retenir, et je le répète parce que c'est ce qui m'a le plus pesé au début : <strong>ce n'est pas votre faute</strong>. Aucune des causes identifiées n'est un comportement que vous auriez pu choisir d'éviter.</p>
 
@@ -141,7 +141,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
   <text x="248" y="26" class="svg-lbl svg-lbl--green">rémission</text>
   <text x="530" y="26" class="svg-lbl svg-lbl--green">rémission</text>
 </svg>
-<figcaption>Le schéma est une illustration du principe, pas une courbe réelle : la durée et l'intensité des poussées varient énormément d'une personne à l'autre. Une inflammation peut aussi persister sous le seuil des symptômes — c'est pourquoi le suivi biologique compte autant que le ressenti.</figcaption>
+<figcaption>Le schéma est une illustration du principe, pas une courbe réelle : la durée et l'intensité des poussées varient énormément d'une personne à l'autre. Une inflammation peut aussi persister sous le seuil des symptômes&nbsp;: c'est pourquoi le suivi biologique compte autant que le ressenti.</figcaption>
 </figure>
 
 <div class="bande-abstraite" aria-hidden="true">
@@ -159,7 +159,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
 <div class="callout">
 <span class="callout-label">Le signe à ne pas minimiser</span>
-<p>Du <strong>sang dans les selles</strong> n'est jamais banal, quel que soit votre âge. Ça ne veut pas dire que c'est grave — c'est souvent bénin — mais ça veut dire qu'il faut consulter, pas attendre. J'ai attendu. C'était une mauvaise idée.</p>
+<p>Du <strong>sang dans les selles</strong> n'est jamais banal, quel que soit votre âge. Ça ne veut pas dire que c'est grave (c'est souvent bénin) mais ça veut dire qu'il faut consulter, pas attendre. J'ai attendu. C'était une mauvaise idée.</p>
 </div>
 
 </div>
@@ -173,19 +173,19 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 <p>D'après l'Assurance Maladie, la prise en charge s'articule autour de plusieurs familles<sup><a href="#src-ameli-trait">3</a></sup> :</p>
 
 <ul>
-<li><strong>Les aminosalicylés (5-ASA)</strong>, comme la mésalazine — souvent le socle du traitement.</li>
+<li><strong>Les aminosalicylés (5-ASA)</strong>, comme la mésalazine, souvent le socle du traitement.</li>
 <li><strong>Les corticoïdes</strong>, pour juguler les poussées, sur des durées limitées.</li>
 <li><strong>Les immunosuppresseurs</strong>, azathioprine et mercaptopurine.</li>
 <li><strong>Les biothérapies</strong> : anti-TNF alpha (infliximab, adalimumab, golimumab), puis anticorps plus sélectifs comme le vedolizumab et l'ustekinumab.</li>
 <li><strong>Les inhibiteurs de JAK</strong> : tofacitinib, upadacitinib, filgotinib.</li>
-<li><strong>La chirurgie</strong> — colectomie, ou coloproctectomie avec anastomose iléo-anale — quand les traitements ne suffisent plus. L'arrivée des biothérapies en a réduit la fréquence.</li>
+<li><strong>La chirurgie</strong> (colectomie, ou coloproctectomie avec anastomose iléo-anale) quand les traitements ne suffisent plus. L'arrivée des biothérapies en a réduit la fréquence.</li>
 </ul>
 
 <p>Je ne détaille volontairement pas les indications, les doses ni les effets indésirables : c'est le terrain de votre gastro-entérologue, et me lire ne doit jamais remplacer cette conversation. Le point que je veux faire passer est ailleurs : <strong>la palette thérapeutique s'est considérablement élargie</strong>. Si une ligne de traitement échoue, ce n'est pas la fin du chemin.</p>
 
 <div class="callout">
 <span class="callout-label">L'observance, ce truc ennuyeux qui change tout</span>
-<p>Le piège classique — et j'y suis tombé — c'est d'alléger ou d'arrêter son traitement dès que ça va mieux. Le traitement d'entretien sert précisément à espacer les poussées : l'arrêter parce qu'on va bien, c'est retirer le filet parce qu'on ne tombe plus. Si un traitement vous pèse, effets secondaires ou contrainte, dites-le à votre médecin plutôt que de l'arrêter en silence.</p>
+<p>Le piège classique, et j'y suis tombé, c'est d'alléger ou d'arrêter son traitement dès que ça va mieux. Le traitement d'entretien sert précisément à espacer les poussées : l'arrêter parce qu'on va bien, c'est retirer le filet parce qu'on ne tombe plus. Si un traitement vous pèse, effets secondaires ou contrainte, dites-le à votre médecin plutôt que de l'arrêter en silence.</p>
 </div>
 
 </div>
@@ -200,11 +200,11 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
 <p>Point capital, et contre-intuitif : <strong>l'alimentation ne modifie pas le cours de la maladie</strong>, et il n'y a donc pas lieu d'imposer un régime particulier au long cours. L'alimentation doit rester diversifiée et équilibrée.<sup><a href="#src-afa-poussee">4</a></sup></p>
 
-<p>Autrement dit : aucun régime ne vous guérira, et aucun aliment n'a « causé » votre maladie. Ce qui ne veut pas dire que ce que vous mangez n'a aucun effet sur votre <em>confort</em> — c'est très différent.</p>
+<p>Autrement dit : aucun régime ne vous guérira, et aucun aliment n'a « causé » votre maladie. Ce qui ne veut pas dire que ce que vous mangez n'a aucun effet sur votre <em>confort</em>. C'est très différent.</p>
 
 <h3>En poussée : soulager, temporairement</h3>
 
-<p>Pendant une poussée marquée, un <strong>régime d'épargne intestinale</strong> — apports restreints en fibres, donc en fruits et légumes — peut être prescrit de façon transitoire. Les aliments riches en fibres, les noix, les graines ou les aliments à peau peuvent accentuer diarrhées, douleurs et ballonnements.<sup><a href="#src-afa-poussee">4</a></sup></p>
+<p>Pendant une poussée marquée, un <strong>régime d'épargne intestinale</strong> (apports restreints en fibres, donc en fruits et légumes) peut être prescrit de façon transitoire. Les aliments riches en fibres, les noix, les graines ou les aliments à peau peuvent accentuer diarrhées, douleurs et ballonnements.<sup><a href="#src-afa-poussee">4</a></sup></p>
 
 <p>Le choix précis dépend de vos symptômes du moment : ce n'est pas la même chose de gérer des diarrhées, des gaz, des ballonnements ou une constipation.</p>
 
@@ -213,16 +213,16 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 <div class="callout callout--warn">
 <span class="callout-label">Le vrai risque n'est pas celui qu'on croit</span>
 <p>L'afa insiste sur un point que j'ai mis trop longtemps à comprendre : <strong>le retour à une alimentation normale doit se faire à court terme</strong>, dès que les symptômes s'améliorent. Une restriction prolongée expose à des carences nutritionnelles et à des troubles du comportement alimentaire.<sup><a href="#src-afa-poussee">4</a></sup></p>
-<p>Le danger, quand on a eu très mal après un repas, c'est de retirer un aliment. Puis un autre. Puis dix. On finit avec une liste d'interdits longue comme le bras, une vie sociale amputée, et des carences — sans que la maladie en soit ralentie d'un jour.</p>
+<p>Le danger, quand on a eu très mal après un repas, c'est de retirer un aliment. Puis un autre. Puis dix. On finit avec une liste d'interdits longue comme le bras, une vie sociale amputée, et des carences, sans que la maladie en soit ralentie d'un jour.</p>
 </div>
 
 <h3>Ce qui aide vraiment, dans mon expérience</h3>
 
 <ul>
-<li><strong>Tenir un journal alimentaire honnête</strong>, pendant quelques semaines, en notant aussi le sommeil et le niveau de stress. C'est le seul moyen de distinguer un vrai déclencheur d'une coïncidence. Sans données, on accuse le dernier aliment mangé — rarement le bon.</li>
+<li><strong>Tenir un journal alimentaire honnête</strong>, pendant quelques semaines, en notant aussi le sommeil et le niveau de stress. C'est le seul moyen de distinguer un vrai déclencheur d'une coïncidence. Sans données, on accuse le dernier aliment mangé, rarement le bon.</li>
 <li><strong>Réintroduire par test</strong>, un aliment à la fois, à distance d'une poussée. Si vous retirez cinq aliments d'un coup et que ça va mieux, vous ne saurez jamais lequel était en cause.</li>
 <li><strong>Se faire accompagner par un diététicien</strong>, idéalement habitué aux MICI. L'afa recommande cet accompagnement pour personnaliser les choix selon les symptômes.<sup><a href="#src-afa-poussee">4</a></sup> C'est un réflexe que peu de patients ont, et c'est dommage.</li>
-<li><strong>Surveiller fer et vitamine D.</strong> Les carences sont fréquentes dans les MICI et se corrigent facilement une fois repérées — encore faut-il les doser. Parlez-en à votre médecin.</li>
+<li><strong>Surveiller fer et vitamine D.</strong> Les carences sont fréquentes dans les MICI et se corrigent facilement une fois repérées, encore faut-il les doser. Parlez-en à votre médecin.</li>
 <li><strong>Limiter les ultra-transformés</strong>, ne serait-ce que parce que les émulsifiants figurent parmi les facteurs environnementaux étudiés par l'INSERM.<sup><a href="#src-inserm">1</a></sup> Ce n'est pas un traitement, c'est une hygiène raisonnable.</li>
 </ul>
 
@@ -237,13 +237,13 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
 <div class="prose">
 
-<p>Pendant des années, on a dit aux patients que leur maladie était « dans la tête ». C'est faux, et c'était violent. Mais l'inverse — prétendre que le psychisme n'a aucun rôle — est faux aussi. La réalité est plus intéressante.</p>
+<p>Pendant des années, on a dit aux patients que leur maladie était « dans la tête ». C'est faux, et c'était violent. Mais l'inverse (prétendre que le psychisme n'a aucun rôle) est faux aussi. La réalité est plus intéressante.</p>
 
 <p><strong>Le stress ne cause pas la RCH.</strong> En revanche, il est reconnu comme un facteur aggravant, capable de déclencher ou d'amplifier une poussée. Il agit à plusieurs niveaux : il modifie la composition du microbiote, augmente la perméabilité de la muqueuse digestive et perturbe le fonctionnement du système immunitaire.<sup><a href="#src-stress-fr">5</a></sup></p>
 
-<p>En 2023, une équipe a décrit un mécanisme précis reliant les deux. L'étude, publiée dans <em>Cell</em>, montre que le stress chronique élève durablement les glucocorticoïdes, ce qui pousse le système nerveux entérique — et en particulier les <strong>cellules gliales de l'intestin</strong> — à générer un sous-type inflammatoire qui entretient l'inflammation via les monocytes et le TNF.<sup><a href="#src-cell">6</a></sup></p>
+<p>En 2023, une équipe a décrit un mécanisme précis reliant les deux. L'étude, publiée dans <em>Cell</em>, montre que le stress chronique élève durablement les glucocorticoïdes, ce qui pousse le système nerveux entérique (et en particulier les <strong>cellules gliales de l'intestin</strong>) à générer un sous-type inflammatoire qui entretient l'inflammation via les monocytes et le TNF.<sup><a href="#src-cell">6</a></sup></p>
 
-<p>Traduit en clair : il existe un câblage biologique documenté entre le stress prolongé et l'inflammation intestinale. Ce n'est pas « dans la tête » — c'est dans les nerfs de l'intestin.</p>
+<p>Traduit en clair : il existe un câblage biologique documenté entre le stress prolongé et l'inflammation intestinale. Ce n'est pas « dans la tête »&nbsp;: c'est dans les nerfs de l'intestin.</p>
 
 </div>
 
@@ -288,7 +288,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
   <path d="M115 150 L115 90" class="svg-lien svg-lien--boucle" marker-end="url(#fleche)"/>
 
   <text x="350" y="262" class="svg-lbl svg-lbl--mut">Le cercle se referme : les symptômes nourrissent le stress qui les entretient.</text>
-  <text x="350" y="284" class="svg-lbl svg-lbl--green">On peut casser la boucle à plusieurs endroits — pas seulement au début.</text>
+  <text x="350" y="284" class="svg-lbl svg-lbl--green">On peut casser la boucle à plusieurs endroits, pas seulement au début.</text>
 </svg>
 <figcaption>Mécanisme simplifié d'après Schneider <em>et al.</em>, <em>Cell</em>, 2023.<sup><a href="#src-cell">6</a></sup> Le point à retenir n'est pas le détail biologique mais sa conséquence pratique : agir sur le stress n'est pas du confort, c'est un levier sur l'inflammation.</figcaption>
 </figure>
@@ -300,9 +300,9 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 <p>Je me méfie des injonctions au « lâcher-prise », qui culpabilisent plus qu'elles n'aident. Voici ce qui a tenu dans la durée pour moi :</p>
 
 <ul>
-<li><strong>Le sport d'endurance</strong>, à intensité modérée et régulière. La course à pied et l'aviron m'ont plus apporté que n'importe quelle application de méditation — mais l'un n'exclut pas l'autre. Adaptez l'intensité à votre état du moment : en poussée, marcher est déjà du sport.</li>
+<li><strong>Le sport d'endurance</strong>, à intensité modérée et régulière. La course à pied et l'aviron m'ont plus apporté que n'importe quelle application de méditation, mais l'un n'exclut pas l'autre. Adaptez l'intensité à votre état du moment : en poussée, marcher est déjà du sport.</li>
 <li><strong>Protéger le sommeil</strong>, en priorité absolue. Une nuit courte se paie le lendemain, sur les intestins comme sur l'humeur.</li>
-<li><strong>Nommer la charge mentale plutôt que la subir.</strong> Ce qui m'épuisait n'était pas la quantité de travail mais l'imprévisibilité — celle de la maladie surtout. Reprendre du contrôle là où c'est possible réduit vraiment la tension.</li>
+<li><strong>Nommer la charge mentale plutôt que la subir.</strong> Ce qui m'épuisait n'était pas la quantité de travail mais l'imprévisibilité, celle de la maladie surtout. Reprendre du contrôle là où c'est possible réduit vraiment la tension.</li>
 <li><strong>Demander de l'aide psychologique sans attendre le fond du trou.</strong> Vivre avec une maladie chronique à vingt ans, c'est un deuil de l'insouciance. Ça se travaille, et ce n'est pas une faiblesse.</li>
 <li><strong>Parler de la maladie à son entourage proche</strong>, au moins quelques personnes. Le secret coûte cher en énergie, et devoir inventer des excuses pour annuler est plus épuisant que d'expliquer une fois.</li>
 </ul>
@@ -324,7 +324,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
 <div class="advice"><span class="advice-n">01</span>
 <h3>Repérez les toilettes, sans honte</h3>
-<p>Avant un trajet, un rendez-vous, une soirée. Ce n'est pas de la paranoïa, c'est de la logistique — et savoir où elles sont réduit à lui seul l'anxiété qui, elle, aggrave les symptômes.</p></div>
+<p>Avant un trajet, un rendez-vous, une soirée. Ce n'est pas de la paranoïa, c'est de la logistique, et savoir où elles sont réduit à lui seul l'anxiété qui, elle, aggrave les symptômes.</p></div>
 
 <div class="advice"><span class="advice-n">02</span>
 <h3>Demandez votre carte « urgences toilettes »</h3>
@@ -340,7 +340,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
 <div class="advice"><span class="advice-n">05</span>
 <h3>Anticipez le voyage</h3>
-<p>Ordonnance en anglais, traitement en bagage à main et en quantité supérieure au besoin, coordonnées d'un service de gastro sur place. J'ai continué à voyager — ça demande juste une préparation en plus.</p></div>
+<p>Ordonnance en anglais, traitement en bagage à main et en quantité supérieure au besoin, coordonnées d'un service de gastro sur place. J'ai continué à voyager&nbsp;: ça demande juste une préparation en plus.</p></div>
 
 <div class="advice"><span class="advice-n">06</span>
 <h3>Ne comparez pas votre maladie</h3>
@@ -359,7 +359,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 <h2 id="ressources">Ressources et liens</h2>
 
 <div class="prose">
-<p>Toutes les sources ci-dessous ont été consultées et vérifiées à la mise à jour de cette page. Je privilégie volontairement les sources institutionnelles et associatives aux blogs — le mien compris.</p>
+<p>Toutes les sources ci-dessous ont été consultées et vérifiées à la mise à jour de cette page. Je privilégie volontairement les sources institutionnelles et associatives aux blogs, le mien compris.</p>
 </div>
 
 <div class="source-list">
@@ -413,7 +413,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 <span class="source-n">6</span>
 <div>
 <h3><a href="https://pubmed.ncbi.nlm.nih.gov/37236193/">Schneider K.M. <em>et al.</em> — « The enteric nervous system relays psychological stress to intestinal inflammation », <em>Cell</em>, 2023</a></h3>
-<p>L'étude princeps sur le mécanisme reliant stress et inflammation intestinale. En anglais et technique — le résumé PubMed suffit à en saisir la portée. DOI&nbsp;: 10.1016/j.cell.2023.05.001</p>
+<p>L'étude princeps sur le mécanisme reliant stress et inflammation intestinale. En anglais et technique, le résumé PubMed suffit à en saisir la portée. DOI&nbsp;: 10.1016/j.cell.2023.05.001</p>
 <span class="source-dom">pubmed.ncbi.nlm.nih.gov</span>
 </div>
 </div>

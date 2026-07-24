@@ -2,10 +2,10 @@
    ETHEREAL — fond animé en filtre SVG natif (bruit + rotation de
    teinte), réimplémentation vanilla du composant « Etheral Shadow »
    de 21st.dev (React + framer-motion), sans aucune de ces deux
-   dépendances. L'animation elle-même est pilotée par GSAP
-   (theme/js/vendor/gsap.min.js, auto-hébergé) plutôt qu'une boucle
-   rAF maison — à la demande de Pierre d'utiliser les bibliothèques
-   déjà installées sur le projet.
+   dépendances. L'animation est pilotée par une boucle rAF maison
+   (voir plus bas) — GSAP a été retiré du site (voir /impeccable
+   optimize) : il ne servait plus qu'à ce seul tween, déjà dupliqué
+   ici par un repli vanilla équivalent.
 
    Pourquoi cette technique plutôt que les shaders WebGL précédents
    (warp.js / mesh.js, retirés) : ceux-ci étaient rendus sur un
@@ -29,8 +29,8 @@
           data-seed="2"
           data-alpha="0.75"></div>   0-1.4 environ — densité du voile de couleur
 
-   Si GSAP ou les filtres SVG sont indisponibles, l'élément reste
-   vide et la couleur de fond du conteneur suffit.
+   Si les filtres SVG sont indisponibles, l'élément reste vide et la
+   couleur de fond du conteneur suffit.
    ============================================================= */
 
 (function () {
@@ -44,16 +44,16 @@
 
   /* Mesure réelle (22/07) : 4 filtres SVG animés en simultané (bruit +
      hueRotate + matrice + flou, recalculés à chaque frame) faisaient
-     chuter le navigateur à ~25fps. GSAP compense alors les images
-     manquées avec son « lag smoothing » par défaut, ce qui ralentit
-     son horloge interne — la config demandait des cycles de 0,7-1,1s
-     mais le rendu réel en affichait ~2,2s. Ce n'était pas un mauvais
-     réglage de durée : c'était le rendu qui ne suivait pas. On coupe
-     le lag smoothing (l'horloge GSAP reste fidèle à la config même si
-     des frames sont sautées) et on ne fait tourner qu'un seul calque
-     animé par section (voir plus bas) pour ramener le coût réel sous
-     la barre des 60fps. */
-  if (window.gsap) gsap.ticker.lagSmoothing(0);
+     chuter le navigateur à ~25fps, ralentissant la boucle d'animation
+     (le premier pilote testé, GSAP, compensait alors avec son « lag
+     smoothing » par défaut — la config demandait des cycles de
+     0,7-1,1s mais le rendu réel en affichait ~2,2s). Ce n'était pas un
+     mauvais réglage de durée : c'était le rendu qui ne suivait pas. La
+     boucle rAF ci-dessous calcule la teinte à partir du temps écoulé
+     réel (pas d'un compteur de frames), donc elle reste fidèle à la
+     durée configurée même si des frames sont sautées ; on ne fait par
+     ailleurs tourner qu'un seul calque animé par section (voir plus
+     bas) pour ramener le coût réel sous la barre des 60fps. */
 
   function mapRange(v, a, b, c, d) { return c + ((v - a) / (b - a)) * (d - c); }
 
@@ -129,35 +129,22 @@
     var proxy = { hue: 0 };
     var applyHue = function () { hueNode.setAttribute('values', proxy.hue.toFixed(1)); };
 
-    var tween;
-    if (window.gsap) {
-      /* ease:'none' + repeat:-1 sur un aller simple 0 -> 360 : la valeur
-         reboucle proprement à chaque cycle (dents de scie), exactement
-         le comportement recherché pour une rotation continue. */
-      tween = gsap.to(proxy, {
-        hue: 360,
-        duration: durationSec,
-        ease: 'none',
-        repeat: -1,
-        onUpdate: applyHue
-      });
-    } else {
-      /* repli sans GSAP : boucle rAF manuelle, même minuterie. */
-      var t0 = null, raf = 0;
-      var frame = function (now) {
-        if (t0 === null) t0 = now;
-        proxy.hue = ((now - t0) / (durationSec * 1000)) * 360 % 360;
-        applyHue();
-        raf = requestAnimationFrame(frame);
-      };
-      tween = {
-        pause: function () { if (raf) { cancelAnimationFrame(raf); raf = 0; } },
-        play: function () { if (!raf) raf = requestAnimationFrame(frame); }
-      };
-    }
+    /* Boucle rAF : la teinte est recalculée à partir du temps écoulé réel
+       (pas d'un compteur de frames), donc un cycle dure toujours
+       `durationSec`, même si des frames sont sautées sous charge. */
+    var t0 = null, raf = 0;
+    var frame = function (now) {
+      if (t0 === null) t0 = now;
+      proxy.hue = ((now - t0) / (durationSec * 1000)) * 360 % 360;
+      applyHue();
+      raf = requestAnimationFrame(frame);
+    };
+    var tween = {
+      pause: function () { if (raf) { cancelAnimationFrame(raf); raf = 0; } },
+      play: function () { if (!raf) raf = requestAnimationFrame(frame); }
+    };
 
-    /* Pause hors écran / onglet caché : même économie de calcul que
-       l'ancienne version, adaptée à l'API de contrôle de GSAP. */
+    /* Pause hors écran / onglet caché : même économie de calcul. */
     var visible = true;
     function sync() { if (visible && !document.hidden) tween.play(); else tween.pause(); }
 

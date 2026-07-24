@@ -30,6 +30,8 @@ champs:
 | LRN-012 | 2026-07-24 | Toujours faire un vrai build (pas juste relire le template) après un changement de gabarit Jinja |
 | LRN-013 | 2026-07-24 | Un fetch() client-side vers un service auto-hébergé peut être bloqué par CORS même si l'URL répond bien en curl/serveur à serveur |
 | LRN-014 | 2026-07-24 | Un Cloudflare/WAF devant un service auto-hébergé peut bloquer les requêtes sans User-Agent de navigateur, sans rapport avec les identifiants |
+| LRN-015 | 2026-07-24 | Avant de reconvertir un effet JS/lib en vanilla, vérifier si un repli ou un équivalent existe déjà ailleurs dans le repo |
+| LRN-016 | 2026-07-24 | La règle détecteur `em-dash-overuse` compte le texte visible de toute la page, pas seulement la prose : trier structurel/citation vs prose avant de corriger |
 
 ## Entrées
 
@@ -130,3 +132,17 @@ champs:
 **Pattern observé :** Le script Python (`urllib`, User-Agent par défaut `Python-urllib/3.13`) recevait `403 Forbidden` sur une requête que curl (et un vrai navigateur) réussissaient sans problème sur la même URL avec les mêmes paramètres. La cause n'était ni l'identifiant de partage ni un problème réseau, mais Cloudflare (devant l'instance Immich) filtrant sur le User-Agent — un en-tête `User-Agent` de navigateur classique a suffi à faire passer la requête.
 **Contexte :** Premier test de `build_gallery.py` contre le lien réel fourni par Pierre — le script échouait avec un message d'erreur générique (« partage injoignable ») qui aurait pu à tort faire conclure à un mauvais paramètre `slug`/`key` plutôt qu'à un blocage réseau en amont.
 **Application future :** Quand un script serveur échoue à joindre une URL qui répond pourtant via curl/navigateur, comparer d'abord les en-têtes envoyés (User-Agent en premier lieu) avant de remettre en cause la logique métier (identifiants, paramètres) — un `Request` avec un en-tête `User-Agent` de navigateur classique lève souvent ce genre de blocage WAF/Cloudflare, fréquent devant les services auto-hébergés exposés au public.
+
+### LRN-015 — Vérifier l'existant avant de reconvertir un effet en vanilla
+
+**Date :** 2026-07-24
+**Pattern observé :** En retirant GSAP/Anime.js (BDR-024), deux des quatre effets JS avaient déjà un équivalent dans le repo : `ethereal.js` avait déjà un repli `requestAnimationFrame` fonctionnel écrit lors du calibrage de BDR-005 (jamais utilisé en pratique tant que GSAP était présent) ; `.cv-entry` (conteneur des logos du CV) était déjà dans la liste `.reveal` de `base.html`, qui l'animait donc déjà indépendamment de la cascade dédiée d'Anime.js. Seul le tracé SVG (effet réellement unique) a nécessité du nouveau code.
+**Contexte :** Retrait de dépendances demandé par une critique de poids/performance (`/impeccable optimize`), sur un projet qui a une longue habitude de réimplémentation vanilla (BDR-002/003).
+**Application future :** Avant d'écrire un remplacement vanilla pour un effet piloté par une lib à retirer, grep le reste du CSS/JS du projet pour un pattern ou un repli déjà existant qui couvre le même besoin — surtout sur un projet qui documente déjà ce genre de repli dans ses propres commentaires.
+
+### LRN-016 — `em-dash-overuse` compte tout le texte visible, pas seulement la prose
+
+**Date :** 2026-07-24
+**Pattern observé :** La règle détecteur du skill impeccable (`checkEmDashOveruseDOM`) mesure les tirets cadratins sur `document.body.innerText` entier — plages de dates (`Décembre 2025 — aujourd'hui`), paires employeur/lieu (`PwC — Neuilly-sur-Seine`) et titres de citations bibliographiques (`INSERM — Dossier «...»`) comptent autant qu'un tiret dans une phrase de prose, alors que seule la prose porte réellement la « cadence IA » signalée par la règle. Sur `cv.md`, 28 tirets au total se répartissaient en 13 structurels (jamais à toucher, convention typographique standard) et 15 dans la prose/labels.
+**Contexte :** Réduction de la densité de tirets cadratins (BDR-028) suite à un finding `em-dash-overuse` du détecteur.
+**Application future :** Avant de corriger un finding `em-dash-overuse`, énumérer chaque occurrence avec son contexte (pas juste le compte total) et classer structurel (dates, paires label/valeur, titres de citation) vs prose narrative — ne retoucher que la seconde catégorie, puis revérifier avec le détecteur que le plancher (8) et la densité sont bien repassés sous le seuil.

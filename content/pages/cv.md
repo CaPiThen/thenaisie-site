@@ -2,9 +2,21 @@ Title: Parcours
 Slug: cv
 Subtitle: Consultant en transformation des processus métier. Double formation ingénieur et management.
 
-<p class="lead">J'accompagne les organisations dans l'analyse, l'optimisation et la modernisation de leurs processus métier — en mobilisant les leviers numériques, la donnée et l'IA pour trouver ce qui peut être simplifié, fiabilisé ou automatisé.</p>
+<p class="lead">J'accompagne les organisations dans l'analyse, l'optimisation et la modernisation de leurs processus métier, en mobilisant les leviers numériques, la donnée et l'IA pour trouver ce qui peut être simplifié, fiabilisé ou automatisé.</p>
 
-<div class="cv-block">
+<nav class="toc">
+<span class="toc-label">Sur cette page</span>
+<ol>
+<li><a href="#experience">Expérience</a></li>
+<li><a href="#formation">Formation</a></li>
+<li><a href="#competences">Compétences</a></li>
+<li><a href="#fil-rouge">Le fil rouge</a></li>
+<li><a href="#certifications">Certifications</a></li>
+<li><a href="#contact">Me contacter</a></li>
+</ol>
+</nav>
+
+<div class="cv-block" id="experience">
 <div class="section-label">expérience</div>
 <div class="cv-timeline">
 
@@ -72,7 +84,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 </div>
 </div>
 
-<div class="cv-block">
+<div class="cv-block" id="formation">
 <div class="section-label">formation</div>
 <div class="cv-timeline">
 
@@ -115,7 +127,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 </div>
 </div>
 
-<div class="cv-block">
+<div class="cv-block" id="competences">
 <div class="section-label">compétences</div>
 <div class="skills-grid">
 
@@ -136,7 +148,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="skills-group">
 <h4>Langues</h4>
-<ul><li>Français — natif</li><li>Anglais — B2, TOEIC 880</li><li>Espagnol — B1</li><li>Russe — A2</li></ul>
+<ul><li>Français : natif</li><li>Anglais : B2, TOEIC 880</li><li>Espagnol : B1</li><li>Russe : A2</li></ul>
 </div>
 
 </div>
@@ -151,12 +163,12 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
   <div class="ethereal ethereal--accent" data-color="150,195,155" data-scale="52" data-speed="78" data-seed="53" data-alpha="0.6"></div>
 </div>
 
-<div class="cv-block">
+<div class="cv-block" id="fil-rouge">
 <div class="section-label">le fil rouge</div>
 
 <div class="prose">
 <h2>Ce que les projets racontent</h2>
-<p>Un CV se lit en colonnes : des dates, des titres, des employeurs. Il dit assez mal ce qui relie ces lignes entre elles. Si je devais résumer le fil rouge en une phrase&nbsp;: <strong>j'ai toujours cherché à comprendre comment un système tient debout avant d'essayer de le rendre meilleur</strong> — que ce système soit un réseau de chauffage urbain, une direction des ressources humaines, une maison, ou mon propre corps.</p>
+<p>Un CV se lit en colonnes : des dates, des titres, des employeurs. Il dit assez mal ce qui relie ces lignes entre elles. Si je devais résumer le fil rouge en une phrase&nbsp;: <strong>j'ai toujours cherché à comprendre comment un système tient debout avant d'essayer de le rendre meilleur</strong>, que ce système soit un réseau de chauffage urbain, une direction des ressources humaines, une maison, ou mon propre corps.</p>
 <p>Voici le parcours raconté autrement, projet par projet.</p>
 </div>
 
@@ -165,15 +177,15 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 <div class="story-item">
 <span class="story-year">2020 · Blois</span>
 <h3>Un réseau de chauffage, et un pays à l'arrêt</h3>
-<p>Mon premier vrai projet, chez SUEZ&nbsp;: proposer l'amélioration et la rénovation d'un réseau de chauffage existant. J'étais en DUT Mesures Physiques, j'apprenais surtout à mesurer — et je découvrais qu'entre une mesure juste et une décision utile, il y a tout un travail de traduction.</p>
-<p>C'était aussi le printemps 2020. Blois s'est vidée, l'IUT a fermé, et j'ai quitté mon appartement sans savoir que je n'y reviendrais pas. J'ai passé ces mois à courir la nuit sur des routes désertes. Rétrospectivement, c'est là que j'ai pris l'habitude de me servir de l'effort physique comme d'un régulateur — une habitude qui m'a beaucoup servi ensuite.</p>
+<p>Mon premier vrai projet, chez SUEZ&nbsp;: proposer l'amélioration et la rénovation d'un réseau de chauffage existant. J'étais en DUT Mesures Physiques, j'apprenais surtout à mesurer. Je découvrais qu'entre une mesure juste et une décision utile, il y a tout un travail de traduction.</p>
+<p>C'était aussi le printemps 2020. Blois s'est vidée, l'IUT a fermé, et j'ai quitté mon appartement sans savoir que je n'y reviendrais pas. J'ai passé ces mois à courir la nuit sur des routes désertes. Rétrospectivement, c'est là que j'ai pris l'habitude de me servir de l'effort physique comme d'un régulateur, une habitude qui m'a beaucoup servi ensuite.</p>
 </div>
 
 <div class="story-item">
 <span class="story-year">2020–2022 · Paris La Défense</span>
 <h3>L'ingénierie, et l'IA comme outil plutôt que comme sujet</h3>
 <p>À l'ESILV, spécialité Data &amp; IA. Deux projets m'ont marqué, et pour la même raison&nbsp;: dans les deux cas, l'IA n'était pas le but mais le moyen.</p>
-<p>Le premier&nbsp;: une webapp qui transmet les conseils d'experts en permaculture à des débutants. Le sujet est agricole, la difficulté est humaine — comment transformer un savoir tacite, tenu par quelques passionnés, en quelque chose de transmissible&nbsp;? Le second&nbsp;: un prototype de cabine d'avion de ligne pilotée par IA, présenté aux 24h de l'Innovation Aéronautique devant un jury de deux cents chefs d'entreprises. Trouver quoi automatiser, et surtout quoi ne pas automatiser, s'est révélé plus difficile que de le coder.</p>
+<p>Le premier&nbsp;: une webapp qui transmet les conseils d'experts en permaculture à des débutants. Le sujet est agricole, la difficulté est humaine&nbsp;: comment transformer un savoir tacite, tenu par quelques passionnés, en quelque chose de transmissible&nbsp;? Le second&nbsp;: un prototype de cabine d'avion de ligne pilotée par IA, présenté aux 24h de l'Innovation Aéronautique devant un jury de deux cents chefs d'entreprises. Trouver quoi automatiser, et surtout quoi ne pas automatiser, s'est révélé plus difficile que de le coder.</p>
 <p>C'est là que s'est formée ma conviction de fond&nbsp;: la technologie n'est intéressante qu'articulée à un usage réel.</p>
 </div>
 
@@ -189,21 +201,21 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 <h3>La donnée comme enjeu de souveraineté</h3>
 <p>Chez Accenture, deux ans et demi entre TotalEnergies, Schneider Electric, EDF et le ministère des Armées. La mission au contact du ministère a été la plus formatrice&nbsp;: amélioration continue et gouvernance des données ministérielles, dans un environnement où la fiabilité de l'information n'est pas un confort mais une condition.</p>
 <p>En parallèle, l'équipe Risques &amp; Conformité et le déploiement d'eFront ERM chez des clients assurance et banque. Deux mondes, une même question&nbsp;: à quelles conditions peut-on faire confiance à une donnée&nbsp;?</p>
-<p>C'est cette mission qui a fait basculer mon intérêt personnel pour l'auto-hébergement d'un hobby vers quelque chose de plus réfléchi — la souveraineté sur ses propres données, à l'échelle d'une maison.</p>
+<p>C'est cette mission qui a fait basculer mon intérêt personnel pour l'auto-hébergement d'un hobby vers quelque chose de plus réfléchi&nbsp;: la souveraineté sur ses propres données, à l'échelle d'une maison.</p>
 </div>
 
 <div class="story-item">
 <span class="story-year">2023–2025 · en alternance</span>
 <h3>Le management pour compléter l'ingénieur</h3>
-<p>Master Grande École à l'EM Normandie, en alternance. Un choix délibéré&nbsp;: j'avais la culture technique, il me manquait le vocabulaire et les outils de l'organisation — contrôle interne, pilotage de la performance, conduite du changement.</p>
+<p>Master Grande École à l'EM Normandie, en alternance. Un choix délibéré&nbsp;: j'avais la culture technique, il me manquait le vocabulaire et les outils de l'organisation&nbsp;: contrôle interne, pilotage de la performance, conduite du changement.</p>
 <p>Le projet entrepreneurial qualifié pour la Creative Week de Barcelone portait sur la formation des salariés en grande entreprise. Encore une histoire de transmission de savoir, comme la permaculture trois ans plus tôt. Je ne l'avais pas fait exprès.</p>
 </div>
 
 <div class="story-item">
 <span class="story-year">Depuis toujours · à la maison</span>
 <h3>Le laboratoire personnel</h3>
-<p>En parallèle, je construis chez moi un écosystème qui n'a rien d'un CV mais qui explique beaucoup&nbsp;: Home Assistant comme centre d'orchestration, un NAS comme socle de données, des services en conteneurs Docker, des protocoles qui doivent cohabiter proprement — MQTT, Zigbee, Matter —, un accès distant maîtrisé, et des chantiers en cours autour de Proxmox, d'Immich et de l'optimisation d'une pompe à chaleur.</p>
-<p>Ce n'est pas une collection de gadgets. C'est le seul endroit où je peux concevoir une architecture complète, la casser, la réparer et la faire durer — sans comité de pilotage. Tout ce que j'ai appris là a fini par servir au travail, et réciproquement.</p>
+<p>En parallèle, je construis chez moi un écosystème qui n'a rien d'un CV mais qui explique beaucoup&nbsp;: Home Assistant comme centre d'orchestration, un NAS comme socle de données, des services en conteneurs Docker, des protocoles qui doivent cohabiter proprement (MQTT, Zigbee, Matter), un accès distant maîtrisé, et des chantiers en cours autour de Proxmox, d'Immich et de l'optimisation d'une pompe à chaleur.</p>
+<p>Ce n'est pas une collection de gadgets. C'est le seul endroit où je peux concevoir une architecture complète, la casser, la réparer et la faire durer, sans comité de pilotage. Tout ce que j'ai appris là a fini par servir au travail, et réciproquement.</p>
 </div>
 
 <div class="story-item">
@@ -211,18 +223,18 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 <h3>Le corps, le collectif, et une maladie</h3>
 <p>Douze ans de basketball dont deux en Nationale 3, dix ans d'athlétisme jusqu'aux championnats de France juniors en saut en longueur. Aujourd'hui la course à pied, la course d'orientation et l'aviron. Le sport de compétition m'a appris la répétition et la patience bien avant que la technique ne me les redemande.</p>
 <p>Le collectif aussi&nbsp;: président du BDE du Pôle Léonard de Vinci, vice-président information et communication du Bureau National des Élèves Ingénieurs, responsable événementiel de mon club d'aviron.</p>
-<p>Et puis la rectocolite hémorragique, qui a imposé sa propre discipline. Elle m'a surtout appris à distinguer ce que je peux piloter de ce que je dois accepter — une compétence que je n'aurais pas acquise autrement. J'en parle en détail sur <a href="/pages/maladie.html">une page dédiée</a>, parce que ça peut servir à d'autres.</p>
+<p>Et puis la rectocolite hémorragique, qui a imposé sa propre discipline. Elle m'a surtout appris à distinguer ce que je peux piloter de ce que je dois accepter, une compétence que je n'aurais pas acquise autrement. J'en parle en détail sur <a href="/pages/maladie.html">une page dédiée</a>, parce que ça peut servir à d'autres.</p>
 </div>
 
 </div>
 </div>
 
-<div class="cv-block">
+<div class="cv-block" id="certifications">
 <div class="section-label">certifications</div>
 <div class="prose">
 <p>Career Essentials in Generative AI (Microsoft) · Master Course in Digital Innovation &amp; Intrapreneurship 2.0 · Dare to Lead: How to Become a Next Generation Leader · Managers du changement.</p>
 
-<h2>Me contacter</h2>
+<h2 id="contact">Me contacter</h2>
 <p>→ <a href="mailto:contact@thenaisiepierre.fr">contact@thenaisiepierre.fr</a><br>
 → <a href="https://www.linkedin.com/in/pierre-thenaisie/">LinkedIn</a></p>
 </div>

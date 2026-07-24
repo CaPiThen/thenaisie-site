@@ -24,14 +24,14 @@
   <text x="92" y="176" font-family="IBM Plex Mono Medium" font-size="28"
         letter-spacing="2" fill="#ffefcb">// PIERRE THENAISIE</text>
 
-  <text x="88" y="288" font-family="Fraunces" font-weight="700" font-size="86"
+  <text x="88" y="288" font-family="Petrona" font-weight="700" font-size="86"
         letter-spacing="-2" fill="#ffefcb">Je construis des</text>
-  <text x="88" y="382" font-family="Fraunces" font-weight="700" font-style="italic" font-size="86"
+  <text x="88" y="382" font-family="Petrona" font-weight="700" font-style="italic" font-size="86"
         letter-spacing="-2" fill="#d9bd97">systèmes.</text>
 
-  <text x="92" y="460" font-family="Inter" font-weight="400" font-size="30"
+  <text x="92" y="460" font-family="Karla" font-weight="400" font-size="30"
         fill="#e9decb">Consultant en transformation des processus métier —</text>
-  <text x="92" y="500" font-family="Inter" font-weight="400" font-size="30"
+  <text x="92" y="500" font-family="Karla" font-weight="400" font-size="30"
         fill="#e9decb">parcours, projets techniques, et vivre avec une MICI.</text>
 
   <text x="92" y="580" font-family="IBM Plex Mono" font-size="22" letter-spacing="1"
