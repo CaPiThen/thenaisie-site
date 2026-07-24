@@ -10,7 +10,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="PwC"><img src="https://www.google.com/s2/favicons?domain=pwc.com&amp;sz=128" alt="" loading="lazy" onerror="this.style.display='none'"></span>
+  <span class="logo-chip" data-mono="PwC"></span>
   <div>
     <div class="cv-entry-period">Décembre 2025 — aujourd'hui</div>
     <h3>Consultant en transformation des processus métier</h3>
@@ -26,7 +26,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ACN"><img src="https://cdn.simpleicons.org/accenture" alt="" loading="lazy" onerror="this.style.display='none'"></span>
+  <span class="logo-chip" data-mono="ACN"></span>
   <div>
     <div class="cv-entry-period">Juillet 2023 — décembre 2025</div>
     <h3>Consultant Talent Development Operations</h3>
@@ -42,7 +42,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ENG"><img src="https://www.google.com/s2/favicons?domain=engie.com&amp;sz=128" alt="" loading="lazy" onerror="this.style.display='none'"></span>
+  <span class="logo-chip" data-mono="ENG"></span>
   <div>
     <div class="cv-entry-period">Septembre 2022 — juillet 2023</div>
     <h3>Chargé de projets Transformation</h3>
@@ -57,7 +57,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="SZ"><img src="https://www.google.com/s2/favicons?domain=suez.com&amp;sz=128" alt="" loading="lazy" onerror="this.style.display='none'"></span>
+  <span class="logo-chip" data-mono="SZ"></span>
   <div>
     <div class="cv-entry-period">Mars — août 2020</div>
     <h3>Chef de projet</h3>
@@ -78,7 +78,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="EMN"><img src="https://www.google.com/s2/favicons?domain=em-normandie.com&amp;sz=128" alt="" loading="lazy" onerror="this.style.display='none'"></span>
+  <span class="logo-chip" data-mono="EMN"></span>
   <div>
     <div class="cv-entry-period">2023 — 2025</div>
     <h3>Programme Grande École, Master 2</h3>
@@ -90,7 +90,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ESI"><img src="https://www.google.com/s2/favicons?domain=esilv.fr&amp;sz=128" alt="" loading="lazy" onerror="this.style.display='none'"></span>
+  <span class="logo-chip" data-mono="ESI"></span>
   <div>
     <div class="cv-entry-period">2020 — 2022</div>
     <h3>Diplôme d'ingénieur — spécialité Data &amp; IA</h3>
@@ -203,7 +203,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 <span class="story-year">Depuis toujours · à la maison</span>
 <h3>Le laboratoire personnel</h3>
 <p>En parallèle, je construis chez moi un écosystème qui n'a rien d'un CV mais qui explique beaucoup&nbsp;: Home Assistant comme centre d'orchestration, un NAS comme socle de données, des services en conteneurs Docker, des protocoles qui doivent cohabiter proprement — MQTT, Zigbee, Matter —, un accès distant maîtrisé, et des chantiers en cours autour de Proxmox, d'Immich et de l'optimisation d'une pompe à chaleur.</p>
-<p>Ce n'est pas une collection de gadgets. C'est le seul endroit où je peux concevoir une architecture complète, la casser, la réparer et la faire durer — sans comité de pilotage. Tout ce que j'ai appris là a fini par servir au travail, et réciproquement. Le <a href="/pages/portfolio.html">portfolio</a> détaille ces chantiers.</p>
+<p>Ce n'est pas une collection de gadgets. C'est le seul endroit où je peux concevoir une architecture complète, la casser, la réparer et la faire durer — sans comité de pilotage. Tout ce que j'ai appris là a fini par servir au travail, et réciproquement.</p>
 </div>
 
 <div class="story-item">

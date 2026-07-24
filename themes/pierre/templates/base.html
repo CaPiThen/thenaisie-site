@@ -4,12 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
-  <meta name="description" content="{{ SITESUBTITLE }}">
+  <meta name="description" content="{% block meta_description %}{{ SITESUBTITLE }}{% endblock %}">
+  <link rel="canonical" href="{% block og_url %}{{ SITE_ABSOLUTE_URL }}/{% endblock %}">
   <meta name="theme-color" content="#0a0d08">
+
+  <link rel="icon" type="image/svg+xml" href="{{ SITEURL }}/theme/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ SITEURL }}/theme/images/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ SITEURL }}/theme/images/favicon-16.png">
+  <link rel="apple-touch-icon" href="{{ SITEURL }}/theme/images/apple-touch-icon.png">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ SITENAME }}">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ self.meta_description() }}">
+  <meta property="og:url" content="{{ self.og_url() }}">
+  <meta property="og:image" content="{{ SITE_ABSOLUTE_URL }}/theme/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ self.title() }}">
+  <meta name="twitter:description" content="{{ self.meta_description() }}">
+  <meta name="twitter:image" content="{{ SITE_ABSOLUTE_URL }}/theme/images/og-image.png">
+
+  <link rel="preload" href="{{ SITEURL }}/theme/fonts/fraunces-normal-300-900-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ SITEURL }}/theme/fonts/inter-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="{{ SITEURL }}/theme/css/fonts.css">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <script src="{{ SITEURL }}/theme/js/vendor/gsap.min.js" defer></script>
   <script src="{{ SITEURL }}/theme/js/ethereal.js" defer></script>
   <script src="{{ SITEURL }}/theme/js/vendor/anime.min.js" defer></script>
@@ -64,7 +85,7 @@
      .hub-card exclu volontairement : Pierre veut un défilement lisse sur
      l'accueil, sans aucune section/carte qui « apparaisse » — les cartes
      du sommaire restent donc toujours pleinement visibles. */
-  var els = document.querySelectorAll('.project-card, .cv-entry, .article-card, .callout, .skills-group, .photo-item, .prose, .lead');
+  var els = document.querySelectorAll('.cv-entry, .article-card, .callout, .skills-group, .photo-item, .prose, .lead');
   els.forEach(function (el) { el.classList.add('reveal'); });
   if (!('IntersectionObserver' in window) || reduced) {
     els.forEach(function (el) { el.classList.add('in'); });
@@ -84,8 +105,8 @@
   var isMouse = function (e) { return e.pointerType !== 'touch'; };
 
   /* --- Spotlight + inclinaison des cartes --- */
-  document.querySelectorAll('.hub-card, .project-card').forEach(function (card) {
-    var rect = null, raf = 0, tilt = card.classList.contains('hub-card') ? 4.5 : 3;
+  document.querySelectorAll('.hub-card').forEach(function (card) {
+    var rect = null, raf = 0, tilt = 4.5;
     card.addEventListener('pointerenter', function (e) {
       if (!isMouse(e)) return;
       rect = card.getBoundingClientRect();

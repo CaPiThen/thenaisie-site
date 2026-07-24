@@ -26,6 +26,10 @@ champs:
 | LRN-008 | 2026-07-22 | `scroll-behavior: smooth` casse le calcul de position de GSAP ScrollTrigger |
 | LRN-009 | 2026-07-22 | `perspective`/`transform` sur un ancêtre change le bloc de positionnement d'un `position:fixed` descendant |
 | LRN-010 | 2026-07-22 | Une couleur dupliquée en `rgba()` littéral se désynchronise silencieusement de sa variable CSS |
+| LRN-011 | 2026-07-24 | Avec `RELATIVE_URLS=True`, Pelican réécrit `SITEURL` en chemin relatif par page — inutilisable pour canonical/Open Graph |
+| LRN-012 | 2026-07-24 | Toujours faire un vrai build (pas juste relire le template) après un changement de gabarit Jinja |
+| LRN-013 | 2026-07-24 | Un fetch() client-side vers un service auto-hébergé peut être bloqué par CORS même si l'URL répond bien en curl/serveur à serveur |
+| LRN-014 | 2026-07-24 | Un Cloudflare/WAF devant un service auto-hébergé peut bloquer les requêtes sans User-Agent de navigateur, sans rapport avec les identifiants |
 
 ## Entrées
 
@@ -98,3 +102,31 @@ champs:
 **Pattern observé :** `--sable-fonce` avait été éclairci de `#d8c3a0` à `#e6d2b0` (BDR-012), mais plusieurs règles utilisant une version semi-transparente de cette couleur (`.hero-sub`, `.btn-verre`, `.picto`, les lueurs `.deco-layer`, `.hero-scroll`) étaient écrites en `rgba(216, 195, 160, X)` littéral — la variable ne pouvant pas s'interpoler directement dans `rgba()` sans une variable « -rgb » dédiée, ces valeurs avaient été dupliquées à la main lors de leur création puis jamais remises à jour au changement suivant de la variable. Le bug est resté invisible plusieurs tours de retouche (BDR-012 puis nouvelle demande) avant d'être repéré par un `grep` systématique des anciennes valeurs.
 **Contexte :** Nouveau resserrage de `--sable-fonce` vers le blanc (BDR-015) — un grep de la valeur RGB précédente a révélé plusieurs occurrences encore sur l'AVANT-dernière valeur, pas la dernière.
 **Application future :** Dès qu'une couleur a une variante `rgba()` à opacité variable ET une variable CSS de référence, soit définir une variable compagnon `--xxx-rgb: r, g, b` (utilisable comme `rgba(var(--xxx-rgb), 0.5)`), soit, à défaut, `grep` systématiquement l'ancienne valeur RGB littérale dans tout le fichier avant de considérer un changement de teinte comme terminé — ne jamais supposer qu'éditer la variable seule suffit.
+
+### LRN-011 — `RELATIVE_URLS=True` réécrit `SITEURL` en chemin relatif, par page
+
+**Date :** 2026-07-24
+**Pattern observé :** Dans un template Pelican, `{{ SITEURL }}` n'est PAS toujours la valeur littérale du `pelicanconf.py` : si `RELATIVE_URLS = True` (le cas ici), Pelican recalcule `SITEURL` pour chaque fichier de sortie et le remplace par un chemin relatif vers la racine du site (`.`, `..`, etc. — voir `pelican/writers.py`, fonction `_get_localcontext`). Une balise `og:url`/`og:image`/`canonical` écrite avec `{{ SITEURL }}` sort donc comme `../pages/cv.html` au lieu de `https://thenaisiepierre.fr/pages/cv.html` — invalide pour ces usages qui exigent une URL absolue. Le bug ne se serait jamais vu à la simple lecture du template ; seul un vrai build l'a révélé (voir LRN-012).
+**Contexte :** Ajout des balises Open Graph/Twitter Card et du lien canonical (BDR-020).
+**Application future :** Pour toute donnée qui doit rester une URL absolue quel que soit `RELATIVE_URLS` (canonical, Open Graph, Twitter Card, JSON-LD, flux), définir une variable dédiée non réservée par Pelican (ex. `SITE_ABSOLUTE_URL`) plutôt que `SITEURL` — Pelican ne réécrit que les noms qu'il reconnaît (`SITEURL`, `localsiteurl`), un nom custom traverse les templates intact.
+
+### LRN-012 — Toujours faire un vrai build après un changement de gabarit Jinja
+
+**Date :** 2026-07-24
+**Pattern observé :** La relecture manuelle de `base.html`/`page.html` (blocs, `self.blockname()`, variables) semblait correcte et l'aurait été dans un moteur de templates générique — mais seul un vrai `pelican content` a révélé le comportement spécifique de Pelican sur `SITEURL` (LRN-011). Installer Pelican dans un environnement virtuel dédié (`python3 -m venv` + `pip install pelican markdown`) est rapide (quelques secondes) et ne modifie rien au projet lui-même.
+**Contexte :** Vérification de bout en bout de tous les changements de gabarit de cette session (favicon/Open Graph, galerie Immich, polices).
+**Application future :** Après tout changement touchant `base.html` ou les gabarits hérités, lancer un build Pelican réel (venv jetable si l'outil n'est pas déjà installé) plutôt que de se fier à une relecture, même attentive — les mécanismes propres à Pelican (réécriture d'URL, contexte local par fichier) ne sont pas devinables depuis le seul code du template.
+
+### LRN-013 — Un fetch() client-side peut échouer même si l'URL répond bien en curl
+
+**Date :** 2026-07-24
+**Pattern observé :** `curl https://photos.thenaisiepierre.fr/api/shared-links/me?slug=...` répond `200` avec le JSON attendu — mais un `fetch()` fait depuis le JavaScript d'une page servie sur un AUTRE domaine (`thenaisiepierre.fr`) aurait échoué silencieusement : la réponse ne contenait aucun en-tête `Access-Control-Allow-Origin`, même en envoyant explicitement un en-tête `Origin`. curl/serveur-à-serveur n'est jamais soumis à CORS (c'est une politique appliquée par le navigateur, pas par le réseau) ; seul un test depuis un vrai contexte cross-origin (ou en vérifiant l'en-tête directement) le révèle.
+**Contexte :** Conception de la galerie Immich (BDR-019) — la première version prévoyait un fetch côté navigateur, jamais testée en conditions réelles avant que Pierre ne fournisse un vrai lien de partage.
+**Application future :** Avant de concevoir une intégration qui fait un `fetch()` client-side vers un domaine différent de celui du site, vérifier la présence de `Access-Control-Allow-Origin` dans la réponse (`curl -H "Origin: https://le-site.example" -D -`) — un `200` en curl nu ne prouve rien sur la faisabilité côté navigateur. Si absent et hors de contrôle (service tiers ou auto-hébergé sans réglage CORS accessible), préférer une récupération côté build/serveur : le HTML généré peut ensuite charger des images via `<img src>` sans jamais être concerné par CORS.
+
+### LRN-014 — Un WAF peut bloquer un script selon son User-Agent, sans rapport avec les identifiants
+
+**Date :** 2026-07-24
+**Pattern observé :** Le script Python (`urllib`, User-Agent par défaut `Python-urllib/3.13`) recevait `403 Forbidden` sur une requête que curl (et un vrai navigateur) réussissaient sans problème sur la même URL avec les mêmes paramètres. La cause n'était ni l'identifiant de partage ni un problème réseau, mais Cloudflare (devant l'instance Immich) filtrant sur le User-Agent — un en-tête `User-Agent` de navigateur classique a suffi à faire passer la requête.
+**Contexte :** Premier test de `build_gallery.py` contre le lien réel fourni par Pierre — le script échouait avec un message d'erreur générique (« partage injoignable ») qui aurait pu à tort faire conclure à un mauvais paramètre `slug`/`key` plutôt qu'à un blocage réseau en amont.
+**Application future :** Quand un script serveur échoue à joindre une URL qui répond pourtant via curl/navigateur, comparer d'abord les en-têtes envoyés (User-Agent en premier lieu) avant de remettre en cause la logique métier (identifiants, paramètres) — un `Request` avec un en-tête `User-Agent` de navigateur classique lève souvent ce genre de blocage WAF/Cloudflare, fréquent devant les services auto-hébergés exposés au public.

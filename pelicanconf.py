@@ -2,6 +2,12 @@ AUTHOR = 'Pierre Thenaisie'
 SITENAME = 'Pierre Thenaisie'
 SITESUBTITLE = "Consultant en transformation des processus métier. Parcours, projets techniques, et vivre avec une MICI."
 SITEURL = 'https://thenaisiepierre.fr'
+# Distincte de SITEURL : Pelican réécrit SITEURL en chemin relatif dans les
+# templates quand RELATIVE_URLS=True (voir pelican/writers.py, _get_localcontext),
+# donc inutilisable pour les balises qui exigent une URL absolue (canonical,
+# Open Graph, Twitter Card). SITE_ABSOLUTE_URL n'est pas un nom réservé par
+# Pelican : il traverse les templates sans jamais être réécrit.
+SITE_ABSOLUTE_URL = 'https://thenaisiepierre.fr'
 STATIC_PATHS = ['images']
 
 PATH = 'content'

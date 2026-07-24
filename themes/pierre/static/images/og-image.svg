@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <filter id="blur1" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="70"/>
+    </filter>
+    <filter id="blur2" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="50"/>
+    </filter>
+  </defs>
+
+  <rect width="1200" height="630" fill="#111f16"/>
+
+  <!-- glow décoratif, écho discret du fond « ethereal » du site -->
+  <circle cx="1040" cy="60" r="260" fill="#5b8c3e" opacity="0.28" filter="url(#blur1)"/>
+  <circle cx="1150" cy="480" r="220" fill="#96c39b" opacity="0.16" filter="url(#blur2)"/>
+
+  <!-- pictogramme discret, cercles concentriques (voir _deco.html) -->
+  <g transform="translate(1080,470)" opacity="0.35" fill="none" stroke="#5b8c3e" stroke-width="2">
+    <circle r="90"/>
+    <circle r="52"/>
+    <circle r="10" fill="#5b8c3e" stroke="none"/>
+  </g>
+
+  <text x="92" y="176" font-family="IBM Plex Mono Medium" font-size="28"
+        letter-spacing="2" fill="#ffefcb">// PIERRE THENAISIE</text>
+
+  <text x="88" y="288" font-family="Fraunces" font-weight="700" font-size="86"
+        letter-spacing="-2" fill="#ffefcb">Je construis des</text>
+  <text x="88" y="382" font-family="Fraunces" font-weight="700" font-style="italic" font-size="86"
+        letter-spacing="-2" fill="#d9bd97">systèmes.</text>
+
+  <text x="92" y="460" font-family="Inter" font-weight="400" font-size="30"
+        fill="#e9decb">Consultant en transformation des processus métier —</text>
+  <text x="92" y="500" font-family="Inter" font-weight="400" font-size="30"
+        fill="#e9decb">parcours, projets techniques, et vivre avec une MICI.</text>
+
+  <text x="92" y="580" font-family="IBM Plex Mono" font-size="22" letter-spacing="1"
+        fill="#c3d6a8" opacity="0.8">~/ thenaisiepierre.fr</text>
+</svg>

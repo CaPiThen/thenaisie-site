@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% block title %}{{ page.title }} — {{ SITENAME }}{% endblock %}
+{% block meta_description %}{{ page.subtitle if page.subtitle else SITESUBTITLE }}{% endblock %}
+{% block og_url %}{{ SITE_ABSOLUTE_URL }}/{{ page.url }}{% endblock %}
 {% block content %}
 
 <section class="page-hero shader-hero">

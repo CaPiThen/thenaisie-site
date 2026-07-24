@@ -20,6 +20,11 @@ jobs:
       - name: Installation de Pelican
         run: pip install pelican markdown
 
+      - name: Galerie Immich (récupération au moment du build)
+        env:
+          IMMICH_SHARE_URL: ${{ vars.IMMICH_SHARE_URL }}
+        run: python build_gallery.py
+
       - name: Génération du site
         run: pelican content -s pelicanconf.py
 

@@ -19,6 +19,7 @@ champs:
 |---|---|---|---|
 | BLK-001 | 2026-07-21 | MCP `@21st-dev/magic` renvoie des erreurs à chaque appel d'outil | résolu (contournement) |
 | BLK-002 | 2026-07-21 | Panneau navigateur de test instable (captures d'écran, navigation) pendant les vérifications | ouvert (contourné) |
+| BLK-003 | 2026-07-24 | `rm -rf output/` échoue silencieusement sur une entrée fantôme (partage CIFS) | ouvert (contourné) |
 
 ## Entrées
 
@@ -37,3 +38,11 @@ champs:
 **Cause réelle :** Instabilité de l'outil de preview lui-même (confirmé : le DOM et le CSSOM interrogés directement via JS renvoient des valeurs cohérentes et correctes au même moment où la capture d'écran échoue ou est corrompue). Manifestation supplémentaire trouvée le 2026-07-22 : `document.hidden` reste `true` en permanence dans cet onglet, même après un appel explicite de mise au premier plan — le navigateur applique son throttling d'arrière-plan en continu (`setTimeout(fn,800)` réel en 12,8 s, `gsap.ticker.frame` quasi figé), ce qui invalide toute mesure de vitesse/temps réel faite à travers cet outil (voir LRN-007).
 **Solution :** Vérifier via inspection programmatique (DOM, `getComputedStyle`, lecture de règles CSSOM, rendu de shaders hors-ligne dans un canvas offscreen) plutôt que via capture d'écran quand celle-ci échoue. Pour la vitesse d'animation spécifiquement : interroger la config de l'animation elle-même (`tween.duration()`) plutôt que de chronométrer son déroulé visuel dans cet outil.
 **Statut :** ouvert (limitation de l'outil, pas du projet). Contournement systématique en place.
+
+### BLK-003 — `rm -rf output/` échoue silencieusement (CIFS)
+
+**Date :** 2026-07-24
+**Friction :** `rm -rf output` échoue avec « Directory not empty » alors que le contenu visible avait déjà été supprimé ; `ls` continuait de montrer un sous-dossier (`output/pages`, affiché avec un `?` dans les droits) que `find`/`rmdir` déclaraient pourtant absents (« No such file or directory ») — état incohérent entre le cache du client et le serveur.
+**Cause réelle :** Le dossier du projet est monté en CIFS/SMB depuis un NAS (`mount` : `//192.168.0.101/... type cifs`), pas un disque local. C'est une entrée fantôme côté cache client CIFS (dentry périmée), pas une corruption du contenu réel ni une erreur de commande.
+**Solution :** Contourné en construisant le site de vérification dans un répertoire de scratch (`/tmp/.../build-test`) plutôt que d'insister sur la suppression d'`output/`. Ne jamais interpréter un échec de suppression sur ce projet comme une erreur de commande sans vérifier d'abord `mount` — un nouvel essai après une courte pause, ou un chemin de sortie alternatif, résout le symptôme sans qu'il faille comprendre la cause CIFS en détail.
+**Statut :** ouvert (limitation du montage réseau, pas du projet). Contournement en place ; un `output/pages` fantôme peut subsister visuellement jusqu'à ce que le cache CIFS se résorbe de lui-même (à vérifier au prochain accès depuis le poste de Pierre).
