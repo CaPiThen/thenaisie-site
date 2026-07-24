@@ -36,16 +36,8 @@
 </head>
 <body class="{% block bodyclass %}{% endblock %}">
 
-<!-- Formes réutilisées par les décors botaniques (une seule définition pour tout le site) -->
-<svg class="svg-sprite" aria-hidden="true" focusable="false">
-  <defs>
-    <path id="folio" d="M0 0C14-9 40-11 60 0C40 11 14 9 0 0Z"/>
-    <path id="folio-fin" d="M0 0C10-5 30-6 46 0C30 6 10 5 0 0Z"/>
-  </defs>
-</svg>
-
 <header class="nav">
-  <a class="nav-logo" href="{{ SITEURL }}/">~/ thenaisiepierre</a>
+  <span class="nav-logo">~/ thenaisiepierre</span>
   <span class="nav-status"><span class="nav-dot" aria-hidden="true"></span>labo personnel</span>
 </header>
 
@@ -56,7 +48,7 @@
 <footer class="footer">
   <span class="footer-ghost" aria-hidden="true">thenaisie</span>
   <div class="footer-inner">
-    <a class="footer-logo" href="{{ SITEURL }}/">Pierre Thenaisie</a>
+    <a class="footer-logo" href="mailto:contact@thenaisiepierre.fr">Pierre Thenaisie</a>
     <span class="footer-sub">© 2026 — écrit &amp; cultivé à la main</span>
   </div>
 </footer>

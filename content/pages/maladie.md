@@ -53,18 +53,19 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 </div>
 
 <figure class="figure">
-<svg viewBox="0 0 700 330" role="img" aria-labelledby="schema1-titre">
+<svg viewBox="0 0 780 330" role="img" aria-labelledby="schema1-titre">
   <title id="schema1-titre">Comparaison de la localisation de l'inflammation : rectocolite hémorragique contre maladie de Crohn</title>
 
   <!-- ===== RCH ===== -->
   <text x="20" y="26" class="svg-h">Rectocolite hémorragique</text>
-  <text x="20" y="46" class="svg-sub">Continue · part toujours du rectum · muqueuse seule</text>
+  <text x="20" y="44" class="svg-sub">Continue · part toujours du rectum</text>
+  <text x="20" y="58" class="svg-sub">· muqueuse seule</text>
   <!-- cadre colon -->
   <path d="M110 300 L110 235 C110 205 95 195 95 165 L95 120 C95 95 112 82 138 82 L262 82 C288 82 305 95 305 120 L305 175 C305 200 292 212 270 212"
-        class="svg-colon"/>
+        class="svg-colon" pathLength="1"/>
   <!-- portion enflammee : du rectum vers le haut, continue -->
   <path d="M110 300 L110 235 C110 205 95 195 95 165 L95 130"
-        class="svg-inflamme"/>
+        class="svg-inflamme" pathLength="1"/>
   <circle cx="110" cy="300" r="7" class="svg-pt"/>
   <text x="124" y="305" class="svg-lbl">rectum</text>
   <text x="60" y="150" class="svg-lbl svg-lbl--red">inflammation continue</text>
@@ -75,14 +76,15 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 
   <!-- ===== CROHN ===== -->
   <text x="380" y="26" class="svg-h">Maladie de Crohn</text>
-  <text x="380" y="46" class="svg-sub">Par plaques · n'importe où de la bouche à l'anus · toute l'épaisseur</text>
+  <text x="380" y="44" class="svg-sub">Par plaques · n'importe où de la bouche</text>
+  <text x="380" y="58" class="svg-sub">à l'anus · toute l'épaisseur</text>
   <path d="M470 300 L470 235 C470 205 455 195 455 165 L455 120 C455 95 472 82 498 82 L622 82 C648 82 665 95 665 120 L665 175 C665 200 652 212 630 212"
-        class="svg-colon"/>
+        class="svg-colon" pathLength="1"/>
   <!-- plaques discontinues -->
-  <path d="M470 288 L470 262" class="svg-inflamme"/>
-  <path d="M455 190 C455 175 455 168 455 152" class="svg-inflamme"/>
-  <path d="M508 82 L560 82" class="svg-inflamme"/>
-  <path d="M665 140 L665 172" class="svg-inflamme"/>
+  <path d="M470 288 L470 262" class="svg-inflamme" pathLength="1"/>
+  <path d="M455 190 C455 175 455 168 455 152" class="svg-inflamme" pathLength="1"/>
+  <path d="M508 82 L560 82" class="svg-inflamme" pathLength="1"/>
+  <path d="M665 140 L665 172" class="svg-inflamme" pathLength="1"/>
   <circle cx="470" cy="300" r="7" class="svg-pt"/>
   <text x="484" y="305" class="svg-lbl">rectum</text>
   <text x="500" y="150" class="svg-lbl svg-lbl--red">plaques séparées</text>
@@ -132,7 +134,7 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
   <!-- courbe -->
   <path d="M60 190 C100 190 110 60 150 60 C190 60 195 185 235 190 C280 195 300 175 340 178
            C380 181 390 48 430 48 C470 48 480 188 520 192 C560 196 580 186 620 188 L670 188"
-        class="svg-courbe"/>
+        class="svg-courbe" pathLength="1"/>
   <!-- zones poussee -->
   <rect x="118" y="30" width="70" height="185" class="svg-zone"/>
   <rect x="398" y="30" width="70" height="185" class="svg-zone"/>
@@ -280,11 +282,11 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
     <text x="115" y="177" class="svg-nt">Fatigue, anxiété</text>
     <text x="115" y="196" class="svg-nsub">isolement social</text></g>
 
-  <line x1="200" y1="51" x2="258" y2="51" class="svg-lien" marker-end="url(#fleche)"/>
-  <line x1="435" y1="51" x2="493" y2="51" class="svg-lien" marker-end="url(#fleche)"/>
-  <line x1="585" y1="82" x2="585" y2="143" class="svg-lien" marker-end="url(#fleche)"/>
-  <line x1="500" y1="181" x2="442" y2="181" class="svg-lien" marker-end="url(#fleche)"/>
-  <line x1="265" y1="181" x2="207" y2="181" class="svg-lien" marker-end="url(#fleche)"/>
+  <line x1="200" y1="51" x2="258" y2="51" class="svg-lien" marker-end="url(#fleche)" pathLength="1"/>
+  <line x1="435" y1="51" x2="493" y2="51" class="svg-lien" marker-end="url(#fleche)" pathLength="1"/>
+  <line x1="585" y1="82" x2="585" y2="143" class="svg-lien" marker-end="url(#fleche)" pathLength="1"/>
+  <line x1="500" y1="181" x2="442" y2="181" class="svg-lien" marker-end="url(#fleche)" pathLength="1"/>
+  <line x1="265" y1="181" x2="207" y2="181" class="svg-lien" marker-end="url(#fleche)" pathLength="1"/>
   <path d="M115 150 L115 90" class="svg-lien svg-lien--boucle" marker-end="url(#fleche)"/>
 
   <text x="350" y="262" class="svg-lbl svg-lbl--mut">Le cercle se referme : les symptômes nourrissent le stress qui les entretient.</text>
