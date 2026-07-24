@@ -93,10 +93,10 @@ Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les c
 </figure>
 
 <div class="stat-row">
-<div class="stat"><span class="stat-n">212 700</span><span class="stat-l">personnes traitées pour une MICI en France en 2015, dont 40 % pour une RCH<sup><a href="#src-inserm">1</a></sup></span></div>
+<div class="stat"><span class="stat-n" data-count-to="212700">212 700</span><span class="stat-l">personnes traitées pour une MICI en France en 2015, dont 40 % pour une RCH<sup><a href="#src-inserm">1</a></sup></span></div>
 <div class="stat"><span class="stat-n">~1/1000</span><span class="stat-l">personnes concernées par la RCH en France<sup><a href="#src-ameli">2</a></sup></span></div>
 <div class="stat"><span class="stat-n">20–30 ans</span><span class="stat-l">âge le plus fréquent au diagnostic ; 15 % des cas sont des enfants<sup><a href="#src-inserm">1</a></sup></span></div>
-<div class="stat"><span class="stat-n">170+</span><span class="stat-l">gènes de susceptibilité identifiés, chacun au poids modeste<sup><a href="#src-inserm">1</a></sup></span></div>
+<div class="stat"><span class="stat-n" data-count-to="170" data-suffix="+">170+</span><span class="stat-l">gènes de susceptibilité identifiés, chacun au poids modeste<sup><a href="#src-inserm">1</a></sup></span></div>
 </div>
 
 <div class="prose">

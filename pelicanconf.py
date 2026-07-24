@@ -49,8 +49,13 @@ TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
-PAGE_URL = 'pages/{slug}.html'
-PAGE_SAVE_AS = 'pages/{slug}.html'
+# URLs propres : /cv/ plutôt que /pages/cv.html. `{slug}/index.html` est le
+# format standard pour ça sur un hébergement statique classique — un
+# serveur sert automatiquement index.html quand un dossier est demandé,
+# aucune configuration serveur (.htaccess, réécriture d'URL) n'est
+# nécessaire, contrairement à un format qui retirerait aussi le `/` final.
+PAGE_URL = '{slug}/'
+PAGE_SAVE_AS = '{slug}/index.html'
 
 # On ne génère aucune page liée aux articles.
 ARCHIVES_SAVE_AS = ''

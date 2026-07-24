@@ -223,7 +223,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 <h3>Le corps, le collectif, et une maladie</h3>
 <p>Douze ans de basketball dont deux en Nationale 3, dix ans d'athlétisme jusqu'aux championnats de France juniors en saut en longueur. Aujourd'hui la course à pied, la course d'orientation et l'aviron. Le sport de compétition m'a appris la répétition et la patience bien avant que la technique ne me les redemande.</p>
 <p>Le collectif aussi&nbsp;: président du BDE du Pôle Léonard de Vinci, vice-président information et communication du Bureau National des Élèves Ingénieurs, responsable événementiel de mon club d'aviron.</p>
-<p>Et puis la rectocolite hémorragique, qui a imposé sa propre discipline. Elle m'a surtout appris à distinguer ce que je peux piloter de ce que je dois accepter, une compétence que je n'aurais pas acquise autrement. J'en parle en détail sur <a href="/pages/maladie.html">une page dédiée</a>, parce que ça peut servir à d'autres.</p>
+<p>Et puis la rectocolite hémorragique, qui a imposé sa propre discipline. Elle m'a surtout appris à distinguer ce que je peux piloter de ce que je dois accepter, une compétence que je n'aurais pas acquise autrement. J'en parle en détail sur <a href="/maladie/">une page dédiée</a>, parce que ça peut servir à d'autres.</p>
 </div>
 
 </div>
