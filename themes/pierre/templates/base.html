@@ -80,9 +80,10 @@
   });
 
   /* --- Révélation au défilement ---
-     .hub-card exclu volontairement : Pierre veut un défilement lisse sur
-     l'accueil, sans aucune section/carte qui « apparaisse » — les cartes
-     du sommaire restent donc toujours pleinement visibles. */
+     Le sommaire de l'accueil (.index-row) reste volontairement hors de
+     cette liste : Pierre veut un défilement lisse, sans rien qui
+     « apparaisse » — voir BDR-014. Son geste au scroll à lui est le
+     hero qui se dissout, en CSS pur (voir style.css, BDR-030). */
   var els = document.querySelectorAll('.cv-entry, .article-card, .callout, .skills-group, .photo-item, .prose, .lead');
   els.forEach(function (el) { el.classList.add('reveal'); });
   if (!('IntersectionObserver' in window) || reduced) {
@@ -94,58 +95,6 @@
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
     els.forEach(function (el) { io.observe(el); });
-  }
-
-  /* Jamais d'effet au curseur en mouvement réduit. On ne teste PAS « pointer: fine »
-     au chargement : sur un appareil hybride la souris peut arriver après. On filtre
-     plutôt sur le type de pointeur réel de chaque événement. */
-  if (reduced) return;
-  var isMouse = function (e) { return e.pointerType !== 'touch'; };
-
-  /* --- Spotlight + inclinaison des cartes --- */
-  document.querySelectorAll('.hub-card').forEach(function (card) {
-    var rect = null, raf = 0, tilt = 4.5;
-    card.addEventListener('pointerenter', function (e) {
-      if (!isMouse(e)) return;
-      rect = card.getBoundingClientRect();
-      card.classList.add('lit');
-    });
-    card.addEventListener('pointermove', function (e) {
-      if (raf || !isMouse(e)) return;
-      raf = requestAnimationFrame(function () {
-        raf = 0;
-        if (!rect) rect = card.getBoundingClientRect();
-        var x = e.clientX - rect.left, y = e.clientY - rect.top;
-        card.style.setProperty('--mx', x + 'px');
-        card.style.setProperty('--my', y + 'px');
-        card.style.setProperty('--rx', ((y / rect.height) - 0.5) * -tilt + 'deg');
-        card.style.setProperty('--ry', ((x / rect.width) - 0.5) * tilt + 'deg');
-      });
-    });
-    card.addEventListener('pointerleave', function () {
-      card.classList.remove('lit');
-      rect = null;
-      card.style.setProperty('--rx', '0deg');
-      card.style.setProperty('--ry', '0deg');
-    });
-  });
-
-  /* --- Parallaxe du héros --- */
-  var hero = document.querySelector('.hero');
-  if (hero) {
-    var hraf = 0;
-    hero.addEventListener('pointermove', function (e) {
-      if (hraf || !isMouse(e)) return;
-      hraf = requestAnimationFrame(function () {
-        hraf = 0;
-        hero.style.setProperty('--px', (e.clientX / window.innerWidth - 0.5).toFixed(3));
-        hero.style.setProperty('--py', (e.clientY / window.innerHeight - 0.5).toFixed(3));
-      });
-    });
-    hero.addEventListener('pointerleave', function () {
-      hero.style.setProperty('--px', 0);
-      hero.style.setProperty('--py', 0);
-    });
   }
 })();
 </script>

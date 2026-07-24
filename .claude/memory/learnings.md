@@ -32,6 +32,8 @@ champs:
 | LRN-014 | 2026-07-24 | Un Cloudflare/WAF devant un service auto-hébergé peut bloquer les requêtes sans User-Agent de navigateur, sans rapport avec les identifiants |
 | LRN-015 | 2026-07-24 | Avant de reconvertir un effet JS/lib en vanilla, vérifier si un repli ou un équivalent existe déjà ailleurs dans le repo |
 | LRN-016 | 2026-07-24 | La règle détecteur `em-dash-overuse` compte le texte visible de toute la page, pas seulement la prose : trier structurel/citation vs prose avant de corriger |
+| LRN-017 | 2026-07-24 | Forcer un reflow synchrone (lecture layout) plutôt qu'un double rAF pour fiabiliser une transition CSS déclenchée depuis un callback IntersectionObserver |
+| LRN-018 | 2026-07-24 | Le texte `<img>` dans un commentaire CSS déclenche un faux positif `broken-image` du détecteur (scan texte, pas parsing HTML réel) |
 
 ## Entrées
 

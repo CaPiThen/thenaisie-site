@@ -33,6 +33,7 @@
   --sable-fonce-rgb: 255, 239, 203;
   --vert-rgb: 47, 82, 51;
   --vert-clair-rgb: 91, 140, 62;
+  --vert-pale-rgb: 234, 240, 226;
   --marron-rgb: 169, 127, 87;
 
   /* typo */
@@ -98,15 +99,6 @@ i { font-style: normal; }
 
 .reveal { opacity: 0; transform: translateY(28px); transition: opacity 0.6s ease, transform 0.7s var(--ease-out); }
 .reveal.in { opacity: 1; transform: none; }
-/* Les cartes gèrent leur décalage via --revealY pour que l'apparition se
-   combine à l'inclinaison au curseur au lieu de l'annuler. */
-.hub-card.reveal, .hub-card.reveal.in {
-  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(calc(var(--lift) + var(--revealY)));
-}
-.hub-grid .reveal:nth-child(2) { transition-delay: 0.07s; }
-.hub-grid .reveal:nth-child(3) { transition-delay: 0.14s; }
-.hub-grid .reveal:nth-child(4) { transition-delay: 0.21s; }
-.hub-grid .reveal:nth-child(5) { transition-delay: 0.28s; }
 .articles-grid .reveal:nth-child(2) { transition-delay: 0.1s; }
 .skills-grid .reveal:nth-child(2) { transition-delay: 0.08s; }
 .skills-grid .reveal:nth-child(3) { transition-delay: 0.16s; }
@@ -116,10 +108,9 @@ i { font-style: normal; }
   html { scroll-behavior: auto; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .nav-dot { animation: none !important; }
-  .hub-card { --rx: 0deg !important; --ry: 0deg !important; --revealY: 0px !important; transition: border-color var(--t-fast), box-shadow 0.25s ease; }
-  .hub-card::before { display: none; }
-  .hub-card:hover h3 { transform: none; }
   .hero-immersif__contenu > * { opacity: 1 !important; animation: none !important; }
+  .hero-immersif__contenu, .hero-scroll, .hero-wash { animation-timeline: none !important; }
+  .index-row::before, .index-n, .index-body h2, .index-arrow { transition: none; }
 }
 
 /* ==============================================================
@@ -193,12 +184,13 @@ i { font-style: normal; }
 }
 
 /* --------------------------------------------------------------
-   HÉROS IMMERSIF (accueil)
-   Le canevas est en position fixe : il ne défile pas avec la page,
-   ce qui donne la sensation d'être « dedans ». Les sections qui
-   suivent sont opaques et passent au-dessus (z-index 1) pour venir
-   le recouvrir. Aucun ancêtre ne doit porter de transform, sinon
-   le position:fixed se recalerait sur lui.
+   HÉROS IMMERSIF (accueil) — revu en BDR-030 : vert immersif gardé,
+   mais désencombré. Un seul calque de fond (.hero-wash, dégradés CSS
+   animés, aucun JS/filtre SVG) au lieu de deux calques ethereal +
+   grain + voile de contraste superposés. Le canevas n'est plus en
+   position:fixed : le geste marquant de la page est maintenant le
+   scroll lui-même (voir plus bas), pas un fond qui reste plaqué
+   derrière tout le reste.
    -------------------------------------------------------------- */
 
 .hero-immersif {
@@ -209,22 +201,27 @@ i { font-style: normal; }
   text-align: center;
   padding: 120px 48px 104px;
   background: var(--vert);
+  overflow: clip;
 }
-.mesh-holder { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-/* Voile très allégé : la page d'accueil paraissait trop sombre. Le fond
-   est passé du quasi-noir au vert du pied de page (même teinte que
-   `.footer`, déjà éprouvée avec du texte blanc), et le shader n'a plus
-   aucune composante blanche depuis BDR-008 (calque le plus clair =
-   vert clair, jamais blanc) : le plafond de luminosité est donc déjà
-   contenu par la palette elle-même, pas besoin d'un voile aussi dense
-   qu'avant pour éviter un éclat blanc. Priorité donnée à la luminosité
-   générale plutôt qu'à une marge de contraste maximale. */
-.mesh-veil {
-  position: absolute; inset: 0;
+/* Dégradés radiaux qui dérivent lentement en fond de plan — la même
+   ambiance que l'ancien shader ethereal, pour une fraction du coût
+   (pas de filtre SVG recalculé par frame, juste `background-position`
+   animé). Toujours composé des couleurs déjà en place ailleurs sur le
+   site (--vert, --vert-clair, --vert-pale), jamais de teinte inédite. */
+.hero-wash {
+  position: absolute; inset: 0; z-index: 0;
   background:
-    radial-gradient(120% 90% at 50% 45%, rgba(24, 41, 28, 0.16) 0%, rgba(24, 41, 28, 0.28) 70%, rgba(24, 41, 28, 0.38) 100%),
-    linear-gradient(180deg, rgba(24, 41, 28, 0.24) 0%, rgba(24, 41, 28, 0.14) 45%, rgba(24, 41, 28, 0.26) 100%);
+    radial-gradient(60% 50% at 20% 15%, rgba(var(--vert-clair-rgb), 0.5), transparent 65%),
+    radial-gradient(55% 45% at 85% 80%, rgba(var(--vert-pale-rgb), 0.16), transparent 60%),
+    radial-gradient(80% 70% at 50% 50%, rgba(var(--vert-rgb), 0) 0%, rgba(20, 36, 23, 0.35) 100%);
+  background-size: 160% 160%, 140% 140%, 100% 100%;
+  animation: hero-wash-drift 26s ease-in-out infinite alternate;
 }
+@keyframes hero-wash-drift {
+  0%   { background-position: 0% 0%, 100% 100%, center; }
+  100% { background-position: 30% 20%, 70% 60%, center; }
+}
+@media (prefers-reduced-motion: reduce) { .hero-wash { animation: none; } }
 /* Conteneur large et corps mesuré : chaque moitié du titre doit tenir
    sur une seule ligne, sinon le héros dépasse la hauteur d'écran et
    l'effet « une seule vue » se perd. */
@@ -239,6 +236,26 @@ i { font-style: normal; }
 .hero-immersif__contenu > *:nth-child(3) { animation-delay: 0.22s; }
 .hero-immersif__contenu > *:nth-child(4) { animation-delay: 0.33s; }
 @keyframes hero-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
+/* Geste marquant de la page (BDR-030) : au scroll, le hero se dissout
+   doucement dans le sommaire — animation liée nativement au défilement
+   (`animation-timeline`), aucun JS, aucun coût de scroll-listener.
+   Repli sans support (Firefox à ce jour) : la règle @supports ne
+   s'applique jamais, le hero garde son état de départ normal, jamais
+   bloqué invisible. */
+@supports (animation-timeline: scroll()) {
+  .hero-immersif__contenu, .hero-scroll {
+    animation: hero-dissolve linear both;
+    animation-timeline: scroll(root);
+    animation-range: 0 62vh;
+  }
+  .hero-wash {
+    animation: hero-wash-drift 26s ease-in-out infinite alternate, hero-wash-fade linear both;
+    animation-timeline: auto, scroll(root);
+    animation-range: normal, 0 70vh;
+  }
+}
+@keyframes hero-dissolve { to { opacity: 0; transform: translateY(-26px) scale(0.96); filter: blur(2px); } }
+@keyframes hero-wash-fade { to { opacity: 0.15; } }
 /* Règle générale de l'accueil : tout ce qui repose directement sur le
    vert (hero, sommaire) passe en beige — c'est la charte d'origine du
    site (fond vert forêt + beige/marron). Une seule exception, en
@@ -280,60 +297,77 @@ i { font-style: normal; }
 .btn-verre:hover { background: rgba(var(--sable-fonce-rgb), 0.28); transform: translateY(-2px); }
 
 /* --------------------------------------------------------------
-   SOMMAIRE NOYÉ DANS LE SHADER (accueil)
-   Le mesh-holder est en position:fixed : il reste visible derrière
-   toute la page, hero ET sommaire compris. Cette section ne porte
-   donc plus de fond opaque — elle laisse le dégradé transparaître,
-   et les cartes deviennent des panneaux de verre dépoli.
+   SOMMAIRE — index éditorial (BDR-030)
+   Remplace le sommaire en cartes de verre : une liste sobre sur fond
+   beige opaque, chiffres en grand (contour au repos, s'encrent au
+   survol), une trame qui glisse en fond de ligne au survol. Toujours
+   pleinement visible dès l'arrivée (pas de .reveal ici, cf. BDR-014).
    -------------------------------------------------------------- */
-.home .section { position: relative; z-index: 1; background: transparent; }
-.home .footer { position: relative; z-index: 1; }
-
-.home .section-label { color: var(--sable-fonce); }
-.home .section-label::before { color: var(--sable-fonce); }
-/* La ligne de séparation après le label (`::after`, un trait quasi
-   pleine largeur) lisait comme une bande translucide posée autour du
-   sommaire — rendue entièrement invisible plutôt que juste plus sombre. */
-.home .section-label::after { background: transparent; }
-
-.home .picto { stroke: rgba(var(--sable-fonce-rgb), 0.38); }
-.home .picto-plein { fill: rgba(var(--sable-fonce-rgb), 0.38); }
-.home .deco-layer::before { background: radial-gradient(closest-side, rgba(var(--sable-fonce-rgb), 0.18), transparent 75%); }
-.home .deco-layer::after  { background: radial-gradient(closest-side, rgba(var(--sable-fonce-rgb), 0.12), transparent 75%); }
-
-/* Cartes beige : panneaux de verre dépoli clair (--sable-fonce) plutôt
-   que sombre, pour trancher avec le shader vert derrière — et parce
-   que Pierre les voulait à nouveau beige. Le texte passe au vert forêt
-   (--vert) puisque le fond du panneau est désormais clair, pas
-   transparent-sombre — jamais de noir neutre sur ces cartes. */
-/* Cadre rendu invisible : avec un bord visible, chaque carte se lisait
-   comme une page à part entière posée sur la page. Le fond beige et
-   l'ombre suffisent à distinguer la carte — border-color transparent
-   plutôt que `border: none` pour ne pas décaler le padding (box-sizing
-   border-box). */
-.home .hub-card {
-  background: rgba(var(--sable-fonce-rgb), 0.9);
-  border-color: transparent;
-  -webkit-backdrop-filter: blur(16px) saturate(1.1);
-  backdrop-filter: blur(16px) saturate(1.1);
-  box-shadow: 0 24px 60px -30px rgba(0, 0, 0, 0.45);
+.index-section {
+  position: relative; z-index: 1;
+  background: var(--sable);
+  padding: 120px 48px 140px;
 }
-.home .hub-card:hover {
-  border-color: transparent;
-  box-shadow: 0 28px 70px -28px rgba(0, 0, 0, 0.45);
+.index-eyebrow {
+  font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--marron-fonce);
+  max-width: 780px; margin: 0 auto 64px;
+  display: flex; align-items: center; gap: 16px;
 }
-.home .hub-card::before {
-  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%),
-              rgba(var(--marron-rgb), 0.24), rgba(var(--marron-rgb), 0.07) 42%, transparent 68%);
+.index-eyebrow::after { content: ''; flex: 1; height: 1px; background: var(--ligne); }
+
+.index-list { max-width: 860px; margin: 0 auto; }
+.index-row {
+  position: relative; isolation: isolate; overflow: clip;
+  display: grid; grid-template-columns: 112px 1fr auto; align-items: center; gap: 32px;
+  padding: 44px 28px;
+  margin: 0 -28px;
+  border-bottom: 1px solid var(--ligne);
 }
-.home .hub-card-index { -webkit-text-stroke-color: rgba(var(--vert-rgb), 0.22); }
-.home .hub-card:hover .hub-card-index { -webkit-text-stroke-color: var(--marron-fonce); }
-/* Vert forêt plutôt que noir pour le texte des cartes, à la demande de
-   Pierre — --vert donne 5,98:1 sur ce beige, largement suffisant. */
-.home .hub-card h3 { color: var(--vert); }
-.home .hub-card p { color: var(--vert); }
-.home .hub-card-arrow { color: var(--marron-fonce); }
-.home .hub-card:hover .hub-card-arrow { color: var(--vert); }
+.index-row:first-child { border-top: 1px solid var(--ligne); }
+/* Trame qui glisse au survol : vert pâle sur le fond beige, le même
+   geste que celui qui remplit le chiffre juste à côté. */
+.index-row::before {
+  content: ''; position: absolute; inset: 0; z-index: -1;
+  background: var(--vert-pale);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+.index-row:hover::before { transform: scaleX(1); }
+/* Chiffre en grand, contour seul au repos (silhouette plutôt que
+   décoration) : se remplit de couleur et grossit légèrement au
+   survol, comme une encre qui prend. */
+.index-n {
+  font-family: var(--f-disp); font-weight: 600;
+  font-size: clamp(54px, 7vw, 88px); line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--marron-fonce);
+  opacity: 0.6;
+  transition: color 0.4s var(--ease-out), -webkit-text-stroke-color 0.4s var(--ease-out), transform 0.4s var(--ease-out), opacity 0.3s var(--ease-out);
+}
+.index-row:hover .index-n {
+  color: var(--vert-clair);
+  -webkit-text-stroke-color: var(--vert-clair);
+  opacity: 1;
+  transform: scale(1.08);
+}
+.index-body h2 {
+  font-family: var(--f-disp); font-weight: 700; font-size: clamp(24px, 3.4vw, 34px);
+  letter-spacing: -0.02em; color: var(--vert);
+  margin: 0 0 10px;
+  transition: color 0.25s, transform 0.4s var(--ease-out);
+}
+.index-body p { margin: 0; color: var(--mut); font-size: 16px; max-width: 46ch; }
+.index-row:hover .index-body h2 { color: var(--vert-clair); transform: translateX(4px); }
+.index-arrow {
+  font-family: var(--f-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+  color: var(--marron-fonce);
+  align-self: center;
+  opacity: 0.75;
+  transition: opacity 0.2s, transform 0.35s var(--ease-out);
+}
+.index-row:hover .index-arrow { opacity: 1; transform: translateX(6px); }
 
 .hero-label {
   font-family: var(--f-mono);
@@ -383,79 +417,6 @@ i { font-style: normal; }
 }
 .section-label::before { content: '//'; color: var(--vert-clair); }
 .section-label::after { content: ''; flex: 1; height: 2px; background: var(--ligne); }
-
-/* ==============================================================
-   SOMMAIRE — GRILLE BENTO
-   ============================================================== */
-
-.hub-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px; }
-.hub-card--l { grid-column: span 7; }
-.hub-card--m { grid-column: span 5; }
-.hub-card--s { grid-column: span 4; }
-
-.hub-card {
-  --rx: 0deg; --ry: 0deg; --lift: 0px; --revealY: 0px;
-  position: relative;
-  display: flex; flex-direction: column; gap: 16px;
-  background: var(--sable);
-  border: 2px solid var(--ligne);
-  border-radius: 26px 26px 26px 6px;
-  padding: 44px 38px 36px;
-  overflow: hidden;
-  cursor: pointer;
-  transform: perspective(1000px) rotateX(var(--rx)) rotateY(var(--ry)) translateY(calc(var(--lift) + var(--revealY)));
-  transform-style: preserve-3d;
-  transition: transform 0.35s var(--ease-out), opacity 0.6s ease, border-color var(--t-fast), box-shadow 0.25s ease;
-}
-.hub-card.reveal:not(.in) { --revealY: 28px; }
-.hub-card:hover {
-  --lift: -6px;
-  border-color: var(--vert);
-  box-shadow: 0 22px 44px -20px rgba(var(--vert-rgb), 0.35);
-}
-.hub-card::before {
-  content: '';
-  position: absolute; inset: 0; z-index: 0;
-  border-radius: inherit;
-  background: radial-gradient(340px circle at var(--mx, 50%) var(--my, 50%),
-              rgba(var(--vert-clair-rgb), 0.20), rgba(var(--vert-clair-rgb), 0.06) 42%, transparent 68%);
-  opacity: 0;
-  transition: opacity 0.35s ease;
-  pointer-events: none;
-}
-.hub-card.lit::before { opacity: 1; }
-.hub-card.lit { transition: transform 0.12s ease-out, border-color var(--t-fast), box-shadow 0.25s ease; }
-
-.hub-card-index {
-  position: absolute; top: 12px; right: 24px; z-index: 1;
-  font-family: var(--f-disp);
-  font-weight: 900; font-style: italic;
-  font-size: 100px; line-height: 1;
-  color: transparent;
-  -webkit-text-stroke: 2px rgba(var(--marron-rgb), 0.30);
-  transition: -webkit-text-stroke-color var(--t-fast), transform 0.35s var(--ease-out);
-  pointer-events: none;
-}
-.hub-card:hover .hub-card-index { -webkit-text-stroke-color: var(--vert-clair); transform: translateZ(30px) scale(1.05); }
-.hub-card h3 {
-  position: relative; z-index: 1;
-  font-family: var(--f-disp);
-  font-weight: 700; font-size: 40px;
-  letter-spacing: -0.025em; line-height: 1.05;
-  color: var(--vert);
-  transition: transform 0.35s var(--ease-out);
-}
-.hub-card:hover h3 { transform: translateZ(24px); }
-.hub-card p { position: relative; z-index: 1; font-size: 15px; color: var(--mut); line-height: 1.75; flex: 1; max-width: 46ch; }
-.hub-card-arrow {
-  position: relative; z-index: 1;
-  display: inline-flex; align-items: center; gap: 8px;
-  font-family: var(--f-mono);
-  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--marron-fonce);
-}
-.hub-card-arrow i { transition: transform 0.25s var(--ease-out); }
-.hub-card:hover .hub-card-arrow i { transform: translateX(6px); }
 
 /* ==============================================================
    JOURNAL
@@ -608,9 +569,13 @@ i { font-style: normal; }
   transition: border-color var(--t-fast), background var(--t-fast), transform 0.25s var(--ease-out);
 }
 .cv-entry:hover .logo-chip { border-color: var(--vert-clair); background: var(--blanc); transform: scale(1.06); }
-/* Monogramme dessiné en CSS (aucune requête vers un service de favicons
-   tiers) : cohérent avec le reste du site, qui n'appelle plus rien
-   d'externe au runtime — voir BDR-002/003. */
+/* Vrai logo auto-hébergé quand il existe (voir BDR-029) : récupéré une
+   fois depuis le site officiel de l'entreprise/école, jamais rechargé
+   depuis un service tiers au runtime — cohérent avec BDR-002/003.
+   Le monogramme `::before` reste le repli pour les entrées sans logo
+   (ex. Université de Tours), masqué dès qu'un logo est présent. */
+.logo-chip img { width: 100%; height: 100%; object-fit: cover; }
+.logo-chip:has(img)::before { content: none; }
 .logo-chip::before {
   content: attr(data-mono);
   font-family: var(--f-mono); font-size: 15px; font-weight: 600;
@@ -1012,10 +977,6 @@ sup a:hover { color: var(--vert); }
    RESPONSIVE
    ============================================================== */
 
-@media (max-width: 900px) {
-  .hub-card--l, .hub-card--m, .hub-card--s { grid-column: span 12; }
-}
-
 @media (max-width: 768px) {
   .nav { padding: 18px 22px; }
   .hero-scroll { display: none; }
@@ -1023,9 +984,10 @@ sup a:hover { color: var(--vert); }
   .section { padding: 68px 22px; }
   .section-tight { padding: 32px 22px 72px; }
   .page-header { padding: 40px 22px 0; }
-  .hub-card { padding: 34px 26px 30px; border-radius: 20px 20px 20px 5px; }
-  .hub-card h3 { font-size: 32px; }
-  .hub-card-index { font-size: 74px; }
+  .index-section { padding: 80px 22px 100px; }
+  .index-row { grid-template-columns: 72px 1fr; padding: 34px 20px; margin: 0 -20px; row-gap: 10px; }
+  .index-n { font-size: clamp(40px, 16vw, 60px); }
+  .index-arrow { grid-column: 2; margin-top: 4px; }
   .articles-grid { grid-template-columns: 1fr; }
   .gallery-masonry { columns: 2; }
   .footer { padding: 60px 22px 34px; margin-top: 72px; }
@@ -1036,7 +998,6 @@ sup a:hover { color: var(--vert); }
   .cv-entry::before { display: none; }
   .cv-entry-head { gap: 14px; }
   .logo-chip { position: static; width: 48px; height: 48px; }
-  .logo-chip img { width: 26px; height: 26px; }
   .story-item { padding-left: 22px; }
   .figure { padding: 20px 18px 16px; border-radius: 18px; }
   .toc { padding: 24px 24px; }

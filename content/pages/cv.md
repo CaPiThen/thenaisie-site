@@ -22,7 +22,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="PwC"></span>
+  <span class="logo-chip" data-mono="PwC"><img src="/theme/images/logos/pwc.png" alt="PwC" loading="lazy" width="58" height="58"></span>
   <div>
     <div class="cv-entry-period">Décembre 2025 — aujourd'hui</div>
     <h3>Consultant en transformation des processus métier</h3>
@@ -38,7 +38,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ACN"></span>
+  <span class="logo-chip" data-mono="ACN"><img src="/theme/images/logos/accenture.png" alt="Accenture" loading="lazy" width="58" height="58"></span>
   <div>
     <div class="cv-entry-period">Juillet 2023 — décembre 2025</div>
     <h3>Consultant Talent Development Operations</h3>
@@ -54,7 +54,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ENG"></span>
+  <span class="logo-chip" data-mono="ENG"><img src="/theme/images/logos/engie.png" alt="ENGIE" loading="lazy" width="58" height="58"></span>
   <div>
     <div class="cv-entry-period">Septembre 2022 — juillet 2023</div>
     <h3>Chargé de projets Transformation</h3>
@@ -69,7 +69,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="SZ"></span>
+  <span class="logo-chip" data-mono="SZ"><img src="/theme/images/logos/suez.png" alt="SUEZ" loading="lazy" width="58" height="58"></span>
   <div>
     <div class="cv-entry-period">Mars — août 2020</div>
     <h3>Chef de projet</h3>
@@ -90,7 +90,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="EMN"></span>
+  <span class="logo-chip" data-mono="EMN"><img src="/theme/images/logos/em-normandie.png" alt="EM Normandie" loading="lazy" width="58" height="58"></span>
   <div>
     <div class="cv-entry-period">2023 — 2025</div>
     <h3>Programme Grande École, Master 2</h3>
@@ -102,7 +102,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 
 <div class="cv-entry">
 <div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ESI"></span>
+  <span class="logo-chip" data-mono="ESI"><img src="/theme/images/logos/esilv.png" alt="ESILV" loading="lazy" width="58" height="58"></span>
   <div>
     <div class="cv-entry-period">2020 — 2022</div>
     <h3>Diplôme d'ingénieur — spécialité Data &amp; IA</h3>

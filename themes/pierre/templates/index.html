@@ -3,15 +3,15 @@
 {% block content %}
 
 <!-- HERO IMMERSIF
-     Le fond ethereal est en position fixe : il reste en place pendant que
-     la page défile, ce qui donne la sensation d'être « dedans ». Les
-     sections suivantes, opaques, viennent le recouvrir. -->
+     Fond en dégradé animé pur CSS (voir .hero-wash) : plus léger que le
+     filtre SVG ethereal utilisé ailleurs sur le site, choisi ici après
+     validation de Pierre sur une maquette (BDR-030). Le geste marquant
+     de la page est au scroll : le hero se dissout doucement dans le
+     sommaire via animation-timeline (CSS natif, aucun JS, dégradation
+     silencieuse si non supporté — voir règle @supports plus bas dans
+     style.css). -->
 <section class="hero-immersif">
-  <div class="mesh-holder" aria-hidden="true">
-    <div class="ethereal" data-color="91,140,62" data-scale="68" data-speed="92" data-seed="3" data-alpha="0.75"></div>
-    <div class="ethereal ethereal--accent" data-color="150,195,155" data-scale="50" data-speed="80" data-seed="14" data-alpha="0.6"></div>
-    <div class="mesh-veil"></div>
-  </div>
+  <div class="hero-wash" aria-hidden="true"></div>
 
   <div class="hero-immersif__contenu">
     <p class="hero-label">// Pierre Thenaisie</p>
@@ -23,35 +23,40 @@
   <div class="hero-scroll" aria-hidden="true"><span class="hero-scroll-line"></span>défiler</div>
 </section>
 
-<!-- SOMMAIRE / BENTO
-     Pas d'animation d'apparition sur ces cartes (à la demande de Pierre) :
-     elles sont toujours pleinement visibles, pour un défilement lisse sans
-     rien qui « pop » — voir base.html, où .hub-card est exclu de la liste
-     des éléments à révéler au scroll. -->
-<section class="section section--deco" id="sommaire">
-  {% include "_deco.html" %}
-  <div class="section-label">sommaire</div>
-  <div class="hub-grid">
+<!-- SOMMAIRE — index éditorial (BDR-030), plus des cartes : chiffres en
+     grand (contour, s'encrent au survol), une ligne glissée en fond au
+     survol, une seule mise en page sobre. Toujours pleinement visible
+     dès l'arrivée sur la page (aucune animation d'apparition liée au
+     scroll), comme demandé par Pierre depuis BDR-014. -->
+<section class="index-section" id="sommaire">
+  <p class="index-eyebrow">sommaire</p>
+  <div class="index-list">
 
-    <a href="{{ SITEURL }}/pages/cv.html" class="hub-card hub-card--s">
-      <span class="hub-card-index" aria-hidden="true">01</span>
-      <h3>Parcours</h3>
-      <p>Ingénieur ESILV, Master Grande École à l'EM Normandie, consultant en transformation chez PwC après Accenture et ENGIE. Le détail, étape par étape — et ce que chaque projet m'a appris.</p>
-      <span class="hub-card-arrow">Consulter<i>→</i></span>
+    <a href="{{ SITEURL }}/pages/cv.html" class="index-row">
+      <span class="index-n" aria-hidden="true">01</span>
+      <span class="index-body">
+        <h2>Parcours</h2>
+        <p>Ingénieur ESILV, Master Grande École à l'EM Normandie, consultant en transformation chez PwC après Accenture et ENGIE. Le détail, étape par étape, et ce que chaque projet m'a appris.</p>
+      </span>
+      <span class="index-arrow">Consulter →</span>
     </a>
 
-    <a href="{{ SITEURL }}/pages/maladie.html" class="hub-card hub-card--s">
-      <span class="hub-card-index" aria-hidden="true">02</span>
-      <h3>Vivre avec la RCH</h3>
-      <p>Mon vécu de la rectocolite hémorragique, ce que dit la science, le rôle de l'alimentation et du stress, et les conseils que j'aurais aimé lire au début.</p>
-      <span class="hub-card-arrow">Lire<i>→</i></span>
+    <a href="{{ SITEURL }}/pages/maladie.html" class="index-row">
+      <span class="index-n" aria-hidden="true">02</span>
+      <span class="index-body">
+        <h2>Vivre avec la RCH</h2>
+        <p>Mon vécu de la rectocolite hémorragique, ce que dit la science, le rôle de l'alimentation et du stress, et les conseils que j'aurais aimé lire au début.</p>
+      </span>
+      <span class="index-arrow">Lire →</span>
     </a>
 
-    <a href="{{ SITEURL }}/pages/galerie.html" class="hub-card hub-card--s">
-      <span class="hub-card-index" aria-hidden="true">03</span>
-      <h3>Galerie</h3>
-      <p>Des photos, hébergées et servies depuis mon propre NAS.</p>
-      <span class="hub-card-arrow">Voir<i>→</i></span>
+    <a href="{{ SITEURL }}/pages/galerie.html" class="index-row">
+      <span class="index-n" aria-hidden="true">03</span>
+      <span class="index-body">
+        <h2>Galerie</h2>
+        <p>Des photos, hébergées et servies depuis mon propre NAS.</p>
+      </span>
+      <span class="index-arrow">Voir →</span>
     </a>
 
   </div>
