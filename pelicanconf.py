@@ -1,3 +1,5 @@
+import subprocess
+
 AUTHOR = 'Pierre Thenaisie'
 SITENAME = 'Pierre Thenaisie'
 SITESUBTITLE = "Consultant en transformation des processus métier. Parcours, projets techniques, et vivre avec une MICI."
@@ -9,6 +11,21 @@ SITEURL = 'https://thenaisiepierre.fr'
 # Pelican : il traverse les templates sans jamais être réécrit.
 SITE_ABSOLUTE_URL = 'https://thenaisiepierre.fr'
 STATIC_PATHS = ['images']
+
+# Casse-cache pour CSS/JS/polices : sans ça, un visiteur qui a déjà chargé
+# le site garde l'ancien style.css en cache même après un déploiement (même
+# nom de fichier = pas de rechargement forcé). Ajouté en query string sur
+# les liens statiques dans base.html (?v=...). Le hash court du commit
+# change à chaque déploiement réel ; en repli (pas de dépôt git, ex. build
+# local hors repo), un horodatage garde quand même le cache-busting actif.
+try:
+    ASSET_VERSION = subprocess.check_output(
+        ['git', 'rev-parse', '--short', 'HEAD'],
+        stderr=subprocess.DEVNULL,
+    ).decode().strip()
+except (subprocess.CalledProcessError, FileNotFoundError):
+    import time
+    ASSET_VERSION = str(int(time.time()))
 
 PATH = 'content'
 THEME = 'themes/pierre'
