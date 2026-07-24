@@ -737,6 +737,17 @@ sup a:hover { color: var(--vert); }
 .svg-lbl--red { fill: #a8442f; }
 .svg-lbl--green { fill: #4a6b3a; }
 .svg-lbl--mut { fill: #6e6f63; }
+/* Halo de la couleur du fond de carte : certaines étiquettes (ex.
+   « inflammation continue ») passent au-dessus du tracé du schéma —
+   le halo garde le texte lisible quel que soit ce qu'il y a en
+   dessous, sans avoir à recalculer précisément des positions qu'on
+   ne peut pas vérifier visuellement. */
+.svg-h, .svg-sub, .svg-lbl {
+  paint-order: stroke fill;
+  stroke: var(--sable);
+  stroke-width: 4px;
+  stroke-linejoin: round;
+}
 .svg-rot { transform: rotate(-90deg); transform-origin: 14px 128px; }
 .svg-colon { fill: none; stroke: #cfc6b4; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round; }
 .svg-inflamme { fill: none; stroke: #b84a31; stroke-width: 17; stroke-linecap: round; stroke-linejoin: round; }
