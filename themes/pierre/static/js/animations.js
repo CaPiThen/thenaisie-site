@@ -89,3 +89,106 @@
     requestAnimationFrame(frame);
   });
 })();
+
+/* =============================================================
+   QUADRILLAGE DE POINTS MAGNÉTIQUE (accueil, .index-section) —
+   voir BDR-041. Un seul <canvas> repeint chaque frame plutôt que des
+   centaines d'éléments DOM individuels. Le suivi de la souris est posé
+   sur .index-section (jamais sur le canvas, `pointer-events: none` en
+   CSS), donc les liens du sommaire restent cliquables sans arbitrage.
+   La boucle rAF s'arrête d'elle-même une fois les points revenus au
+   repos — aucun calcul en continu une fois la souris repartie. */
+(function () {
+  'use strict';
+  var section = document.querySelector('.index-section');
+  var canvas = document.querySelector('.dot-field');
+  if (!section || !canvas || !canvas.getContext) return;
+  var ctx = canvas.getContext('2d');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var SPACING = 40;
+  var DOT_COLOR = '#e3d8c8';
+  var R_REST = 1.9, R_MAX = 2.8;
+  var INFLUENCE = 130, PULL = 0.38, EASE = 0.18;
+
+  var dpr = Math.min(window.devicePixelRatio || 1, 2);
+  var w = 0, h = 0, dots = [];
+  var mouse = { x: -9999, y: -9999, active: false };
+  var raf = null;
+
+  function build() {
+    w = section.offsetWidth; h = section.offsetHeight;
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    canvas.style.width = w + 'px';
+    canvas.style.height = h + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    dots = [];
+    for (var y = SPACING / 2; y < h; y += SPACING) {
+      for (var x = SPACING / 2; x < w; x += SPACING) {
+        dots.push({ ox: x, oy: y, x: x, y: y });
+      }
+    }
+    draw();
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, w, h);
+    ctx.fillStyle = DOT_COLOR;
+    for (var i = 0; i < dots.length; i++) {
+      var d = dots[i];
+      var tx = d.ox, ty = d.oy, r = R_REST;
+      if (mouse.active) {
+        var dx = mouse.x - d.ox, dy = mouse.y - d.oy;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist < INFLUENCE) {
+          var t = 1 - dist / INFLUENCE;
+          tx = d.ox + dx * t * PULL;
+          ty = d.oy + dy * t * PULL;
+          r = R_REST + (R_MAX - R_REST) * t;
+        }
+      }
+      d.x += (tx - d.x) * EASE;
+      d.y += (ty - d.y) * EASE;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  function settled() {
+    if (mouse.active) return false;
+    for (var i = 0; i < dots.length; i++) {
+      if (Math.abs(dots[i].x - dots[i].ox) > 0.05 || Math.abs(dots[i].y - dots[i].oy) > 0.05) return false;
+    }
+    return true;
+  }
+
+  function loop() {
+    draw();
+    raf = settled() ? null : requestAnimationFrame(loop);
+  }
+
+  function ensureLoop() { if (!raf) raf = requestAnimationFrame(loop); }
+
+  build();
+  if (reduceMotion) return;
+
+  section.addEventListener('pointermove', function (e) {
+    var rect = section.getBoundingClientRect();
+    mouse.x = e.clientX - rect.left;
+    mouse.y = e.clientY - rect.top;
+    mouse.active = true;
+    ensureLoop();
+  });
+  section.addEventListener('pointerleave', function () {
+    mouse.active = false;
+    ensureLoop();
+  });
+
+  var resizeTimer = null;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(build, 200);
+  });
+})();

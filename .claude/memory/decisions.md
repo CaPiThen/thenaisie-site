@@ -58,6 +58,7 @@ Vitrine personnelle de Pierre : sa vie, son parcours, et les sujets qui l'intér
 | BDR-038 | 2026-07-24 | URLs propres : `PAGE_URL`/`PAGE_SAVE_AS` en `{slug}/` plutôt que `pages/{slug}.html`, tous les liens internes mis à jour | actif |
 | BDR-039 | 2026-07-24 | Trace des schémas confirmé fonctionnel (BDR-036) ; halo de fond ajouté aux étiquettes SVG pour rester lisibles au-dessus du tracé | actif |
 | BDR-035 | 2026-07-24 | Accueil : bande blanche entre sommaire et pied de page supprimée ; étiquette « sommaire » retirée | actif |
+| BDR-040 | 2026-07-25 | `.nav-logo` redevient un lien vers l'accueil (annule la partie `.nav-logo` de BDR-033) | actif |
 
 ## Entrées
 
@@ -327,7 +328,7 @@ Nettoyage en cascade : `.hub-grid`/`.hub-card*`/`.home .hub-card*`/`.home .secti
 **Décision :** `.footer-logo` (« Pierre Thenaisie » en pied de page) passe de `href="{{ SITEURL }}/"` à `href="mailto:contact@thenaisiepierre.fr"`. `.nav-logo` (« ~/ thenaisiepierre » en en-tête) redevient un `<span>` inerte, comme avant BDR-023. CSS de survol (`opacity: 0.75` au survol) retiré pour `.nav-logo`, conservé pour `.footer-logo` (toujours un lien, juste vers une autre destination).
 **Pourquoi :** Pierre a explicitement corrigé BDR-023 : cliquer sur son nom ne doit **pas** ramener vers une page qui « ne devrait pas permettre cet accès » — le principe de cloisonnement (BDR-001, un lien partagé ne doit pas exposer le reste du site) prime sur la commodité de navigation que BDR-023 avait ajoutée pour corriger le finding P1 du critique. Pierre a demandé un mailto pour `.footer-logo` spécifiquement ; `.nav-logo` a été remis inerte par cohérence avec le même principe, sans demande séparée — signalé explicitement plutôt que supposé.
 **Alternatives envisagées :** Faire de `.nav-logo` un second lien mailto — écarté, redondant avec `.footer-logo` qui remplit déjà ce rôle, et le nav-logo n'a jamais été nommément visé par la demande de Pierre.
-**Statut :** actif. Vérifié par build Pelican réel : `<a class="footer-logo" href="mailto:contact@thenaisiepierre.fr">` sur les 4 pages ; `<span class="nav-logo">` (plus de `<a>`) sur les 4 pages.
+**Statut :** partiellement révisé par BDR-040 (le volet `.nav-logo` seulement — `.footer-logo` reste un mailto, inchangé). Vérifié à l'époque par build Pelican réel : `<a class="footer-logo" href="mailto:contact@thenaisiepierre.fr">` sur les 4 pages ; `<span class="nav-logo">` (plus de `<a>`) sur les 4 pages.
 
 ### BDR-034 — Tracé des schémas RCH réécrit en CSS pur (`pathLength`)
 
@@ -376,3 +377,11 @@ Nettoyage en cascade : `.hub-grid`/`.hub-card*`/`.home .hub-card*`/`.home .secti
 **Pourquoi :** Demande explicite de Pierre (« ça empêche la lecture »). Le halo est une correction plus robuste qu'un repositionnement précis des coordonnées SVG, qui aurait nécessité une vérification visuelle impossible cette session — et protège aussi contre des chevauchements similaires non encore repérés sur les deux autres schémas.
 **Alternatives envisagées :** Déplacer le texte à une position sans chevauchement — écarté, la place disponible autour du tracé est trop réduite pour un texte de 21 caractères sans risquer de le faire déborder du `viewBox` (même classe de problème que BDR-034) ; le halo règle le problème réel (lisibilité) sans devoir deviner une géométrie non vérifiable.
 **Statut :** actif. Vérifié par build Pelican réel + détecteur (aucune régression). Compteurs numériques (BDR-037) signalés par Pierre comme toujours sans effet visible malgré une infrastructure identique au tracé (désormais confirmé fonctionnel) — cause non identifiée avec certitude après relecture attentive du code (aucun bug trouvé), hypothèse retenue : animation de 1,4s trop brève/discrète pour être perçue en scrollant normalement, plutôt qu'un vrai défaut ; à reconfirmer avec Pierre avant de retoucher ce code sans nouveau signal concret.
+
+### BDR-040 — `.nav-logo` redevient un lien vers l'accueil
+
+**Date :** 2026-07-25
+**Décision :** `.nav-logo` (« ~/ thenaisiepierre » en en-tête, `base.html`) redevient `<a href="{{ SITEURL }}/">`, avec le même survol `opacity: 0.75` que `.footer-logo`. Annule le volet `.nav-logo` de BDR-033 (qui l'avait rendu inerte) ; `.footer-logo` n'est pas concerné et reste un mailto.
+**Pourquoi :** Demande explicite de Pierre, en préparation d'un déploiement (« avant de déployer le site, fais en sorte que chaque fois que l'on clique sur "pierre thenaisie" en haut à gauche... on retombe sur la homepage »). Cette demande contredit directement le principe de cloisonnement invoqué en BDR-033 (un lien partagé ne doit pas exposer le reste du site) — signalé explicitement à Pierre plutôt que suivi silencieusement, mais appliqué tel quel : instruction récente, explicite et sans ambiguïté, elle prime sur la décision précédente.
+**Alternatives envisagées :** Demander confirmation avant d'appliquer, vu la contradiction avec BDR-033 — écarté pour ce point précis (la demande est trop explicite pour justifier un blocage), mais signalé en retour à Pierre dans la même réponse pour qu'il puisse corriger si BDR-033 reste sa préférence réelle sur les pages partagées.
+**Statut :** actif.

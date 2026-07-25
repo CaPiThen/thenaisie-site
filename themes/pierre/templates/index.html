@@ -13,6 +13,22 @@
 <section class="hero-immersif">
   <div class="hero-wash" aria-hidden="true"></div>
 
+  <!-- Silhouette de sommets vectorisée depuis une vraie photo (potrace,
+       deux seuils de contraste), pas un dessin à main levée — voir
+       BDR-041. Deux tracés partagent le même repère de coordonnées donc
+       s'alignent naturellement : calque pâle (brume) derrière, calque
+       plus saturé (roche proche) devant. -->
+  <div class="hero-peaks" aria-hidden="true">
+    <svg viewBox="0 0 738 250" preserveAspectRatio="xMidYMax slice">
+      <g class="peaks-back-drift">
+        <g transform="translate(0,250) scale(0.1,-0.1)"><path class="peaks-back" d="{{ HERO_PEAKS_BACK_D }}"/></g>
+      </g>
+      <g class="peaks-front-drift">
+        <g transform="translate(0,250) scale(0.1,-0.1)"><path class="peaks-front" d="{{ HERO_PEAKS_FRONT_D }}"/></g>
+      </g>
+    </svg>
+  </div>
+
   <div class="hero-immersif__contenu">
     <p class="hero-label">// Pierre Thenaisie</p>
     <h1>Je construis des <em>systèmes</em>.<br>Je vis avec une <em>maladie</em>.</h1>
@@ -29,6 +45,7 @@
      dès l'arrivée sur la page (aucune animation d'apparition liée au
      scroll), comme demandé par Pierre depuis BDR-014. -->
 <section class="index-section" id="sommaire">
+  <canvas class="dot-field" aria-hidden="true"></canvas>
   <div class="index-list">
 
     <a href="{{ SITEURL }}/cv/" class="index-row">

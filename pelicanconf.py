@@ -1,3 +1,4 @@
+import os
 import subprocess
 
 AUTHOR = 'Pierre Thenaisie'
@@ -26,6 +27,17 @@ try:
 except (subprocess.CalledProcessError, FileNotFoundError):
     import time
     ASSET_VERSION = str(int(time.time()))
+
+# Silhouette de sommets du hero (accueil) : tracés vectoriels réels,
+# obtenus par vectorisation (potrace) d'une photo de montagne, pas un
+# dessin à main levée — voir BDR-041. Gardés hors du template Jinja
+# (illisibles inline, ~65 Ko à eux deux) et hors de STATIC_PATHS (ce sont
+# des fragments de coordonnées, pas des fichiers à servir tels quels).
+_data_dir = os.path.join(os.path.dirname(__file__), 'data')
+with open(os.path.join(_data_dir, 'hero-peaks-back.path')) as f:
+    HERO_PEAKS_BACK_D = f.read().strip()
+with open(os.path.join(_data_dir, 'hero-peaks-front.path')) as f:
+    HERO_PEAKS_FRONT_D = f.read().strip()
 
 PATH = 'content'
 THEME = 'themes/pierre'

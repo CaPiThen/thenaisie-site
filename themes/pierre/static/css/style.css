@@ -109,7 +109,7 @@ i { font-style: normal; }
   .reveal { opacity: 1; transform: none; transition: none; }
   .nav-dot { animation: none !important; }
   .hero-immersif__contenu > * { opacity: 1 !important; animation: none !important; }
-  .hero-immersif__contenu, .hero-scroll, .hero-wash { animation-timeline: none !important; }
+  .hero-immersif__contenu, .hero-scroll, .hero-wash, .hero-peaks { animation-timeline: none !important; }
   .index-row::before, .index-n, .index-body h2, .index-arrow { transition: none; }
 }
 
@@ -128,7 +128,9 @@ i { font-style: normal; }
   font-size: 13px; font-weight: 500;
   letter-spacing: 0.08em; text-transform: uppercase;
   color: #ffffff;
+  transition: opacity var(--t-fast);
 }
+.nav-logo:hover { opacity: 0.75; }
 .nav-status {
   display: inline-flex; align-items: center; gap: 10px;
   font-family: var(--f-mono);
@@ -220,6 +222,36 @@ i { font-style: normal; }
   100% { background-position: 30% 20%, 70% 60%, center; }
 }
 @media (prefers-reduced-motion: reduce) { .hero-wash { animation: none; } }
+/* Silhouette de sommets vectorisée (BDR-041) — deux calques issus du
+   même tracé, alignés par construction. `slice` cale le bas des crêtes
+   sur le bas du hero et rogne les bords plutôt que déformer le tracé.
+   Fondu bas + droite : la zone droite du tracé vient d'une partie de la
+   photo plus éparse (rochers dispersés) que le pic principal de gauche
+   — à pleine opacité elle lit comme du bruit, on l'estompe. Dérive
+   lente sur chaque calque, comme la brume qui glisse sur la roche à
+   deux vitesses différentes, même esprit que .hero-wash. */
+.hero-peaks {
+  position: absolute; inset: 0; z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image:
+    linear-gradient(to bottom, black 82%, transparent 100%),
+    linear-gradient(to right, black 68%, transparent 94%);
+  -webkit-mask-composite: source-in;
+          mask-image:
+    linear-gradient(to bottom, black 82%, transparent 100%),
+    linear-gradient(to right, black 68%, transparent 94%);
+          mask-composite: intersect;
+}
+.hero-peaks svg { width: 100%; height: 100%; display: block; }
+.peaks-back { fill: var(--vert-pale); opacity: 0.1; }
+.peaks-front { fill: var(--vert-clair); opacity: 0.19; }
+.peaks-back-drift { animation: peaks-drift-back 32s ease-in-out infinite alternate; }
+.peaks-front-drift { animation: peaks-drift-front 22s ease-in-out infinite alternate; }
+@keyframes peaks-drift-back { from { transform: translateX(-5px); } to { transform: translateX(5px); } }
+@keyframes peaks-drift-front { from { transform: translateX(7px); } to { transform: translateX(-7px); } }
+@media (prefers-reduced-motion: reduce) {
+  .peaks-back-drift, .peaks-front-drift { animation: none; }
+}
 /* Conteneur large et corps mesuré : chaque moitié du titre doit tenir
    sur une seule ligne, sinon le héros dépasse la hauteur d'écran et
    l'effet « une seule vue » se perd. */
@@ -241,7 +273,7 @@ i { font-style: normal; }
    s'applique jamais, le hero garde son état de départ normal, jamais
    bloqué invisible. */
 @supports (animation-timeline: scroll()) {
-  .hero-immersif__contenu, .hero-scroll {
+  .hero-immersif__contenu, .hero-scroll, .hero-peaks {
     animation: hero-dissolve linear both;
     animation-timeline: scroll(root);
     animation-range: 0 62vh;
@@ -306,6 +338,13 @@ i { font-style: normal; }
   background: var(--sable);
   padding: 120px 48px 140px;
 }
+/* Quadrillage de points en canvas (BDR-041) : un seul élément à
+   repeindre, quel que soit le nombre de points — pas de centaines de
+   <div> à animer individuellement. Le suivi de la souris se fait sur
+   .index-section elle-même (voir dot-field.js dans animations.js),
+   jamais sur le canvas (`pointer-events: none`), donc les liens du
+   sommaire restent cliquables sans arbitrage. */
+.dot-field { position: absolute; inset: 0; z-index: -1; pointer-events: none; display: block; }
 .index-list { max-width: 860px; margin: 0 auto; }
 .index-row {
   position: relative; isolation: isolate; overflow: clip;
