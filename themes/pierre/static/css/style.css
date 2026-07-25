@@ -628,7 +628,7 @@ i { font-style: normal; }
    ============================================================== */
 
 .gallery-masonry { columns: 3; column-gap: 12px; margin: 48px 0 72px; }
-.gallery-masonry .photo-item { break-inside: avoid; margin-bottom: 12px; overflow: hidden; border-radius: 16px; border: 2px solid var(--ligne); }
+.gallery-masonry .photo-item { break-inside: avoid; margin-bottom: 12px; overflow: hidden; border-radius: 16px; }
 .gallery-masonry .photo-item img { width: 100%; display: block; transition: transform 0.5s var(--ease-out); }
 .gallery-masonry .photo-item:hover img { transform: scale(1.04); }
 
