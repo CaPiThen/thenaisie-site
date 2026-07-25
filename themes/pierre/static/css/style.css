@@ -263,8 +263,6 @@ i { font-style: normal; }
 .hero-immersif__contenu > * { opacity: 0; animation: hero-in 0.9s var(--ease-out) forwards; }
 .hero-immersif__contenu > *:nth-child(1) { animation-delay: 0s; }
 .hero-immersif__contenu > *:nth-child(2) { animation-delay: 0.11s; }
-.hero-immersif__contenu > *:nth-child(3) { animation-delay: 0.22s; }
-.hero-immersif__contenu > *:nth-child(4) { animation-delay: 0.33s; }
 @keyframes hero-in { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: translateY(0); } }
 /* Geste marquant de la page (BDR-030) : au scroll, le hero se dissout
    doucement dans le sommaire — animation liée nativement au défilement
@@ -292,7 +290,6 @@ i { font-style: normal; }
    nuance : le mot mis en italique dans le titre passe dans un vert
    pâle, plus clair que le fond (jamais de noir neutre) — une touche
    distincte du reste du titre plutôt qu'un aplat beige de plus. */
-.hero-immersif .hero-label { color: var(--sable-fonce); }
 .hero-immersif h1 {
   font-family: var(--f-disp);
   font-weight: 700;
@@ -310,22 +307,6 @@ i { font-style: normal; }
   max-width: 620px;
   margin: 0 auto 40px;
 }
-/* bouton de verre */
-.btn-verre {
-  display: inline-flex; align-items: center; gap: 10px;
-  font-family: var(--f-mono);
-  font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
-  color: var(--sable-fonce);
-  background: rgba(var(--sable-fonce-rgb), 0.16);
-  border: 1px solid rgba(var(--sable-fonce-rgb), 0.45);
-  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
-  border-radius: 999px;
-  padding: 16px 34px;
-  cursor: pointer;
-  transition: background var(--t-fast), transform 0.25s var(--ease-out);
-}
-.btn-verre:hover { background: rgba(var(--sable-fonce-rgb), 0.28); transform: translateY(-2px); }
-
 /* --------------------------------------------------------------
    SOMMAIRE — index éditorial (BDR-030)
    Remplace le sommaire en cartes de verre : une liste sobre sur fond
@@ -398,12 +379,6 @@ i { font-style: normal; }
 }
 .index-row:hover .index-arrow { opacity: 1; transform: translateX(6px); }
 
-.hero-label {
-  font-family: var(--f-mono);
-  font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
-  color: #c3d6a8;
-  margin-bottom: 34px;
-}
 .hero-sub {
   font-size: 19px; line-height: 1.75;
   color: rgba(var(--blanc-rgb), 0.86);
