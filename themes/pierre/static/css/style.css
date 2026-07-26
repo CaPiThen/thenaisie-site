@@ -174,13 +174,18 @@ i { font-style: normal; }
    sur les 10 derniers % : mesuré en vrai, le titre (clamp jusqu'à 124px)
    s'étend jusqu'à 90,6% de la largeur du conteneur à 1440px — un dégradé
    qui s'allège dès le milieu (comme une première version le faisait)
-   fait tomber le texte sous le seuil AA bien avant son bord droit réel. */
+   fait tomber le texte sous le seuil AA bien avant son bord droit réel.
+   L'allègement démarre toujours à 90% (contrainte inchangée), mais en
+   deux paliers plus doux plutôt qu'une chute directe à 0.26 : signalé
+   par Pierre comme une coupure visible plutôt qu'un fondu, sur toutes
+   les pages secondaires. */
 .shader-scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(90deg,
               rgba(11, 20, 14, 0.72) 0%,
               rgba(11, 20, 14, 0.68) 90%,
-              rgba(11, 20, 14, 0.26) 100%);
+              rgba(11, 20, 14, 0.55) 96%,
+              rgba(11, 20, 14, 0.45) 100%);
 }
 
 /* --------------------------------------------------------------
@@ -955,7 +960,9 @@ sup a:hover { color: var(--vert); }
   .footer-inner { flex-direction: column; text-align: center; }
   /* la frise et les pastilles de logo repassent en colonne simple */
   .cv-timeline { margin-left: 0; }
-  .cv-entry { padding-left: 0; padding-bottom: 44px; border-left: none; }
+  /* Même décalage que .story-item plus bas sur la page (22px) : le
+     contenu ne doit jamais toucher le trait vertical de la frise. */
+  .cv-entry { padding-left: 22px; padding-bottom: 44px; border-left: none; }
   .cv-entry::before { display: none; }
   /* Pastille au-dessus du texte plutôt qu'à côté : sur mobile, une
      ligne (chip + texte) décalait le titre/lieu de la largeur de la
