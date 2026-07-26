@@ -22,6 +22,7 @@ champs:
 | BLK-003 | 2026-07-24 | `rm -rf output/` échoue silencieusement sur une entrée fantôme (partage CIFS) | ouvert (contourné) |
 | BLK-004 | 2026-07-24 | `rsvg-convert` ne semble pas appliquer le `font-family` demandé dans le sandbox de cette session | ouvert (non résolu) |
 | BLK-005 | 2026-07-24 | Un jeton GitHub collé en clair dans le chat bloque `git push` (classificateur de sécurité) — récidive | ouvert (à faire par Pierre) |
+| BLK-006 | 2026-07-25 | `git status` affiche parfois des fichiers non liés (déjà présents avant la session) comme stagés (`A`) sans `git add` explicite de ma part | ouvert (contourné à chaque fois) |
 
 ## Entrées
 
@@ -64,3 +65,11 @@ champs:
 **Cause réelle :** Protection délibérée du harnais (« auto mode classifier »), pas un bug du projet ni de la commande. **C'est une récidive** : `CONTEXTE_PROJET.md` §6 documentait déjà « une tentative de push avec un jeton fourni en chat a été bloquée par le classificateur de sécurité de Claude Code » lors d'une session précédente.
 **Solution :** Aucun contournement tenté (instruction explicite du message de blocage à ne pas router autour). Les deux commits restent locaux, prêts à être poussés (`git push origin main`, 2 commits d'avance sur `origin/main` au moment du blocage) depuis un poste authentifié — Pierre lui-même, hors de cette session.
 **Statut :** ouvert. **Recommandation forte, répétée depuis la première occurrence :** régénérer ce jeton GitHub par précaution — il a maintenant été collé en clair dans l'historique de conversation à deux reprises sur ce projet. **Pattern à connaître pour toute session future sur ce projet :** ne jamais demander ou accepter un jeton/mot de passe en clair dans le chat pour authentifier un push ; le push doit se faire depuis un poste où l'utilisateur est déjà authentifié (SSH, `gh auth login`, ou credential helper), jamais via un secret transmis en conversation.
+
+### BLK-006 — `git status` affiche parfois des fichiers non liés comme stagés
+
+**Date :** 2026-07-25
+**Friction :** À deux reprises dans cette session, juste avant un commit demandé par Pierre, `git status --short` a montré des fichiers déjà présents en non-suivi AVANT la session (`.impeccable/critique/...`, `CONTEXTE_PROJET.md`, `content/articles/*.md`, `publishconf.py`, `themes/pierre/templates/article.html`/`category.html`) marqués `A` (stagés), alors qu'aucun `git add -A` ni `git add .` n'avait été exécuté — seuls des `git add <fichiers précis>` ciblés sur les fichiers de la tâche en cours. Une fois même après un simple `git checkout -- <fichier>` sans rapport.
+**Cause réelle :** Non identifiée. Vérifié : pas de hook dans `.git/hooks/` (aucun fichier hors les `.sample`), pas d'alias `git` dans la config locale, `git reflog` ne montre que des commits (n'enregistre pas les événements `add`). Reste possible : un processus concurrent dans cet environnement partagé qui touche l'index du même dépôt, ou un comportement du harnais lié à un `git add -A` implicite ailleurs — pas confirmé.
+**Solution :** À chaque fois, `git status --short` relu attentivement AVANT de committer, et les fichiers non liés à la tâche du moment désstagés avec `git restore --staged <fichiers>` avant de committer. Aucun de ces fichiers n'a fini dans un commit de cette session.
+**Statut :** ouvert (contourné à chaque fois par une relecture systématique de `git status` avant tout commit — à garder comme réflexe permanent sur ce projet, cause réelle non résolue).
