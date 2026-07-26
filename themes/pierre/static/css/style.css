@@ -317,7 +317,7 @@ i { font-style: normal; }
 .index-section {
   position: relative; z-index: 1;
   background: var(--sable);
-  padding: 120px 48px 140px;
+  padding: 32px 48px;
 }
 /* Quadrillage de points en canvas (BDR-041) : un seul élément à
    repeindre, quel que soit le nombre de points — pas de centaines de
@@ -332,9 +332,7 @@ i { font-style: normal; }
   display: grid; grid-template-columns: 112px 1fr auto; align-items: center; gap: 32px;
   padding: 44px 28px;
   margin: 0 -28px;
-  border-bottom: 1px solid var(--ligne);
 }
-.index-row:first-child { border-top: 1px solid var(--ligne); }
 /* Trame qui glisse au survol : vert pâle sur le fond beige, le même
    geste que celui qui remplit le chiffre juste à côté. */
 .index-row::before {
@@ -566,13 +564,13 @@ i { font-style: normal; }
   position: absolute; left: -29px; top: -4px;
   width: 58px; height: 58px; flex: none;
   border-radius: 50%;
-  background: var(--vert-pale);
+  background: var(--blanc);
   border: 2px solid var(--ligne);
   display: grid; place-items: center;
   overflow: hidden;
-  transition: border-color var(--t-fast), background var(--t-fast), transform 0.25s var(--ease-out);
+  transition: border-color var(--t-fast), transform 0.25s var(--ease-out);
 }
-.cv-entry:hover .logo-chip { border-color: var(--vert-clair); background: var(--blanc); transform: scale(1.06); }
+.cv-entry:hover .logo-chip { border-color: var(--vert-clair); transform: scale(1.06); }
 /* Vrai logo auto-hébergé quand il existe (voir BDR-029) : récupéré une
    fois depuis le site officiel de l'entreprise/école, jamais rechargé
    depuis un service tiers au runtime — cohérent avec BDR-002/003.
@@ -947,7 +945,7 @@ sup a:hover { color: var(--vert); }
   .section { padding: 68px 22px; }
   .section-tight { padding: 32px 22px 72px; }
   .page-header { padding: 40px 22px 0; }
-  .index-section { padding: 80px 22px 100px; }
+  .index-section { padding: 24px 22px; }
   .index-row { grid-template-columns: 72px 1fr; padding: 34px 20px; margin: 0 -20px; row-gap: 10px; }
   .index-n { font-size: clamp(40px, 16vw, 60px); }
   .index-arrow { grid-column: 2; margin-top: 4px; }
@@ -959,7 +957,11 @@ sup a:hover { color: var(--vert); }
   .cv-timeline { margin-left: 0; }
   .cv-entry { padding-left: 0; padding-bottom: 44px; border-left: none; }
   .cv-entry::before { display: none; }
-  .cv-entry-head { gap: 14px; }
+  /* Pastille au-dessus du texte plutôt qu'à côté : sur mobile, une
+     ligne (chip + texte) décalait le titre/lieu de la largeur de la
+     pastille, désaligné avec le reste du contenu de l'entrée (liste,
+     paragraphe) qui démarre à gauche. Empiler les deux corrige l'aplomb. */
+  .cv-entry-head { flex-direction: column; align-items: flex-start; gap: 10px; }
   .logo-chip { position: static; width: 48px; height: 48px; }
   .story-item { padding-left: 22px; }
   .figure { padding: 20px 18px 16px; border-radius: 18px; }

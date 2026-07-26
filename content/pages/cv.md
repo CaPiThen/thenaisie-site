@@ -26,7 +26,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
   <div>
     <div class="cv-entry-period">Décembre 2025 — aujourd'hui</div>
     <h3>Consultant en transformation des processus métier</h3>
-    <div class="place">PwC — Neuilly-sur-Seine · Client&nbsp;: L'Oréal</div>
+    <div class="place">PwC<br>Neuilly-sur-Seine<br>Client&nbsp;: L'Oréal</div>
   </div>
 </div>
 <ul>
@@ -42,7 +42,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
   <div>
     <div class="cv-entry-period">Juillet 2023 — décembre 2025</div>
     <h3>Consultant Talent Development Operations</h3>
-    <div class="place">Accenture — Paris · Clients&nbsp;: TotalEnergies, Schneider Electric, EDF, ministère des Armées</div>
+    <div class="place">Accenture<br>Paris<br>Clients&nbsp;: TotalEnergies, Schneider Electric, EDF, ministère des Armées</div>
   </div>
 </div>
 <ul>
@@ -58,7 +58,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
   <div>
     <div class="cv-entry-period">Septembre 2022 — juillet 2023</div>
     <h3>Chargé de projets Transformation</h3>
-    <div class="place">ENGIE GBS — Paris La Défense</div>
+    <div class="place">ENGIE GBS<br>Paris La Défense</div>
   </div>
 </div>
 <ul>
@@ -73,7 +73,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
   <div>
     <div class="cv-entry-period">Mars — août 2020</div>
     <h3>Chef de projet</h3>
-    <div class="place">SUEZ — Blois</div>
+    <div class="place">SUEZ<br>Blois</div>
   </div>
 </div>
 <ul>
@@ -94,7 +94,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
   <div>
     <div class="cv-entry-period">2023 — 2025</div>
     <h3>Programme Grande École, Master 2</h3>
-    <div class="place">EM Normandie Business School — en alternance</div>
+    <div class="place">EM Normandie Business School<br>en alternance</div>
   </div>
 </div>
 <p>Gestion de projet, changement organisationnel, transformation digitale, contrôle interne, pilotage de la performance, innovation et intelligence économique. Qualification à la Creative Week de Barcelone pour un projet entrepreneurial de formation en grande entreprise.</p>
@@ -106,7 +106,7 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
   <div>
     <div class="cv-entry-period">2020 — 2022</div>
     <h3>Diplôme d'ingénieur — spécialité Data &amp; IA</h3>
-    <div class="place">ESILV — École Supérieure d'Ingénieurs Léonard de Vinci, Paris La Défense</div>
+    <div class="place">ESILV<br>École Supérieure d'Ingénieurs Léonard de Vinci<br>Paris La Défense</div>
   </div>
 </div>
 <p>Mathématiques, physique, sciences de l'ingénieur et informatique. Développement d'une webapp fondée sur l'IA pour transmettre les conseils d'experts en permaculture aux débutants. Qualification aux 24h de l'Innovation Aéronautique pour un prototype de cabine d'avion gérée par IA, devant un jury de 200 chefs d'entreprises.</p>
