@@ -22,7 +22,7 @@ champs:
 | BLK-003 | 2026-07-24 | `rm -rf output/` échoue silencieusement sur une entrée fantôme (partage CIFS) | ouvert (contourné) |
 | BLK-004 | 2026-07-24 | `rsvg-convert` ne semble pas appliquer le `font-family` demandé dans le sandbox de cette session | ouvert (non résolu) |
 | BLK-005 | 2026-07-24 | Un jeton GitHub collé en clair dans le chat bloque `git push` (classificateur de sécurité) — récidive | ouvert (à faire par Pierre) |
-| BLK-006 | 2026-07-25 | `git status` affiche parfois des fichiers non liés (déjà présents avant la session) comme stagés (`A`) sans `git add` explicite de ma part | ouvert (contourné à chaque fois) |
+| BLK-006 | 2026-07-25 | `git status` affiche parfois des fichiers non liés (déjà présents avant la session) comme stagés (`A`) sans `git add` explicite de ma part | résolu (Pierre committe en parallèle sur le même dépôt) |
 
 ## Entrées
 
@@ -70,6 +70,6 @@ champs:
 
 **Date :** 2026-07-25
 **Friction :** À deux reprises dans cette session, juste avant un commit demandé par Pierre, `git status --short` a montré des fichiers déjà présents en non-suivi AVANT la session (`.impeccable/critique/...`, `CONTEXTE_PROJET.md`, `content/articles/*.md`, `publishconf.py`, `themes/pierre/templates/article.html`/`category.html`) marqués `A` (stagés), alors qu'aucun `git add -A` ni `git add .` n'avait été exécuté — seuls des `git add <fichiers précis>` ciblés sur les fichiers de la tâche en cours. Une fois même après un simple `git checkout -- <fichier>` sans rapport.
-**Cause réelle :** Non identifiée. Vérifié : pas de hook dans `.git/hooks/` (aucun fichier hors les `.sample`), pas d'alias `git` dans la config locale, `git reflog` ne montre que des commits (n'enregistre pas les événements `add`). Reste possible : un processus concurrent dans cet environnement partagé qui touche l'index du même dépôt, ou un comportement du harnais lié à un `git add -A` implicite ailleurs — pas confirmé.
-**Solution :** À chaque fois, `git status --short` relu attentivement AVANT de committer, et les fichiers non liés à la tâche du moment désstagés avec `git restore --staged <fichiers>` avant de committer. Aucun de ces fichiers n'a fini dans un commit de cette session.
-**Statut :** ouvert (contourné à chaque fois par une relecture systématique de `git status` avant tout commit — à garder comme réflexe permanent sur ce projet, cause réelle non résolue).
+**Cause réelle :** Probablement résolue rétrospectivement (session suivante) : un commit `1fc2b0d` (« Updates sur fichiers .md », auteur Pierre, avant un commit `26a9fec` fait aussi par Pierre pendant que cette session tournait) a ajouté exactement ces fichiers (`.impeccable/critique/...`, `CONTEXTE_PROJET.md`, `content/articles/*.md`, `publishconf.py`, `article.html`/`category.html`) au dépôt. Pierre opère donc sur ce même dépôt en parallèle de cette session (poste local ou autre session), ce qui explique un index qui bouge sans action de ma part — pas un bug d'outil.
+**Solution :** À chaque fois, `git status --short` relu attentivement AVANT de committer, et les fichiers non liés à la tâche du moment désstagés avec `git restore --staged <fichiers>` avant de committer. Aucun de ces fichiers n'a fini dans un commit de cette session par erreur.
+**Statut :** résolu (cause probable identifiée a posteriori). **Pattern à garder pour toute session future sur ce projet :** Pierre peut committer/pousser en parallèle de cette session — toujours relire `git status`/`git log` avant de committer pour ne pas écraser ou dupliquer son travail, et s'attendre à ce que `HEAD` ait pu avancer entre deux actions.
