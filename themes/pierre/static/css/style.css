@@ -170,22 +170,17 @@ i { font-style: normal; }
   opacity: 0.22; mix-blend-mode: overlay;
   background-repeat: repeat; background-size: 140px 140px;
 }
-/* Le voile protège le texte sur ~90% de la largeur, et ne s'allège que
-   sur les 10 derniers % : mesuré en vrai, le titre (clamp jusqu'à 124px)
-   s'étend jusqu'à 90,6% de la largeur du conteneur à 1440px — un dégradé
-   qui s'allège dès le milieu (comme une première version le faisait)
-   fait tomber le texte sous le seuil AA bien avant son bord droit réel.
-   L'allègement démarre toujours à 90% (contrainte inchangée), mais en
-   deux paliers plus doux plutôt qu'une chute directe à 0.26 : signalé
-   par Pierre comme une coupure visible plutôt qu'un fondu, sur toutes
-   les pages secondaires. */
+/* Voile uniforme (pas de dégradé) : une version dégradée, plus claire
+   sur la fin de la largeur, laissait apparaître une tache plus claire
+   dans le bruit du shader lui-même (feTurbulence, variance naturelle
+   du motif, pas un artefact de rendu) — visible comme une coupure de
+   couleur sur toutes les pages secondaires, confirmé par capture
+   d'écran réelle. Une opacité fixe et suffisamment sombre supprime
+   cette variance quel que soit l'endroit où le bruit est plus clair,
+   au lieu de la démasquer volontairement sur une zone donnée. */
 .shader-scrim {
   position: absolute; inset: 0; z-index: 1; pointer-events: none;
-  background: linear-gradient(90deg,
-              rgba(11, 20, 14, 0.72) 0%,
-              rgba(11, 20, 14, 0.68) 90%,
-              rgba(11, 20, 14, 0.55) 96%,
-              rgba(11, 20, 14, 0.45) 100%);
+  background: rgba(11, 20, 14, 0.8);
 }
 
 /* --------------------------------------------------------------
