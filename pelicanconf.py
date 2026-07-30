@@ -11,7 +11,12 @@ SITEURL = 'https://thenaisiepierre.fr'
 # Open Graph, Twitter Card). SITE_ABSOLUTE_URL n'est pas un nom réservé par
 # Pelican : il traverse les templates sans jamais être réécrit.
 SITE_ABSOLUTE_URL = 'https://thenaisiepierre.fr'
-STATIC_PATHS = ['images']
+# 'extra/CNAME' place le fichier de domaine personnalisé exigé par GitHub
+# Pages à la racine de la sortie (EXTRA_PATH_METADATA réécrit son chemin de
+# sortie), plutôt qu'un `echo` dans le workflow CI — reste versionné et
+# généré à chaque build, local ou CI, sans dépendre du contenu de deploy.yml.
+STATIC_PATHS = ['images', 'extra/CNAME']
+EXTRA_PATH_METADATA = {'extra/CNAME': {'path': 'CNAME'}}
 
 # Casse-cache pour CSS/JS/polices : sans ça, un visiteur qui a déjà chargé
 # le site garde l'ancien style.css en cache même après un déploiement (même

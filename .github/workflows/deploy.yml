@@ -1,19 +1,22 @@
-name: Deploy to OVH
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches: [main]
 
-jobs:
-  build-and-deploy:
-    runs-on: ubuntu-latest
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
+jobs:
+  build:
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout du code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Installation de Python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
           python-version: '3.11'
 
@@ -28,12 +31,24 @@ jobs:
       - name: Génération du site
         run: pelican content -s pelicanconf.py
 
-      - name: Déploiement FTP vers OVH
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      - name: Configuration de Pages
+        uses: actions/configure-pages@v6
+
+      - name: Empaquetage de l'artefact
+        uses: actions/upload-pages-artifact@v5
         with:
-          server: ftp.cluster129.hosting.ovh.net
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: output/
-          server-dir: www/
-          dangerous-clean-slate: true
+          path: output/
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Déploiement sur GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
