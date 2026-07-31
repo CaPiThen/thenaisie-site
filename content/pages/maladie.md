@@ -2,7 +2,7 @@ Title: Vivre avec la RCH
 Slug: maladie
 Subtitle: Rectocolite hémorragique : mon vécu, ce que dit la science, et les conseils que j'aurais aimé lire au début.
 
-<div class="callout callout--warn">
+<div class="callout callout--intro">
 <span class="callout-label">À lire avant tout</span>
 <p>Je ne suis pas médecin. Cette page mêle mon expérience personnelle et des informations issues de sources publiques que je cite systématiquement. <strong>Rien ici ne remplace l'avis de votre gastro-entérologue</strong>, qui connaît votre dossier, et chaque MICI est différente. Ne modifiez jamais un traitement sur la foi d'un site personnel, le mien compris.</p>
 </div>
