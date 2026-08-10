@@ -1,6 +1,6 @@
 # thenaisiepierre.fr
 
-Site personnel de Pierre Thenaisie — construit avec Pelican (Python) et déployé automatiquement sur OVH via GitHub Actions.
+Site personnel de Pierre Thenaisie — construit avec Pelican (Python) et déployé automatiquement sur Cloudflare Workers (assets statiques) à chaque push.
 
 ## Démarrage rapide
 
@@ -31,7 +31,9 @@ git commit -m "nouvel article"
 git push
 ```
 
-→ GitHub Action génère et déploie automatiquement sur thenaisiepierre.fr
+→ Cloudflare Workers Builds clone le dépôt, lance la build command (Pelican +
+`build_gallery.py`), puis `wrangler deploy` publie le dossier `output/` (voir
+`wrangler.jsonc`). Aucune action manuelle. Domaine : thenaisiepierre.fr.
 
 ## Ajouter des images
 
@@ -40,22 +42,18 @@ Mettre les images dans `content/images/` et les référencer dans le Markdown :
 ![Description](../images/maphoto.jpg)
 ```
 
-## Secrets et variables GitHub à configurer
+## Variables d'environnement (Cloudflare)
 
-Dans Settings → Secrets and variables → Actions :
+Dans le projet Worker → Paramètres → Variables d'environnement du build :
 
-**Secrets** (onglet Secrets) :
-- `FTP_USERNAME` : ton identifiant FTP OVH
-- `FTP_PASSWORD` : ton mot de passe FTP OVH
-
-**Variables** (onglet Variables) :
+- `PYTHON_VERSION` : `3.11` (version utilisée pour la build command).
 - `IMMICH_SHARE_URL` : l'URL du lien de partage public de l'album Immich à
-  afficher sur la page Galerie (ex. `https://photos.thenaisiepierre.fr/s/xxxxx`).
+  afficher sur la page Galerie (ex. `https://photos.thenaisiepierre.fr/share/xxxxx`).
   Absente → la page Galerie affiche simplement « à venir ».
 
 ## Galerie (photos depuis Immich)
 
-La page Galerie ne stocke aucune photo sur OVH : `build_gallery.py` récupère,
+La page Galerie ne stocke aucune photo sur l'hébergement : `build_gallery.py` récupère,
 **au moment du build**, la liste des photos du partage Immich désigné par
 `IMMICH_SHARE_URL`, et régénère la section correspondante de
 `content/pages/galerie.md` (entre les balises `GALERIE:START`/`GALERIE:END` —
