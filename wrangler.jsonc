@@ -1,0 +1,15 @@
+{
+  // Déploiement Cloudflare Workers en "assets-only" (aucun script Worker,
+  // juste l'hébergement statique) — le site est généré par Pelican avant
+  // `wrangler deploy` (voir la Build command dans les réglages Cloudflare).
+  //
+  // IMPORTANT : "name" doit correspondre EXACTEMENT au nom du Worker déjà
+  // créé dans ton dashboard Cloudflare (Workers & Pages). Si le tien porte
+  // un autre nom, remplace-le ici, sinon wrangler déploierait vers un autre
+  // Worker que celui connecté au dépôt.
+  "name": "thenaisie-site",
+  "compatibility_date": "2026-08-10",
+  "assets": {
+    "directory": "./output"
+  }
+}
