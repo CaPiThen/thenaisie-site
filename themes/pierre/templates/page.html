@@ -1,20 +1,32 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} — {{ SITENAME }}{% endblock %}
-{% block meta_description %}{{ page.subtitle if page.subtitle else SITESUBTITLE }}{% endblock %}
+{% block title %}{{ page.seotitle if page.seotitle else page.title ~ ", " ~ SITENAME }}{% endblock %}
+{% block meta_description %}{{ page.description if page.description else (page.subtitle if page.subtitle else SITESUBTITLE) }}{% endblock %}
 {% block og_url %}{{ SITE_ABSOLUTE_URL }}/{{ page.url }}{% endblock %}
+{% block og_type %}{{ 'article' if page.schema == 'article' else 'website' }}{% endblock %}
+{% block robots %}{% if page.slug == '404' %}<meta name="robots" content="noindex">{% endif %}{% endblock %}
+{% block bodyclass %}page page--{{ page.slug }}{% endblock %}
+{% block scripts %}{% if page.slug == 'galerie' %}<script src="{{ SITEURL }}/theme/js/galerie.js?v={{ ASSET_VERSION }}" defer></script>{% endif %}{% endblock %}
+{% block jsonld %}
+{% if page.slug != '404' %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"{{ SITE_ABSOLUTE_URL }}/"},{"@type":"ListItem","position":2,"name":{{ page.title|tojson }},"item":"{{ SITE_ABSOLUTE_URL }}/{{ page.url }}"}]}
+</script>
+{% endif %}
+{% if page.schema == 'article' %}
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":{{ page.title|tojson }},"description":{{ self.meta_description()|tojson }},"inLanguage":"fr","mainEntityOfPage":"{{ SITE_ABSOLUTE_URL }}/{{ page.url }}","image":"{{ SITE_ABSOLUTE_URL }}/theme/images/og-image.png","datePublished":"{{ page.date.strftime('%Y-%m-%d') }}","dateModified":"{{ (page.modified or page.date).strftime('%Y-%m-%d') }}","author":{"@type":"Person","name":"Pierre Thenaisie","url":"{{ SITE_ABSOLUTE_URL }}/"},"publisher":{"@type":"Person","name":"Pierre Thenaisie"}}
+</script>
+{% endif %}
+{% endblock %}
 {% block content %}
 
-<section class="page-hero shader-hero">
-  <div class="ethereal" data-color="91,140,62" data-scale="62" data-speed="90" data-seed="7" data-alpha="0.78"></div>
-  <div class="ethereal ethereal--accent" data-color="150,195,155" data-scale="46" data-speed="76" data-seed="21" data-alpha="0.58"></div>
-  <div class="shader-scrim" aria-hidden="true"></div>
-  <header class="page-header">
-    <h1>{{ page.title }}</h1>
-    {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
-  </header>
-</section>
+<header class="page-tete">
+  <h1>{{ page.title }}</h1>
+  {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
+  {% if page.schema == 'article' %}<p class="page-tete__signature">Par Pierre Thenaisie. Mis à jour le <time datetime="{{ (page.modified or page.date).strftime('%Y-%m-%d') }}">{{ (page.modified or page.date).strftime('%d/%m/%Y') }}</time>.</p>{% endif %}
+</header>
 
-<div class="section-tight page-content">
+<div class="page-content">
   {{ page.content }}
 </div>
 

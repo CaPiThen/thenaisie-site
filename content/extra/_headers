@@ -1,0 +1,13 @@
+# En-têtes de sécurité, lus par Cloudflare Workers Static Assets.
+# Le site n'a ni script en ligne ni ressource tierce, hors les photos de
+# la galerie servies par photos.thenaisiepierre.fr.
+/*
+  Content-Security-Policy: default-src 'self'; img-src 'self' https://photos.thenaisiepierre.fr data:; style-src 'self'; script-src 'self'; font-src 'self'; base-uri 'self'; form-action 'none'; frame-ancestors 'none'
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: DENY
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+/theme/fonts/*
+  Cache-Control: public, max-age=31536000, immutable

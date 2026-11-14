@@ -35,6 +35,14 @@ git push
 `build_gallery.py`), puis `wrangler deploy` publie le dossier `output/` (voir
 `wrangler.jsonc`). Aucune action manuelle. Domaine : thenaisiepierre.fr.
 
+## Fichiers servis à la racine
+
+`content/extra/robots.txt` et `content/extra/_headers` (en-têtes de sécurité lus par
+Cloudflare) sont copiés à la racine du site. `sitemap.xml` est généré par le gabarit
+`themes/pierre/templates/sitemap.html`, la page 404 par `content/pages/404.md`.
+Les règles de design sont dans `DESIGN.md`. Les courbes de niveau de l'accueil se
+régénèrent avec `python3 data/contours.py data`.
+
 ## Ajouter des images
 
 Mettre les images dans `content/images/` et les référencer dans le Markdown :

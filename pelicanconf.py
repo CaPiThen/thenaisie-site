@@ -3,7 +3,7 @@ import subprocess
 
 AUTHOR = 'Pierre Thenaisie'
 SITENAME = 'Pierre Thenaisie'
-SITESUBTITLE = "Consultant en transformation des processus métier. Parcours, projets techniques, et vivre avec une MICI."
+SITESUBTITLE = "Pierre Thenaisie, consultant en transformation des processus métier chez PwC. Ingénieur ESILV, diplômé de l'EM Normandie. Parcours, projets et contact."
 SITEURL = 'https://thenaisiepierre.fr'
 # Distincte de SITEURL : Pelican réécrit SITEURL en chemin relatif dans les
 # templates quand RELATIVE_URLS=True (voir pelican/writers.py, _get_localcontext),
@@ -11,7 +11,14 @@ SITEURL = 'https://thenaisiepierre.fr'
 # Open Graph, Twitter Card). SITE_ABSOLUTE_URL n'est pas un nom réservé par
 # Pelican : il traverse les templates sans jamais être réécrit.
 SITE_ABSOLUTE_URL = 'https://thenaisiepierre.fr'
-STATIC_PATHS = ['images']
+STATIC_PATHS = ['images', 'extra']
+# Fichiers servis à la racine du site : robots.txt, et _headers (en-têtes
+# de sécurité lus par Cloudflare Workers Static Assets, voir BDR-052).
+EXTRA_PATH_METADATA = {
+    'extra/robots.txt': {'path': 'robots.txt'},
+    'extra/_headers': {'path': '_headers'},
+    'extra/_redirects': {'path': '_redirects'},
+}
 
 # Casse-cache pour CSS/JS/polices : sans ça, un visiteur qui a déjà chargé
 # le site garde l'ancien style.css en cache même après un déploiement (même
@@ -28,16 +35,15 @@ except (subprocess.CalledProcessError, FileNotFoundError):
     import time
     ASSET_VERSION = str(int(time.time()))
 
-# Silhouette de sommets du hero (accueil) : tracés vectoriels réels,
-# obtenus par vectorisation (potrace) d'une photo de montagne, pas un
-# dessin à main levée — voir BDR-041. Gardés hors du template Jinja
-# (illisibles inline, ~65 Ko à eux deux) et hors de STATIC_PATHS (ce sont
-# des fragments de coordonnées, pas des fichiers à servir tels quels).
+# Courbes de niveau du hero (accueil) : relief synthétique tracé par
+# data/contours.py (marching squares, graine fixe), voir BDR-052. Gardées
+# hors du template Jinja (illisibles inline) et hors de STATIC_PATHS (ce
+# sont des fragments de coordonnées, pas des fichiers à servir tels quels).
 _data_dir = os.path.join(os.path.dirname(__file__), 'data')
-with open(os.path.join(_data_dir, 'hero-peaks-back.path')) as f:
-    HERO_PEAKS_BACK_D = f.read().strip()
-with open(os.path.join(_data_dir, 'hero-peaks-front.path')) as f:
-    HERO_PEAKS_FRONT_D = f.read().strip()
+with open(os.path.join(_data_dir, 'hero-contours.path')) as f:
+    HERO_CONTOURS_D = f.read().strip()
+with open(os.path.join(_data_dir, 'hero-contours-index.path')) as f:
+    HERO_CONTOURS_INDEX_D = f.read().strip()
 
 PATH = 'content'
 THEME = 'themes/pierre'
@@ -52,8 +58,17 @@ ARTICLE_PATHS = []
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 
-# Pas de navigation globale : chaque page est volontairement cloisonnée.
-MENUITEMS = ()
+# Navigation globale (BDR-052, remplace BDR-001). La page RCH reste hors
+# du menu : elle est reliée depuis l'accueil et le pied de page.
+MENUITEMS = (
+    ('Parcours', 'cv'),
+    ('Projets', 'projets'),
+    ('Galerie', 'galerie'),
+)
+
+# Plan du site : gabarit direct `sitemap.html`, écrit en sitemap.xml.
+DIRECT_TEMPLATES = ['index', 'sitemap']
+SITEMAP_SAVE_AS = 'sitemap.xml'
 
 FEED_ALL_ATOM = None
 CATEGORY_FEED_ATOM = None

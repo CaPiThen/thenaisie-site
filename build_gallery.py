@@ -109,22 +109,26 @@ def render_gallery_html(base, param, ident, image_ids):
     if not image_ids:
         return (
             '<div class="gallery-empty" id="galerie-empty">\n'
-            '<span>//</span> l’album partagé est joignable mais ne contient '
-            "aucune photo pour l’instant.\n</div>"
+            'L’album partagé ne contient aucune photo pour l’instant.\n</div>'
         )
 
     items = []
     for n, aid in enumerate(image_ids, start=1):
         alt = "Photo {}".format(n)
         thumb = "{}/api/assets/{}/thumbnail?{}={}".format(base, aid, param, ident)
-        full = "{}/api/assets/{}/original?{}={}".format(base, aid, param, ident)
+        # Version « preview » (environ 2560 px, JPEG) : assez grande pour la
+        # visionneuse, bien plus légère que l'original.
+        full = "{}/api/assets/{}/thumbnail?size=preview&amp;{}={}".format(base, aid, param, ident)
+        # La première photo s'affiche en pleine largeur : on lui donne
+        # directement la grande version, chargée sans attendre.
+        src, mode = (full, "eager") if n == 1 else (thumb, "lazy")
         items.append(
-            '<div class="photo-item"><a href="{full}" target="_blank" '
-            'rel="noopener"><img src="{thumb}" loading="lazy" alt="{alt}">'
-            "</a></div>".format(full=full, thumb=thumb, alt=html.escape(alt))
+            '<div class="photo-item"><a href="{full}">'
+            '<img src="{src}" loading="{mode}" alt="{alt}">'
+            "</a></div>".format(full=full, src=src, mode=mode, alt=html.escape(alt))
         )
 
-    return '<div class="gallery-masonry">\n' + "\n".join(items) + "\n</div>"
+    return '<div class="gallery-masonry large">\n' + "\n".join(items) + "\n</div>"
 
 
 def main():

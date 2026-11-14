@@ -10,6 +10,9 @@
   "name": "thenaisie-site",
   "compatibility_date": "2026-08-10",
   "assets": {
-    "directory": "./output"
+    "directory": "./output",
+    // Toute adresse inconnue renvoie output/404.html avec un vrai statut 404
+    // (avant : l'accueil avec un statut 200, y compris pour robots.txt).
+    "not_found_handling": "404-page"
   }
 }

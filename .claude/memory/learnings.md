@@ -228,3 +228,15 @@ champs:
 **Pattern observé :** Après le correctif du titre hero mobile (BDR-050), Pierre a signalé « rien n'a changé » alors que le déploiement était déjà terminé et correct. Vérification directe (`curl -A "<UA>" https://thenaisiepierre.fr/theme/css/style.css?v=<sha>`) : le CSS servi en ligne portait déjà le bon `?v=` (le SHA du commit du correctif) et ne contenait plus la règle fautive — le déploiement était donc bien à jour. `curl -sI` a montré `cache-control: max-age=600` sur le HTML ET sur le CSS versionné. Le cache-busting par SHA (`ASSET_VERSION`, voir `pelicanconf.py`) protège contre un ancien `style.css` resservi sous une URL différente, mais pas contre le cas où le navigateur de Pierre a chargé et mis en cache la page `index.html` elle-même (avec l'ancien `?v=`) quelques secondes avant que le nouveau déploiement ne soit en ligne — cette page HTML reste alors valide jusqu'à 10 minutes dans le cache du navigateur.
 **Contexte :** Signalement de Pierre juste après un `git push`, probablement avant ou pendant la fin du déploiement GitHub Actions (build + publication prennent 1 à 2 minutes).
 **Application future :** Avant de re-diagnostiquer le code suite à un « rien n'a changé » juste après un push, vérifier D'ABORD le contenu réellement servi en ligne (LRN-022) ; si le `?v=` et le contenu sont déjà corrects, expliquer directement à Pierre la fenêtre de cache de 10 minutes de GitHub Pages et recommander un rechargement forcé (fermer l'onglet/l'appli puis rouvrir), plutôt que de supposer un bug de déploiement.
+
+
+### LRN-029 — Une image de partage se génère par capture chromium d'une page HTML, pas par rsvg-convert
+
+**Date :** 2026-11-14
+Contourne BLK-004 : écrire une page HTML temporaire dans le dossier de build, qui charge `fonts.css` et `style.css` du thème, puis `chromium --headless --window-size=1200,630 --screenshot`. Les polices du site sont alors réellement utilisées. Même logique pour vérifier un rendu : lancer le serveur local en tâche de fond séparée, un `nohup ... &` dans la même commande ne survit pas.
+
+
+### LRN-030 — Tester une interaction au clic en headless : page de test avec clic programmé
+
+**Date :** 2026-11-14
+`chromium --headless --screenshot` ne clique pas. Copier la page générée dans le dossier servi, y ajouter un script qui déclenche `.click()` après le chargement, puis capturer avec `--virtual-time-budget=9000` pour laisser les images arriver. Supprimer la page de test ensuite. A servi à valider la visionneuse de la galerie.

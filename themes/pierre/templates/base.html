@@ -1,19 +1,36 @@
 <!DOCTYPE html>
+<!--
+  CONTRAT DE DIRECTION (BDR-052)
+  THESE : le parcours de Pierre se lit comme une course d'orientation, son
+  sport. Refuse le hero plein écran à dégradé et le trio de cartes.
+  MONDE : papier froid, encre noire, orange balise en aplats, courbes de
+  niveau brunes. Archivo étroite en titres, Atkinson Hyperlegible en texte.
+  Angles droits, filets fins, aucune ombre.
+  RECIT : le visiteur comprend le métier en une phrase, voit le parcours sur
+  la carte, puis écrit ou ouvre le détail.
+  PREMIER ECRAN : titre métier à gauche, carte du parcours à droite, deux
+  actions sous le texte.
+  FORME : carte de course, une seule animation (le tracé de l'itinéraire).
+-->
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+  <title>{% block title %}{{ SITENAME }}, consultant en transformation des processus métier{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}{{ SITESUBTITLE }}{% endblock %}">
   <link rel="canonical" href="{% block og_url %}{{ SITE_ABSOLUTE_URL }}/{% endblock %}">
-  <meta name="theme-color" content="#0a0d08">
+  <meta name="theme-color" content="#f3f5f4">
+  {% block robots %}{% endblock %}
+  {# La page 404 est servie à n'importe quelle adresse : ses liens relatifs partent de la racine. #}
+  {% if page and page.slug == '404' %}<base href="/">{% endif %}
 
   <link rel="icon" type="image/svg+xml" href="{{ SITEURL }}/theme/images/favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ SITEURL }}/theme/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ SITEURL }}/theme/images/favicon-16.png">
   <link rel="apple-touch-icon" href="{{ SITEURL }}/theme/images/apple-touch-icon.png">
 
-  <meta property="og:type" content="website">
+  <meta name="author" content="Pierre Thenaisie">
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
   <meta property="og:site_name" content="{{ SITENAME }}">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:title" content="{{ self.title() }}">
@@ -22,73 +39,59 @@
   <meta property="og:image" content="{{ SITE_ABSOLUTE_URL }}/theme/images/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Pierre Thenaisie, consultant en transformation des processus métier">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ self.title() }}">
   <meta name="twitter:description" content="{{ self.meta_description() }}">
   <meta name="twitter:image" content="{{ SITE_ABSOLUTE_URL }}/theme/images/og-image.png">
 
-  <link rel="preload" href="{{ SITEURL }}/theme/fonts/petrona-normal-100-900-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="{{ SITEURL }}/theme/fonts/karla-normal-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ SITEURL }}/theme/fonts/archivo-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{ SITEURL }}/theme/fonts/atkinson-next-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/fonts.css?v={{ ASSET_VERSION }}">
   <link rel="stylesheet" href="{{ SITEURL }}/theme/css/style.css?v={{ ASSET_VERSION }}">
-  <script src="{{ SITEURL }}/theme/js/ethereal.js?v={{ ASSET_VERSION }}" defer></script>
   <script src="{{ SITEURL }}/theme/js/animations.js?v={{ ASSET_VERSION }}" defer></script>
+  {% block scripts %}{% endblock %}
+  {% block jsonld %}{% endblock %}
 </head>
 <body class="{% block bodyclass %}{% endblock %}">
 
-<header class="nav">
-  <a class="nav-logo" href="{{ SITEURL }}/">~/ thenaisiepierre</a>
-  <span class="nav-status"><span class="nav-dot" aria-hidden="true"></span>labo personnel</span>
+<a class="skip" href="#contenu">Aller au contenu</a>
+
+<header class="site-header">
+  <a class="brand" href="{{ SITEURL }}/"{% if not page %} aria-current="page"{% endif %}>
+    <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="1" y="1" width="22" height="22" class="brand-mark__fond"/><path d="M23 1v22H1z" class="brand-mark__orange"/><rect x="1" y="1" width="22" height="22" class="brand-mark__cadre"/></svg>
+    <span>Pierre Thenaisie</span>
+  </a>
+  <nav class="site-nav" aria-label="Navigation principale">
+    {% for title, slug in MENUITEMS %}
+    <a href="{{ SITEURL }}/{{ slug }}/"{% if page and page.slug == slug %} aria-current="page"{% endif %}>{{ title }}</a>
+    {% endfor %}
+    <a class="site-nav__contact" href="mailto:contact@thenaisiepierre.fr">Contact</a>
+  </nav>
 </header>
 
-<main>
+<main id="contenu">
   {% block content %}{% endblock %}
 </main>
 
-<footer class="footer">
-  <span class="footer-ghost" aria-hidden="true">thenaisie</span>
-  <div class="footer-inner">
-    <a class="footer-logo" href="mailto:contact@thenaisiepierre.fr">Pierre Thenaisie</a>
-    <span class="footer-sub">© 2026 — écrit &amp; cultivé à la main</span>
+<footer class="site-footer">
+  <div class="site-footer__haut">
+    <p class="site-footer__titre">Pierre Thenaisie</p>
+    <p class="site-footer__texte">Consultant en transformation des processus métier, PwC, Neuilly-sur-Seine.</p>
+    <p class="site-footer__contact">
+      <a href="mailto:contact@thenaisiepierre.fr">contact@thenaisiepierre.fr</a>
+      <a href="https://www.linkedin.com/in/pierre-thenaisie/" rel="noopener">LinkedIn</a>
+    </p>
   </div>
+  <nav class="site-footer__liens" aria-label="Pied de page">
+    <a href="{{ SITEURL }}/cv/">Parcours</a>
+    <a href="{{ SITEURL }}/projets/">Projets</a>
+    <a href="{{ SITEURL }}/galerie/">Galerie</a>
+    <a href="{{ SITEURL }}/rectocolite-hemorragique/">Guide rectocolite hémorragique</a>
+    <a href="{{ SITEURL }}/mentions-legales/">Mentions légales</a>
+  </nav>
+  <p class="site-footer__bas">© 2026 Pierre Thenaisie. Site sans cookie ni mesure d'audience.</p>
 </footer>
 
-<script>
-(function () {
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* --- Largeur de la barre de défilement ---
-     Les bandes pleine largeur utilisent 100vw, qui inclut la barre de
-     défilement : sans correction, la page défile horizontalement. */
-  var setScrollbarWidth = function () {
-    var w = window.innerWidth - document.documentElement.clientWidth;
-    document.documentElement.style.setProperty('--sbw', (w > 0 ? w : 0) + 'px');
-  };
-  setScrollbarWidth();
-  var sbTimer = 0;
-  window.addEventListener('resize', function () {
-    clearTimeout(sbTimer);
-    sbTimer = setTimeout(setScrollbarWidth, 150);
-  });
-
-  /* --- Révélation au défilement ---
-     Le sommaire de l'accueil (.index-row) reste volontairement hors de
-     cette liste : Pierre veut un défilement lisse, sans rien qui
-     « apparaisse » — voir BDR-014. Son geste au scroll à lui est le
-     hero qui se dissout, en CSS pur (voir style.css, BDR-030). */
-  var els = document.querySelectorAll('.cv-entry, .article-card, .callout, .skills-group, .photo-item, .prose, .lead');
-  els.forEach(function (el) { el.classList.add('reveal'); });
-  if (!('IntersectionObserver' in window) || reduced) {
-    els.forEach(function (el) { el.classList.add('in'); });
-  } else {
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) {
-        if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-      });
-    }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
-    els.forEach(function (el) { io.observe(el); });
-  }
-})();
-</script>
 </body>
 </html>

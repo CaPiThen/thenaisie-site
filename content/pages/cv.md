@@ -1,10 +1,12 @@
 Title: Parcours
 Slug: cv
-Subtitle: Consultant en transformation des processus métier. Double formation ingénieur et management.
+Seotitle: Parcours et CV de Pierre Thenaisie, consultant chez PwC
+Subtitle: Quatre entreprises, deux diplômes, un même sujet : comprendre comment une organisation fonctionne pour l'aider à mieux tourner.
+Description: Le parcours de Pierre Thenaisie : consultant chez PwC après Accenture, ENGIE et SUEZ, ingénieur ESILV et diplômé de l'EM Normandie. Expériences, formation, compétences.
 
-<p class="lead">J'accompagne les organisations dans l'analyse, l'optimisation et la modernisation de leurs processus métier, en mobilisant les leviers numériques, la donnée et l'IA pour trouver ce qui peut être simplifié, fiabilisé ou automatisé.</p>
+<p class="lead">J'accompagne les organisations dans l'analyse et la modernisation de leurs processus métier. Je m'appuie sur le numérique, la donnée et l'IA pour trouver ce qui peut être simplifié, fiabilisé ou automatisé.</p>
 
-<nav class="toc">
+<nav class="toc" aria-label="Sommaire">
 <span class="toc-label">Sur cette page</span>
 <ol>
 <li><a href="#experience">Expérience</a></li>
@@ -16,226 +18,194 @@ Subtitle: Consultant en transformation des processus métier. Double formation i
 </ol>
 </nav>
 
-<div class="cv-block" id="experience">
-<div class="section-label">expérience</div>
-<div class="cv-timeline">
-
-<div class="cv-entry">
-<div class="cv-entry-head">
-  <span class="logo-chip" data-mono="PwC"><img src="/theme/images/logos/pwc.png" alt="PwC" loading="lazy" width="58" height="58"></span>
-  <div>
-    <div class="cv-entry-period">Décembre 2025 — aujourd'hui</div>
-    <h3>Consultant en transformation des processus métier</h3>
-    <div class="place">PwC<br>Neuilly-sur-Seine<br>Client&nbsp;: L'Oréal</div>
+<div class="frise large" aria-hidden="true">
+  <div class="frise__axe"><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
+  <div class="frise__ligne">
+    <span class="frise__nom">Formation</span>
+    <div class="frise__piste">
+      <span class="frise__barre frise__barre--ouvert b-dut">DUT</span>
+      <span class="frise__barre b-esilv">ESILV</span>
+      <span class="frise__barre b-emn">EM Normandie</span>
+    </div>
+  </div>
+  <div class="frise__ligne">
+    <span class="frise__nom">Expérience</span>
+    <div class="frise__piste">
+      <span class="frise__barre frise__barre--plein b-suez">SUEZ</span>
+      <span class="frise__barre frise__barre--plein b-engie">ENGIE</span>
+      <span class="frise__barre frise__barre--plein b-acn">Accenture</span>
+      <span class="frise__barre frise__barre--ici b-pwc">PwC</span>
+    </div>
   </div>
 </div>
-<ul>
-<li>Analyse, optimisation et modernisation des processus métier.</li>
-<li>Structuration de plans d'action, coordination des acteurs, production de supports de décision et de pilotage.</li>
-<li>Mobilisation des leviers numériques, data et IA pour identifier des pistes d'optimisation et d'automatisation.</li>
-</ul>
+
+<h2 id="experience">Expérience</h2>
+
+<div class="entree">
+  <span class="logo-chip" data-mono="PwC"><img src="/theme/images/logos/pwc.png" alt="Logo PwC" loading="lazy" width="58" height="58"></span>
+  <div class="entree__date">Décembre 2025 à aujourd'hui</div>
+  <h3>Consultant en transformation des processus métier</h3>
+  <div class="entree__lieu">PwC, Neuilly-sur-Seine. Client : L'Oréal.</div>
+  <ul>
+    <li>Analyse, optimisation et modernisation des processus métier.</li>
+    <li>Structuration de plans d'action, coordination des acteurs, production de supports de décision et de pilotage.</li>
+    <li>Mobilisation du numérique, de la donnée et de l'IA pour identifier des pistes d'optimisation et d'automatisation.</li>
+  </ul>
 </div>
 
-<div class="cv-entry">
-<div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ACN"><img src="/theme/images/logos/accenture.png" alt="Accenture" loading="lazy" width="58" height="58"></span>
-  <div>
-    <div class="cv-entry-period">Juillet 2023 — décembre 2025</div>
-    <h3>Consultant Talent Development Operations</h3>
-    <div class="place">Accenture<br>Paris<br>Clients&nbsp;: TotalEnergies, Schneider Electric, EDF, ministère des Armées</div>
-  </div>
-</div>
-<ul>
-<li>Amélioration continue et gouvernance des données dans un environnement institutionnel exigeant.</li>
-<li>Conduite du changement, animation de formations et de webinaires, suivi de plans d'action et reporting.</li>
-<li>Intégration à l'équipe Risques &amp; Conformité ; contribution au déploiement de l'outil eFront ERM.</li>
-</ul>
+<div class="entree">
+  <span class="logo-chip" data-mono="ACN"><img src="/theme/images/logos/accenture.png" alt="Logo Accenture" loading="lazy" width="58" height="58"></span>
+  <div class="entree__date">Juillet 2023 à décembre 2025</div>
+  <h3>Consultant Talent Development Operations</h3>
+  <div class="entree__lieu">Accenture, Paris. Clients : TotalEnergies, Schneider Electric, EDF, ministère des Armées.</div>
+  <ul>
+    <li>Amélioration continue et gouvernance des données dans un environnement institutionnel exigeant.</li>
+    <li>Conduite du changement, animation de formations et de webinaires, suivi de plans d'action et reporting.</li>
+    <li>Intégration à l'équipe Risques et Conformité, contribution au déploiement de l'outil eFront ERM.</li>
+  </ul>
 </div>
 
-<div class="cv-entry">
-<div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ENG"><img src="/theme/images/logos/engie.png" alt="ENGIE" loading="lazy" width="58" height="58"></span>
-  <div>
-    <div class="cv-entry-period">Septembre 2022 — juillet 2023</div>
-    <h3>Chargé de projets Transformation</h3>
-    <div class="place">ENGIE GBS<br>Paris La Défense</div>
-  </div>
-</div>
-<ul>
-<li>Suivi du déploiement d'un projet d'industrialisation lié à la stratégie de développement du groupe.</li>
-<li>Idéation, transformation et optimisation des processus des fonctions support.</li>
-</ul>
+<div class="entree">
+  <span class="logo-chip" data-mono="ENG"><img src="/theme/images/logos/engie.png" alt="Logo ENGIE" loading="lazy" width="58" height="58"></span>
+  <div class="entree__date">Septembre 2022 à juillet 2023</div>
+  <h3>Chargé de projets Transformation</h3>
+  <div class="entree__lieu">ENGIE GBS, Paris La Défense.</div>
+  <ul>
+    <li>Suivi du déploiement d'un projet d'industrialisation lié à la stratégie de développement du groupe.</li>
+    <li>Idéation et optimisation des processus des fonctions support.</li>
+  </ul>
 </div>
 
-<div class="cv-entry">
-<div class="cv-entry-head">
-  <span class="logo-chip" data-mono="SZ"><img src="/theme/images/logos/suez.png" alt="SUEZ" loading="lazy" width="58" height="58"></span>
-  <div>
-    <div class="cv-entry-period">Mars — août 2020</div>
-    <h3>Chef de projet</h3>
-    <div class="place">SUEZ<br>Blois</div>
-  </div>
-</div>
-<ul>
-<li>Proposition d'un projet d'amélioration et de rénovation du réseau de chauffage existant.</li>
-</ul>
+<div class="entree">
+  <span class="logo-chip" data-mono="SZ"><img src="/theme/images/logos/suez.png" alt="Logo SUEZ" loading="lazy" width="58" height="58"></span>
+  <div class="entree__date">Mars à août 2020</div>
+  <h3>Chef de projet</h3>
+  <div class="entree__lieu">SUEZ, Blois.</div>
+  <ul>
+    <li>Proposition d'un projet d'amélioration et de rénovation du réseau de chauffage existant.</li>
+  </ul>
 </div>
 
-</div>
+<h2 id="formation">Formation</h2>
+
+<div class="entree">
+  <span class="logo-chip" data-mono="EMN"><img src="/theme/images/logos/em-normandie.png" alt="Logo EM Normandie" loading="lazy" width="58" height="58"></span>
+  <div class="entree__date">2023 à 2025</div>
+  <h3>Programme Grande École, Master 2</h3>
+  <div class="entree__lieu">EM Normandie Business School, en alternance.</div>
+  <p>Gestion de projet, changement organisationnel, contrôle interne, pilotage de la performance, innovation et intelligence économique. Qualification à la Creative Week de Barcelone pour un projet entrepreneurial de formation en grande entreprise.</p>
 </div>
 
-<div class="cv-block" id="formation">
-<div class="section-label">formation</div>
-<div class="cv-timeline">
-
-<div class="cv-entry">
-<div class="cv-entry-head">
-  <span class="logo-chip" data-mono="EMN"><img src="/theme/images/logos/em-normandie.png" alt="EM Normandie" loading="lazy" width="58" height="58"></span>
-  <div>
-    <div class="cv-entry-period">2023 — 2025</div>
-    <h3>Programme Grande École, Master 2</h3>
-    <div class="place">EM Normandie Business School<br>en alternance</div>
-  </div>
-</div>
-<p>Gestion de projet, changement organisationnel, transformation digitale, contrôle interne, pilotage de la performance, innovation et intelligence économique. Qualification à la Creative Week de Barcelone pour un projet entrepreneurial de formation en grande entreprise.</p>
+<div class="entree">
+  <span class="logo-chip" data-mono="ESI"><img src="/theme/images/logos/esilv.png" alt="Logo ESILV" loading="lazy" width="58" height="58"></span>
+  <div class="entree__date">2020 à 2022</div>
+  <h3>Diplôme d'ingénieur, spécialité Data et IA</h3>
+  <div class="entree__lieu">ESILV, École Supérieure d'Ingénieurs Léonard de Vinci, Paris La Défense.</div>
+  <p>Mathématiques, physique, sciences de l'ingénieur et informatique. Développement d'une webapp fondée sur l'IA pour transmettre les conseils d'experts en permaculture aux débutants. Qualification aux 24h de l'Innovation Aéronautique avec un prototype de cabine d'avion gérée par IA, devant un jury de 200 chefs d'entreprise.</p>
 </div>
 
-<div class="cv-entry">
-<div class="cv-entry-head">
-  <span class="logo-chip" data-mono="ESI"><img src="/theme/images/logos/esilv.png" alt="ESILV" loading="lazy" width="58" height="58"></span>
-  <div>
-    <div class="cv-entry-period">2020 — 2022</div>
-    <h3>Diplôme d'ingénieur — spécialité Data &amp; IA</h3>
-    <div class="place">ESILV<br>École Supérieure d'Ingénieurs Léonard de Vinci<br>Paris La Défense</div>
-  </div>
-</div>
-<p>Mathématiques, physique, sciences de l'ingénieur et informatique. Développement d'une webapp fondée sur l'IA pour transmettre les conseils d'experts en permaculture aux débutants. Qualification aux 24h de l'Innovation Aéronautique pour un prototype de cabine d'avion gérée par IA, devant un jury de 200 chefs d'entreprises.</p>
-</div>
-
-<div class="cv-entry">
-<div class="cv-entry-head">
+<div class="entree">
   <span class="logo-chip" data-mono="UT"></span>
+  <div class="entree__date">Jusqu'en 2020</div>
+  <h3>DUT Mesures Physiques</h3>
+  <div class="entree__lieu">Université de Tours, Blois.</div>
+  <p>Formation généraliste tournée vers l'industrie, la recherche et la physique appliquée.</p>
+</div>
+
+<h2 id="competences">Compétences</h2>
+
+<dl class="competences">
   <div>
-    <div class="cv-entry-period">Université de Tours</div>
-    <h3>DUT Mesures Physiques</h3>
-    <div class="place">Blois</div>
+    <dt>Pilotage et conduite du changement</dt>
+    <dd>Analyse de processus, conduite du changement, gestion de projet, amélioration continue, reporting et aide à la décision.</dd>
   </div>
-</div>
-<p>Formation généraliste tournée vers l'industrie, la recherche et la physique appliquée.</p>
-</div>
+  <div>
+    <dt>Données et IA</dt>
+    <dd>Gouvernance de la donnée, IA générative et LLM, automatisation, Power BI, Python, MySQL.</dd>
+  </div>
+  <div>
+    <dt>Outils</dt>
+    <dd>Pack Office avancé, suite Adobe, eFront ERM, C#, UML, Arduino.</dd>
+  </div>
+  <div>
+    <dt>Langues</dt>
+    <dd>Français natif. Anglais B2, TOEIC 880. Espagnol B1. Russe A2.</dd>
+  </div>
+</dl>
 
-</div>
-</div>
-
-<div class="cv-block" id="competences">
-<div class="section-label">compétences</div>
-<div class="skills-grid">
-
-<div class="skills-group">
-<h4>Transformation &amp; pilotage</h4>
-<ul><li>Analyse de processus</li><li>Conduite du changement</li><li>Gestion de projet</li><li>Amélioration continue</li><li>Reporting &amp; aide à la décision</li></ul>
-</div>
-
-<div class="skills-group">
-<h4>Données &amp; IA</h4>
-<ul><li>Gouvernance de la donnée</li><li>IA générative &amp; LLM</li><li>Automatisation</li><li>Power BI</li><li>Python</li><li>MySQL</li></ul>
-</div>
-
-<div class="skills-group">
-<h4>Outils</h4>
-<ul><li>Pack Office avancé</li><li>Suite Adobe</li><li>eFront ERM</li><li>C#</li><li>UML</li><li>Arduino</li></ul>
-</div>
-
-<div class="skills-group">
-<h4>Langues</h4>
-<ul><li>Français : natif</li><li>Anglais : B2, TOEIC 880</li><li>Espagnol : B1</li><li>Russe : A2</li></ul>
-</div>
-
-</div>
-</div>
-
-<!-- ==========================================================
-     RÉCIT PAR LES PROJETS
-     ========================================================== -->
-
-<div class="bande-abstraite" aria-hidden="true">
-  <div class="ethereal" data-color="91,140,62" data-scale="64" data-speed="90" data-seed="27" data-alpha="0.82"></div>
-  <div class="ethereal ethereal--accent" data-color="150,195,155" data-scale="52" data-speed="78" data-seed="53" data-alpha="0.6"></div>
-</div>
-
-<div class="cv-block" id="fil-rouge">
-<div class="section-label">le fil rouge</div>
+<h2 id="fil-rouge">Le fil rouge</h2>
 
 <div class="prose">
-<h2>Ce que les projets racontent</h2>
-<p>Un CV se lit en colonnes : des dates, des titres, des employeurs. Il dit assez mal ce qui relie ces lignes entre elles. Si je devais résumer le fil rouge en une phrase&nbsp;: <strong>j'ai toujours cherché à comprendre comment un système tient debout avant d'essayer de le rendre meilleur</strong>, que ce système soit un réseau de chauffage urbain, une direction des ressources humaines, une maison, ou mon propre corps.</p>
+<p>Un CV se lit en colonnes : des dates, des titres, des employeurs. Il dit assez mal ce qui relie ces lignes entre elles. Mon fil rouge tient en une phrase : j'ai toujours cherché à comprendre comment un système tient debout avant d'essayer de l'améliorer. Ce système a été un réseau de chauffage urbain, une direction des ressources humaines, une maison.</p>
 <p>Voici le parcours raconté autrement, projet par projet.</p>
 </div>
 
-<div class="story">
+<div class="recit prose">
 
-<div class="story-item">
-<span class="story-year">2020 · Blois</span>
-<h3>Un réseau de chauffage, et un pays à l'arrêt</h3>
-<p>Mon premier vrai projet, chez SUEZ&nbsp;: proposer l'amélioration et la rénovation d'un réseau de chauffage existant. J'étais en DUT Mesures Physiques, j'apprenais surtout à mesurer. Je découvrais qu'entre une mesure juste et une décision utile, il y a tout un travail de traduction.</p>
-<p>C'était aussi le printemps 2020. Blois s'est vidée, l'IUT a fermé, et j'ai quitté mon appartement sans savoir que je n'y reviendrais pas. J'ai passé ces mois à courir la nuit sur des routes désertes. Rétrospectivement, c'est là que j'ai pris l'habitude de me servir de l'effort physique comme d'un régulateur, une habitude qui m'a beaucoup servi ensuite.</p>
+<div class="recit__item">
+<span class="recit__date">2020, Blois</span>
+<h3>Un réseau de chauffage</h3>
+<p>Mon premier vrai projet, chez SUEZ : proposer l'amélioration et la rénovation d'un réseau de chauffage existant. J'étais en DUT Mesures Physiques, j'apprenais surtout à mesurer. J'ai découvert qu'entre une mesure juste et une décision utile, il y a tout un travail de traduction.</p>
 </div>
 
-<div class="story-item">
-<span class="story-year">2020–2022 · Paris La Défense</span>
-<h3>L'ingénierie, et l'IA comme outil plutôt que comme sujet</h3>
-<p>À l'ESILV, spécialité Data &amp; IA. Deux projets m'ont marqué, et pour la même raison&nbsp;: dans les deux cas, l'IA n'était pas le but mais le moyen.</p>
-<p>Le premier&nbsp;: une webapp qui transmet les conseils d'experts en permaculture à des débutants. Le sujet est agricole, la difficulté est humaine&nbsp;: comment transformer un savoir tacite, tenu par quelques passionnés, en quelque chose de transmissible&nbsp;? Le second&nbsp;: un prototype de cabine d'avion de ligne pilotée par IA, présenté aux 24h de l'Innovation Aéronautique devant un jury de deux cents chefs d'entreprises. Trouver quoi automatiser, et surtout quoi ne pas automatiser, s'est révélé plus difficile que de le coder.</p>
-<p>C'est là que s'est formée ma conviction de fond&nbsp;: la technologie n'est intéressante qu'articulée à un usage réel.</p>
+<div class="recit__item">
+<span class="recit__date">2020 à 2022, Paris La Défense</span>
+<h3>L'IA comme outil</h3>
+<p>À l'ESILV, spécialité Data et IA, deux projets m'ont marqué pour la même raison : l'IA y servait un usage, elle n'en était jamais le sujet.</p>
+<p>Le premier est une webapp qui transmet les conseils d'experts en permaculture à des débutants. Le sujet est agricole, la difficulté est humaine : comment rendre transmissible un savoir tacite, tenu par quelques passionnés ? Le second est un prototype de cabine d'avion de ligne pilotée par IA, présenté aux 24h de l'Innovation Aéronautique devant deux cents chefs d'entreprise. Trouver quoi automatiser, et surtout quoi laisser à l'humain, s'est révélé plus difficile que de le coder.</p>
+<p>J'en ai gardé une conviction : une technologie vaut par l'usage réel qu'elle sert.</p>
 </div>
 
-<div class="story-item">
-<span class="story-year">2022–2023 · La Défense</span>
-<h3>Passer de l'objet technique à l'organisation</h3>
-<p>Chez ENGIE GBS, j'ai suivi le déploiement d'un projet d'industrialisation adossé à la stratégie du groupe, et travaillé sur les processus des fonctions support. Changement d'échelle radical&nbsp;: le facteur limitant n'était plus la technique, mais la coordination.</p>
-<p>J'y ai appris quelque chose qui m'a resservi partout depuis&nbsp;: un processus mal conçu ne se voit pas dans un document, il se voit dans les contournements que les gens inventent pour s'en sortir. Ces contournements sont la meilleure source de diagnostic qui existe.</p>
+<div class="recit__item">
+<span class="recit__date">2022 à 2023, La Défense</span>
+<h3>De l'objet technique à l'organisation</h3>
+<p>Chez ENGIE GBS, j'ai suivi le déploiement d'un projet d'industrialisation adossé à la stratégie du groupe, et travaillé sur les processus des fonctions support. Changement d'échelle : le facteur limitant devenait la coordination entre les équipes.</p>
+<p>J'y ai appris quelque chose qui m'a resservi partout depuis. Un processus mal conçu se lit rarement dans un document. Il se lit dans les contournements que les gens inventent pour s'en sortir, et ces contournements sont la meilleure source de diagnostic qui existe.</p>
 </div>
 
-<div class="story-item">
-<span class="story-year">2023–2025 · Paris</span>
-<h3>La donnée comme enjeu de souveraineté</h3>
-<p>Chez Accenture, deux ans et demi entre TotalEnergies, Schneider Electric, EDF et le ministère des Armées. La mission au contact du ministère a été la plus formatrice&nbsp;: amélioration continue et gouvernance des données ministérielles, dans un environnement où la fiabilité de l'information n'est pas un confort mais une condition.</p>
-<p>En parallèle, l'équipe Risques &amp; Conformité et le déploiement d'eFront ERM chez des clients assurance et banque. Deux mondes, une même question&nbsp;: à quelles conditions peut-on faire confiance à une donnée&nbsp;?</p>
-<p>C'est cette mission qui a fait basculer mon intérêt personnel pour l'auto-hébergement d'un hobby vers quelque chose de plus réfléchi&nbsp;: la souveraineté sur ses propres données, à l'échelle d'une maison.</p>
+<div class="recit__item">
+<span class="recit__date">2023 à 2025, Paris</span>
+<h3>La confiance dans la donnée</h3>
+<p>Chez Accenture, deux ans et demi entre TotalEnergies, Schneider Electric, EDF et le ministère des Armées. La mission au contact du ministère a été la plus formatrice : amélioration continue et gouvernance des données, dans un environnement où la fiabilité de l'information conditionne tout le reste.</p>
+<p>En parallèle, l'équipe Risques et Conformité et le déploiement d'eFront ERM chez des clients de l'assurance et de la banque. Deux mondes, une même question : à quelles conditions peut-on faire confiance à une donnée ?</p>
 </div>
 
-<div class="story-item">
-<span class="story-year">2023–2025 · en alternance</span>
+<div class="recit__item">
+<span class="recit__date">2023 à 2025, en alternance</span>
 <h3>Le management pour compléter l'ingénieur</h3>
-<p>Master Grande École à l'EM Normandie, en alternance. Un choix délibéré&nbsp;: j'avais la culture technique, il me manquait le vocabulaire et les outils de l'organisation&nbsp;: contrôle interne, pilotage de la performance, conduite du changement.</p>
-<p>Le projet entrepreneurial qualifié pour la Creative Week de Barcelone portait sur la formation des salariés en grande entreprise. Encore une histoire de transmission de savoir, comme la permaculture trois ans plus tôt. Je ne l'avais pas fait exprès.</p>
+<p>Master Grande École à l'EM Normandie, en alternance. Un choix délibéré : j'avais la culture technique, il me manquait le vocabulaire et les outils de l'organisation, du contrôle interne au pilotage de la performance.</p>
+<p>Le projet entrepreneurial qualifié pour la Creative Week de Barcelone portait sur la formation des salariés en grande entreprise. Encore une histoire de transmission de savoir, comme la permaculture trois ans plus tôt.</p>
 </div>
 
-<div class="story-item">
-<span class="story-year">Depuis toujours · à la maison</span>
+<div class="recit__item">
+<span class="recit__date">En continu, à la maison</span>
 <h3>Le laboratoire personnel</h3>
-<p>En parallèle, je construis chez moi un écosystème qui n'a rien d'un CV mais qui explique beaucoup&nbsp;: Home Assistant comme centre d'orchestration, un NAS comme socle de données, des services en conteneurs Docker, des protocoles qui doivent cohabiter proprement (MQTT, Zigbee, Matter), un accès distant maîtrisé, et des chantiers en cours autour de Proxmox, d'Immich et de l'optimisation d'une pompe à chaleur.</p>
-<p>Ce n'est pas une collection de gadgets. C'est le seul endroit où je peux concevoir une architecture complète, la casser, la réparer et la faire durer, sans comité de pilotage. Tout ce que j'ai appris là a fini par servir au travail, et réciproquement.</p>
+<p>Je construis chez moi une infrastructure auto-hébergée : Home Assistant pour l'orchestration, un NAS comme socle de données, des services en conteneurs, des protocoles qui doivent cohabiter proprement. C'est le seul endroit où je peux concevoir une architecture complète, la casser, la réparer et la faire durer, sans comité de pilotage.</p>
+<p>Ce que j'apprends là finit par servir au travail, et l'inverse est vrai aussi. Le détail est sur la page <a href="/projets/">Projets</a>.</p>
 </div>
 
-<div class="story-item">
-<span class="story-year">En parallèle</span>
-<h3>Le corps, le collectif, et une maladie</h3>
-<p>Douze ans de basketball dont deux en Nationale 3, dix ans d'athlétisme jusqu'aux championnats de France juniors en saut en longueur. Aujourd'hui la course à pied, la course d'orientation et l'aviron. Le sport de compétition m'a appris la répétition et la patience bien avant que la technique ne me les redemande.</p>
-<p>Le collectif aussi&nbsp;: président du BDE du Pôle Léonard de Vinci, vice-président information et communication du Bureau National des Élèves Ingénieurs, responsable événementiel de mon club d'aviron.</p>
-<p>Et puis la rectocolite hémorragique, qui a imposé sa propre discipline. Elle m'a surtout appris à distinguer ce que je peux piloter de ce que je dois accepter, une compétence que je n'aurais pas acquise autrement. J'en parle en détail sur <a href="/maladie/">une page dédiée</a>, parce que ça peut servir à d'autres.</p>
+<div class="recit__item">
+<span class="recit__date">En parallèle</span>
+<h3>Le sport et le collectif</h3>
+<p>Douze ans de basketball dont deux en Nationale 3, dix ans d'athlétisme jusqu'aux championnats de France juniors en saut en longueur. Aujourd'hui la course à pied, la course d'orientation et l'aviron. Le sport de compétition m'a appris la répétition et la patience bien avant que le travail ne me les redemande.</p>
+<p>Le collectif aussi : président du BDE du Pôle Léonard de Vinci, vice-président information et communication du Bureau National des Élèves Ingénieurs, responsable événementiel de mon club d'aviron.</p>
 </div>
 
 </div>
-</div>
 
-<div class="cv-block" id="certifications">
-<div class="section-label">certifications</div>
+<h2 id="certifications">Certifications</h2>
+
 <div class="prose">
-<p>Career Essentials in Generative AI (Microsoft) · Master Course in Digital Innovation &amp; Intrapreneurship 2.0 · Dare to Lead: How to Become a Next Generation Leader · Managers du changement.</p>
+<ul>
+<li>Career Essentials in Generative AI, Microsoft.</li>
+<li>Master Course in Digital Innovation and Intrapreneurship 2.0.</li>
+<li>Dare to Lead: How to Become a Next Generation Leader.</li>
+<li>Managers du changement.</li>
+</ul>
+</div>
 
 <h2 id="contact">Me contacter</h2>
-<p>→ <a href="mailto:contact@thenaisiepierre.fr">contact@thenaisiepierre.fr</a><br>
-→ <a href="https://www.linkedin.com/in/pierre-thenaisie/">LinkedIn</a></p>
-</div>
+
+<div class="prose">
+<p>Par e-mail : <a href="mailto:contact@thenaisiepierre.fr">contact@thenaisiepierre.fr</a>. Mon profil est aussi sur <a href="https://www.linkedin.com/in/pierre-thenaisie/">LinkedIn</a>.</p>
 </div>
