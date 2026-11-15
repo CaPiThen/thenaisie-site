@@ -421,7 +421,7 @@ Description: Un guide sourcé sur la rectocolite hémorragique (RCH) : comprendr
 
 <h3>Et si vous voulez en parler</h3>
 
-<p>Je ne suis ni médecin ni thérapeute, et je ne donnerai jamais de conseil médical par message. Mais si vous venez de recevoir un diagnostic et que vous avez besoin de parler à quelqu'un qui est passé par là, écrivez-moi : <a href="mailto:contact@thenaisiepierre.fr">contact@thenaisiepierre.fr</a>.</p>
+<p>Je ne suis ni médecin ni thérapeute, et je ne donnerai jamais de conseil médical par message. Mais si vous venez de recevoir un diagnostic et que vous avez besoin de parler à quelqu'un qui est passé par là, écrivez-moi sur <a href="https://www.linkedin.com/in/pierre-thenaisie/">LinkedIn</a>.</p>
 
 <p>Pour un vrai soutien structuré, en revanche, passez par l'<a href="https://www.afa.asso.fr/">afa</a> : leurs permanences d'experts valent infiniment mieux que mon avis.</p>
 

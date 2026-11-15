@@ -120,7 +120,7 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
 
 .hero {
   display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 26rem);
   align-items: center;
   gap: clamp(28px, 4vw, 64px);
   padding: clamp(40px, 6vw, 84px) var(--bord) clamp(48px, 6vw, 88px);
@@ -132,6 +132,8 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
 }
 .hero__intro { margin-top: 28px; max-width: 34em; font-size: 1.1875rem; line-height: 1.55; color: var(--encre-2); }
 .hero__actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px 20px; margin-top: 34px; }
+
+.hero__photo img { width: 100%; height: auto; }
 
 .carte { border: 1.5px solid var(--encre); background: var(--blanc); }
 .carte svg { width: 100%; aspect-ratio: 1000 / 640; }
@@ -175,9 +177,6 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
   font-stretch: 75%; font-weight: 800;
   font-size: clamp(1.75rem, 2.6vw, 2.375rem); line-height: 1.05;
 }
-.bloc__corps--photo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 20rem); gap: 28px clamp(28px, 4vw, 56px); align-items: start; }
-.bloc__corps--photo > div { grid-column: 1; grid-row: 1; }
-.bloc__photo { grid-column: 2; grid-row: 1; width: 100%; height: auto; }
 .bloc__suite { margin-top: 32px; max-width: 40em; color: var(--encre-2); }
 
 
@@ -185,6 +184,7 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
 /* ---------- accueil : la méthode, balise par balise ---------- */
 
 .methode { margin: 0 var(--bord); padding: clamp(48px, 6vw, 84px) 0 clamp(24px, 3vw, 40px); border-top: 1.5px solid var(--encre); }
+.methode__tete { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr); gap: 28px clamp(32px, 4vw, 64px); align-items: center; }
 .methode__titre { font-stretch: 75%; font-weight: 800; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.02; }
 .methode__intro { margin-top: 16px; max-width: 36em; font-size: 1.1875rem; line-height: 1.5; color: var(--encre-2); }
 .parcours { list-style: none; margin-top: clamp(36px, 5vw, 64px); }
@@ -546,6 +546,8 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
 @media (max-width: 860px) {
   .hero { grid-template-columns: minmax(0, 1fr); }
   .balise { grid-template-columns: minmax(0, 1fr); padding-left: 56px; }
+  .methode__tete { grid-template-columns: minmax(0, 1fr); }
+  .hero__photo { max-width: 24rem; }
   .carte__etiquette { display: none; }
   .carte svg { aspect-ratio: 1000 / 560; }
   .etapes {
@@ -558,9 +560,6 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
   .etapes li:nth-child(-n+2) { border-top: 0; }
   .etapes__n { font-family: var(--f-titre); font-weight: 800; margin-right: 4px; color: var(--balise-texte); }
   .bloc { grid-template-columns: minmax(0, 1fr); }
-  .bloc__corps--photo { grid-template-columns: minmax(0, 1fr); }
-  .bloc__corps--photo > div, .bloc__photo { grid-column: 1; grid-row: auto; }
-  .bloc__photo { max-width: 26rem; }
   .ailleurs a { grid-template-columns: minmax(0, 1fr); }
 }
 

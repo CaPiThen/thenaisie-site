@@ -128,5 +128,5 @@ Description: Les projets personnels de Pierre Thenaisie, expliqués avec des sch
 <div class="prose">
 <p>Je documente chaque décision au moment où je la prends, avec la raison et les options écartées. Six mois plus tard, c'est ce qui me permet de reprendre un projet sans tout redécouvrir.</p>
 <p>Je vérifie sur le système réel plutôt que sur le raisonnement. Une configuration qui paraît correcte sur le papier ne prouve rien tant que le service n'a pas répondu.</p>
-<p>Une question sur l'un de ces projets ? <a href="mailto:contact@thenaisiepierre.fr">Écrivez-moi</a>.</p>
+<p>Une question sur l'un de ces projets ? <a href="https://www.linkedin.com/in/pierre-thenaisie/">Écrivez-moi sur LinkedIn</a>.</p>
 </div>

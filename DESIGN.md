@@ -47,5 +47,6 @@ Le parcours de Pierre se lit comme une course d'orientation, un sport qu'il prat
 - Pas de répétition entre l'accueil et les autres pages : l'accueil explique la méthode de travail, le Parcours liste les postes, Projets détaille les réalisations personnelles.
 - Sur un sujet technique : expliquer le principe en mots simples, puis le montrer en schéma.
 - La carte de l'accueil montre les étapes d'une mission, pas les employeurs.
+- Aucune adresse e-mail sur le site : le contact passe par LinkedIn.
 - Aucun chiffre ni fait qui ne vienne de Pierre ou d'une source citée.
 - Aucun script ni style en ligne dans les gabarits : la CSP de `content/extra/_headers` les bloquerait.

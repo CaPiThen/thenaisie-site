@@ -5,13 +5,13 @@
 {"@context":"https://schema.org","@type":"WebSite","name":"Pierre Thenaisie","alternateName":["Pierre Thenaisie, consultant","thenaisiepierre.fr"],"url":"{{ SITE_ABSOLUTE_URL }}/","inLanguage":"fr"}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Person","@id":"{{ SITE_ABSOLUTE_URL }}/#pierre","name":"Pierre Thenaisie","url":"{{ SITE_ABSOLUTE_URL }}/","jobTitle":"Consultant en transformation des processus métier","worksFor":{"@type":"Organization","name":"PwC"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"ESILV"},{"@type":"CollegeOrUniversity","name":"EM Normandie Business School"}],"sameAs":["https://www.linkedin.com/in/pierre-thenaisie/"],"email":"mailto:contact@thenaisiepierre.fr"}
+{"@context":"https://schema.org","@type":"Person","@id":"{{ SITE_ABSOLUTE_URL }}/#pierre","name":"Pierre Thenaisie","url":"{{ SITE_ABSOLUTE_URL }}/","jobTitle":"Consultant en transformation des processus métier","worksFor":{"@type":"Organization","name":"PwC"},"alumniOf":[{"@type":"CollegeOrUniversity","name":"ESILV"},{"@type":"CollegeOrUniversity","name":"EM Normandie Business School"}],"sameAs":["https://www.linkedin.com/in/pierre-thenaisie/"]}
 </script>
 {% endblock %}
 {% block content %}
 
-<!-- PREMIER ECRAN : le métier en une phrase, deux actions, et la carte d'une mission
-     type. Les étapes de la carte sont doublées par une liste textuelle
+<!-- PREMIER ECRAN : le métier en une phrase, deux actions et le portrait. La carte
+     d'une mission ouvre la section méthode. Les étapes de la carte sont doublées par une liste textuelle
      (.etapes) : c'est elle que lisent les lecteurs d'écran et les mobiles,
      où les étiquettes de la carte seraient illisibles. -->
 <section class="hero">
@@ -20,11 +20,25 @@
     <p class="hero__intro">Je m'appelle Pierre Thenaisie. Ingénieur de formation, passé ensuite par une école de management, j'aide les entreprises à voir comment leurs processus tournent vraiment, puis à les simplifier et à les automatiser.</p>
     <p class="hero__actions">
       <a class="btn btn--plein" href="{{ SITEURL }}/cv/">Voir mon parcours</a>
-      <a class="btn" href="mailto:contact@thenaisiepierre.fr">M'écrire</a>
-      <a class="lien" href="https://www.linkedin.com/in/pierre-thenaisie/" rel="noopener">LinkedIn</a>
+      <a class="btn" href="https://www.linkedin.com/in/pierre-thenaisie/" rel="noopener">Me contacter sur LinkedIn</a>
     </p>
   </div>
 
+  <figure class="hero__photo">
+    <img src="{{ SITEURL }}/images/pierre-terrasse.webp" alt="Pierre Thenaisie, souriant, attablé en terrasse" width="1000" height="1500" fetchpriority="high">
+  </figure>
+</section>
+
+<!-- LA METHODE : chaque balise de la carte, détaillée. Les schémas sont en
+     HTML (composant .flux) pour rester lisibles sur mobile et pour les
+     lecteurs d'écran. Contenu propre à l'accueil : le Parcours liste les
+     postes, cette page dit comment Pierre travaille. -->
+<section class="methode" aria-labelledby="t-methode">
+  <div class="methode__tete">
+  <div>
+  <h2 id="t-methode" class="methode__titre">Une mission, balise par balise</h2>
+  <p class="methode__intro">Les missions changent, le chemin reste à peu près le même. Voici comment je m'y prends, de la première journée sur place au moment où l'équipe n'a plus besoin de moi.</p>
+  </div>
   <div class="carte">
     <p class="carte__titre">Une mission, du départ à l'arrivée</p>
     <svg viewBox="0 0 1000 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
@@ -54,15 +68,7 @@
       <li><span class="etapes__n">Arrivée</span> Accompagner les équipes</li>
     </ol>
   </div>
-</section>
-
-<!-- LA METHODE : chaque balise de la carte, détaillée. Les schémas sont en
-     HTML (composant .flux) pour rester lisibles sur mobile et pour les
-     lecteurs d'écran. Contenu propre à l'accueil : le Parcours liste les
-     postes, cette page dit comment Pierre travaille. -->
-<section class="methode" aria-labelledby="t-methode">
-  <h2 id="t-methode" class="methode__titre">Une mission, balise par balise</h2>
-  <p class="methode__intro">Les missions changent, le chemin reste à peu près le même. Voici comment je m'y prends, de la première journée sur place au moment où l'équipe n'a plus besoin de moi.</p>
+  </div>
 
   <ol class="parcours">
 
@@ -145,9 +151,7 @@
 
 <section class="bloc" aria-labelledby="t-ailleurs">
   <h2 id="t-ailleurs" class="bloc__titre">En dehors des missions</h2>
-  <div class="bloc__corps bloc__corps--photo">
-    <img class="bloc__photo" src="{{ SITEURL }}/images/pierre-terrasse.webp" alt="Pierre Thenaisie, souriant, en terrasse" width="1000" height="576" loading="lazy">
-    <div>
+  <div class="bloc__corps">
     <ul class="ailleurs">
       <li>
         <a href="{{ SITEURL }}/projets/">
@@ -163,16 +167,14 @@
       </li>
     </ul>
     <p class="bloc__suite">Les balises de cette page viennent de la course d'orientation, que je pratique.</p>
-    </div>
   </div>
 </section>
 
 <section class="contact" aria-labelledby="t-contact">
   <h2 id="t-contact">Une question, un projet à discuter ?</h2>
-  <p>Le plus simple est de m'écrire.</p>
+  <p>Le plus simple est de passer par LinkedIn.</p>
   <p class="contact__actions">
-    <a class="btn btn--encre" href="mailto:contact@thenaisiepierre.fr">contact@thenaisiepierre.fr</a>
-    <a class="lien" href="https://www.linkedin.com/in/pierre-thenaisie/" rel="noopener">LinkedIn</a>
+    <a class="btn btn--encre" href="https://www.linkedin.com/in/pierre-thenaisie/" rel="noopener">Me contacter sur LinkedIn</a>
   </p>
 </section>
 

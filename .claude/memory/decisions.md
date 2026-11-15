@@ -74,6 +74,7 @@ Vitrine personnelle de Pierre : sa vie, son parcours, et les sujets qui l'intér
 | BDR-053 | 2026-11-14 | Guide déplacé vers `/rectocolite-hemorragique/` (301), retiré de l'accueil, référencement (titres, données structurées, lastmod), schémas lisibles sur mobile, galerie avec visionneuse intégrée | actif (non poussé) |
 | BDR-054 | 2026-11-15 | Accueil allégé (plus de « Ce que je fais » ni de liste d'employeurs), carte = étapes d'une mission, aucune date d'études, prototype de cabine rattaché au DUT, récit « fil rouge » et frise retirés du Parcours | actif |
 | BDR-055 | 2026-11-15 | Accueil = la méthode de Pierre, balise par balise, avec un schéma par étape ; schémas en HTML (`.flux`, `.couloirs`) sur Accueil et Projets ; aquarium connecté à la place des combles ; photo d'aviron sur le Parcours | actif |
+| BDR-056 | 2026-11-15 | Aucune adresse e-mail sur le site : le contact passe par LinkedIn ; portrait entier en haut de l'accueil, carte déplacée en tête de la méthode | actif |
 
 ## Entrées
 
@@ -516,3 +517,12 @@ Accueil : bordures (`border-bottom`/`border-top`) retirées entre et autour des 
 **Pourquoi :** demande de Pierre du 2026-11-15 : accueil ni redite ni résumé, plus précis et original ; pages qui prennent le temps d'expliquer, avec des schémas sur les sujets techniques.
 **Alternatives envisagées :** schémas en SVG comme sur le guide : écartés, leurs étiquettes deviennent illisibles sur mobile (voir BDR-053). Photo d'aviron dans la galerie : impossible depuis le dépôt, la galerie se construit depuis l'album Immich « Mon site ».
 **Statut :** actif. Les exemples des schémas de l'accueil (demande, validation, fichier à côté) sont illustratifs, rédigés par moi à partir des formulations de Pierre : à valider par lui. Les nouvelles photos Immich ne sont pas dans l'album partagé (4 photos, dernière modification le 2026-09-10) : c'est à Pierre de les y ajouter.
+
+
+### BDR-056 — Aucune adresse e-mail sur le site ; portrait en haut de l'accueil
+
+**Date :** 2026-11-15
+**Décision :** (1) Plus aucune adresse e-mail ni lien `mailto` sur le site, données structurées comprises. Tous les points de contact (bouton du menu, premier écran, bandeau orange, Parcours, Projets, guide, mentions légales) mènent au profil LinkedIn. (2) La photo en terrasse s'affiche entière, sans recadrage, à droite du titre de l'accueil. La carte quitte le premier écran et ouvre la section « Une mission, balise par balise ». (3) La photo d'aviron montre la préparation d'une compétition en huit de pointe, pas du skiff.
+**Pourquoi :** demande de Pierre du 2026-11-15. Il ne veut pas recevoir de messages du site sur son adresse, qu'il utilise pour le travail.
+**Alternatives envisagées :** formulaire de contact : écarté, il faudrait un service tiers ou un serveur, et la CSP du site interdit les deux aujourd'hui.
+**Statut :** actif. Ne jamais remettre d'adresse e-mail sans demande explicite de Pierre.
