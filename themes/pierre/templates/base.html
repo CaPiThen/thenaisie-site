@@ -24,7 +24,9 @@
   {# La page 404 est servie à n'importe quelle adresse : ses liens relatifs partent de la racine. #}
   {% if page and page.slug == '404' %}<base href="/">{% endif %}
 
+  <link rel="icon" href="{{ SITEURL }}/favicon.ico" sizes="48x48">
   <link rel="icon" type="image/svg+xml" href="{{ SITEURL }}/theme/images/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ SITEURL }}/theme/images/favicon-192.png">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ SITEURL }}/theme/images/favicon-32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="{{ SITEURL }}/theme/images/favicon-16.png">
   <link rel="apple-touch-icon" href="{{ SITEURL }}/theme/images/apple-touch-icon.png">

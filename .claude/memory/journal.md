@@ -115,3 +115,5 @@ Fin de session : commit `8f9f10a` créé en local à la demande de Pierre, `git 
 
 
 2026-11-15 — Retours de Pierre sur la refonte (BDR-054) : accueil allégé, carte recentrée sur les étapes d'une mission, dates d'études supprimées partout, prototype de cabine rattaché au DUT, récit « fil rouge » et frise retirés du Parcours pour ne rien répéter entre les pages, plus aucun récit sur les débuts chez SUEZ. Vérifié par build et captures 1440 et 375 px, détecteur à 0. Commité en local, push toujours à faire par Pierre.
+
+Même jour, retours suivants : double filet en tête des Mentions légales corrigé (le premier titre ne porte plus de trait), `favicon.ico` ajouté à la racine avec une version 192 px et un cadre plus épais, nom du site renforcé dans les données structurées (`alternateName`). Constat en ligne : la refonte est déployée, la 404, la redirection `/maladie/` et les en-têtes de sécurité fonctionnent. Une photo non suivie est apparue à la racine du dépôt, laissée telle quelle.

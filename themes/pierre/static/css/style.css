@@ -294,7 +294,9 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
   padding-top: 20px;
   border-top: 1.5px solid var(--encre);
 }
-.page-content > h2:first-child, .page-content > .lead + h2 { margin-top: 40px; }
+/* Premier titre : le filet de .page-content suffit, pas de second trait. */
+.page-content > h2:first-child { margin-top: 0; padding-top: 0; border-top: 0; }
+.page-content > .lead + h2 { margin-top: 40px; }
 
 .prose p, .prose ul, .prose ol, .prose blockquote { margin-top: 1.05em; }
 .prose > :first-child { margin-top: 0; }
