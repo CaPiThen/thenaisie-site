@@ -168,11 +168,10 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
   padding: clamp(48px, 6vw, 84px) 0;
   border-top: 1.5px solid var(--encre);
 }
-.convictions + .bloc { border-top: 0; }
 .reperes { margin: 0 var(--bord); padding: 26px 0 30px; border-top: 1.5px solid var(--encre); font-size: 1.1875rem; }
 .reperes strong { font-family: var(--f-titre); font-weight: 750; }
 .reperes .lien { margin-left: 10px; white-space: nowrap; }
-.bloc__titre, .convictions__titre {
+.bloc__titre {
   font-stretch: 75%; font-weight: 800;
   font-size: clamp(1.75rem, 2.6vw, 2.375rem); line-height: 1.05;
 }
@@ -180,23 +179,93 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
 
 
 
-.convictions {
-  background: var(--encre); color: var(--papier);
-  padding: clamp(56px, 7vw, 100px) var(--bord);
+/* ---------- accueil : la méthode, balise par balise ---------- */
+
+.methode { margin: 0 var(--bord); padding: clamp(48px, 6vw, 84px) 0 clamp(24px, 3vw, 40px); border-top: 1.5px solid var(--encre); }
+.methode__titre { font-stretch: 75%; font-weight: 800; font-size: clamp(2rem, 3.6vw, 3rem); line-height: 1.02; }
+.methode__intro { margin-top: 16px; max-width: 36em; font-size: 1.1875rem; line-height: 1.5; color: var(--encre-2); }
+.parcours { list-style: none; margin-top: clamp(36px, 5vw, 64px); }
+
+/* Chaque étape porte sa balise (cercle orange) ; le trait orange qui les
+   relie reprend l'itinéraire de la carte. */
+.balise {
+  position: relative;
+  display: grid; grid-template-columns: minmax(0, 0.82fr) minmax(0, 1fr);
+  gap: 24px clamp(32px, 4vw, 64px); align-items: start;
+  padding: 0 0 clamp(48px, 6vw, 80px) 68px;
 }
-.convictions__liste {
-  list-style: none;
-  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 clamp(32px, 5vw, 80px);
-  margin-top: clamp(32px, 4vw, 56px);
+.balise::before {
+  content: ""; position: absolute; left: 4px; top: 2px;
+  width: 30px; height: 30px; border: 4px solid var(--balise); border-radius: 50%;
+  background: var(--papier);
 }
-.convictions__liste li { padding: 28px 0 32px; border-top: 1px solid #353d42; }
-.convictions__phrase {
-  font-family: var(--f-titre); font-stretch: 82%; font-weight: 700;
-  font-size: clamp(1.4375rem, 2.2vw, 2rem); line-height: 1.16;
-  text-wrap: balance;
+.balise::after {
+  content: ""; position: absolute; left: 21px; top: 44px; bottom: -2px;
+  width: 4px; background: var(--balise);
 }
-.convictions__liste p + p { margin-top: 12px; color: var(--sur-encre-2); max-width: 30em; }
+.balise:first-child::before {
+  width: 0; height: 0; left: 0; top: 4px; border-radius: 0; background: none;
+  border: solid transparent; border-width: 0 23px 38px 23px; border-bottom-color: var(--balise);
+  rotate: 180deg;
+}
+.balise--arrivee::before { box-shadow: 0 0 0 4px var(--papier), 0 0 0 8px var(--balise); }
+.balise--arrivee::after { display: none; }
+.balise__n { font-family: var(--f-titre); font-weight: 750; color: var(--balise-texte); }
+.balise h3 { font-stretch: 75%; font-weight: 800; font-size: clamp(1.625rem, 2.6vw, 2.25rem); line-height: 1.06; margin: 2px 0 14px; }
+.balise__texte p + p { margin-top: 0.85em; }
+.balise__texte { max-width: 34em; }
+
+/* ---------- schémas en HTML : flux et couloirs ---------- */
+
+.schema { padding: 20px 22px 22px; background: var(--blanc); border: 1px solid var(--filet); }
+.flux__titre { font-family: var(--f-titre); font-weight: 650; font-size: 0.9375rem; color: var(--encre-2); margin: 16px 0 8px; }
+.flux__titre:first-child { margin-top: 0; }
+.flux { list-style: none; display: flex; flex-wrap: wrap; gap: 10px 26px; padding: 0; margin: 0; }
+.flux li {
+  position: relative; margin: 0; padding: 8px 10px;
+  border: 1.5px solid var(--encre); background: var(--blanc);
+  font-family: var(--f-titre); font-weight: 650; font-size: 0.9375rem; line-height: 1.2;
+}
+.flux li small { display: block; font-weight: 500; font-size: 0.8125rem; color: var(--encre-2); }
+.flux li + li::before { content: ""; position: absolute; left: -23px; top: 50%; width: 14px; height: 1.5px; background: var(--encre); }
+.flux li + li::after {
+  content: ""; position: absolute; left: -11px; top: 50%; translate: 0 -50%;
+  border: 5px solid transparent; border-right: 0; border-left: 8px solid var(--encre);
+}
+.flux .flux--ecart { border-style: dashed; background: var(--balise-pale); }
+.flux .flux--alerte { background: var(--balise); }
+.flux .flux--alerte small { color: var(--encre); }
+.flux .flux--auto { background: var(--encre); color: var(--papier); }
+.flux .flux--auto small { color: var(--sur-encre-2); }
+.flux--colonne { flex-direction: column; align-items: flex-start; gap: 26px; }
+.flux--colonne > li + li::before { left: 20px; top: -21px; width: 1.5px; height: 13px; }
+.flux--colonne > li + li::after { left: 15.75px; top: -9px; translate: none; border: 5px solid transparent; border-bottom: 0; border-top: 8px solid var(--encre); }
+.flux--colonne > li:has(.flux__groupe) { padding: 0; border: 0; align-self: stretch; }
+.flux--libre { gap: 10px; }
+.flux--libre li + li::before, .flux--libre li + li::after { display: none; }
+
+.couloirs { display: grid; grid-template-columns: auto repeat(4, minmax(0, 1fr)); gap: 0 8px; align-items: center; }
+.couloirs__nom { grid-column: 1; padding: 14px 12px 14px 0; font-family: var(--f-titre); font-weight: 650; font-size: 0.9375rem; color: var(--encre-2); border-top: 1px solid var(--filet); }
+.couloirs__paire { display: contents; }
+.couloirs .r1 { grid-row: 1; border-top: 0; }
+.couloirs .r2 { grid-row: 2; }
+.couloirs .r3 { grid-row: 3; }
+.couloirs__case { padding: 7px 8px; border: 1.5px solid var(--encre); font-family: var(--f-titre); font-weight: 650; font-size: 0.875rem; line-height: 1.2; text-align: center; }
+.couloirs .c1 { grid-column: 2; grid-row: 1; }
+.couloirs .c2 { grid-column: 3; grid-row: 2; }
+.couloirs .c3 { grid-column: 4; grid-row: 3; }
+.couloirs .c4 { grid-column: 5; grid-row: 3; background: var(--encre); color: var(--papier); }
+
+.page-content .schema { margin: 24px 0 8px; }
+.schema__legende { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--filet); font-size: 0.9375rem; line-height: 1.5; color: var(--encre-2); }
+.flux__groupe { margin: 0; padding: 12px 14px 14px; border: 1.5px dashed var(--encre-2); }
+.flux__groupe > .flux__titre { margin-top: 0; }
+
+/* ---------- photo dans le texte ---------- */
+
+.photo-texte { display: grid; grid-template-columns: minmax(0, 15rem) minmax(0, 1fr); gap: 20px 32px; align-items: start; }
+.photo-texte img { width: 100%; height: auto; }
+.photo-texte figcaption { margin-top: 8px; font-size: 0.9375rem; color: var(--encre-2); }
 
 .ailleurs { list-style: none; }
 .ailleurs li { border-top: 1px solid var(--filet); }
@@ -407,7 +476,7 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
 .competences dt { font-family: var(--f-titre); font-weight: 700; font-size: 1.125rem; }
 .competences dd { margin-top: 6px; color: var(--encre-2); }
 
-/* ---------- projets ---------- */
+/* ---------- projets (ancien gabarit, encore utilisé par .projet__technos) ---------- */
 
 .projet { display: grid; grid-template-columns: minmax(0, 1fr); padding: 26px 0 28px; border-top: 1px solid var(--filet); }
 .projet h3 { font-weight: 750; font-size: 1.375rem; line-height: 1.2; }
@@ -469,6 +538,7 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
 
 @media (max-width: 860px) {
   .hero { grid-template-columns: minmax(0, 1fr); }
+  .balise { grid-template-columns: minmax(0, 1fr); padding-left: 56px; }
   .carte__etiquette { display: none; }
   .carte svg { aspect-ratio: 1000 / 560; }
   .etapes {
@@ -482,7 +552,6 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
   .etapes__n { font-family: var(--f-titre); font-weight: 800; margin-right: 4px; color: var(--balise-texte); }
   .bloc { grid-template-columns: minmax(0, 1fr); }
   .ailleurs a { grid-template-columns: minmax(0, 1fr); }
-  .convictions__liste { grid-template-columns: minmax(0, 1fr); }
 }
 
 @media (max-width: 600px) {
@@ -492,6 +561,19 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
   .site-nav .site-nav__contact { margin-left: auto; }
   .toc ol { columns: 1; }
   .site-footer { grid-template-columns: minmax(0, 1fr); }
+  /* Schémas : les flux passent à la verticale, flèches vers le bas. */
+  .flux { flex-direction: column; align-items: flex-start; gap: 24px; }
+  .flux li + li::before, .flux--colonne li + li::before { left: 20px; top: -19px; width: 1.5px; height: 11px; }
+  .flux li + li::after, .flux--colonne li + li::after { left: 15.75px; top: -9px; translate: none; border: 5px solid transparent; border-bottom: 0; border-top: 8px solid var(--encre); }
+  /* Couloirs : une colonne de cases, décalées pour garder l'idée d'avancée. */
+  .couloirs { grid-template-columns: auto minmax(0, 1fr); gap: 0 10px; }
+  .couloirs .couloirs__case { grid-column: 2; justify-self: start; }
+  .couloirs .c2 { margin-left: 10%; }
+  .couloirs__paire { display: flex; gap: 6px; grid-column: 2; grid-row: 3; margin-left: 8%; }
+  .couloirs__nom { font-size: 0.875rem; }
+  .schema { padding: 16px 14px 18px; }
+  .photo-texte { grid-template-columns: minmax(0, 1fr); }
+  .photo-texte figure { max-width: 16rem; }
   .figure { padding: 16px 12px 14px; margin-inline: -8px; }
   .figure__duo { grid-template-columns: minmax(0, 1fr); gap: 28px; }
   /* La courbe est réduite de moitié sur mobile : ses étiquettes grossissent d'autant. */

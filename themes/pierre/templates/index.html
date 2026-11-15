@@ -56,30 +56,91 @@
   </div>
 </section>
 
-<section class="reperes" aria-label="Employeurs">
-  <p>Aujourd'hui chez <strong>PwC</strong>, après <strong>Accenture</strong>, <strong>ENGIE</strong> et <strong>SUEZ</strong>. <a class="lien" href="{{ SITEURL }}/cv/">Le parcours détaillé</a></p>
+<!-- LA METHODE : chaque balise de la carte, détaillée. Les schémas sont en
+     HTML (composant .flux) pour rester lisibles sur mobile et pour les
+     lecteurs d'écran. Contenu propre à l'accueil : le Parcours liste les
+     postes, cette page dit comment Pierre travaille. -->
+<section class="methode" aria-labelledby="t-methode">
+  <h2 id="t-methode" class="methode__titre">Une mission, balise par balise</h2>
+  <p class="methode__intro">Les missions changent, le chemin reste à peu près le même. Voici comment je m'y prends, de la première journée sur place au moment où l'équipe n'a plus besoin de moi.</p>
+
+  <ol class="parcours">
+
+    <li class="balise">
+      <div class="balise__texte">
+        <p class="balise__n">Départ</p>
+        <h3>Observer le terrain</h3>
+        <p>Je commence par regarder les gens travailler. Un processus décrit dans une procédure et le même processus un mardi matin se ressemblent rarement.</p>
+        <p>Ce sont les écarts qui m'intéressent : le fichier Excel tenu à côté de l'outil officiel, le mail envoyé pour débloquer une validation. Un processus mal conçu se repère aux contournements que les gens inventent pour s'en sortir. Je ne connais pas de meilleure source de diagnostic.</p>
+      </div>
+      <div class="schema" role="img" aria-label="Schéma : le processus prévu enchaîne demande, validation et saisie. Le processus réel ajoute un fichier tenu à côté et une relance.">
+        <p class="flux__titre">Ce que dit la procédure</p>
+        <ol class="flux"><li>Demande</li><li>Validation</li><li>Saisie</li></ol>
+        <p class="flux__titre">Ce qui se passe vraiment</p>
+        <ol class="flux"><li>Demande</li><li class="flux--ecart">Fichier à côté</li><li class="flux--ecart">Relance</li><li>Validation</li><li>Saisie</li></ol>
+      </div>
+    </li>
+
+    <li class="balise">
+      <div class="balise__texte">
+        <p class="balise__n">Balise 1</p>
+        <h3>Décrire le réel</h3>
+        <p>Je mets ensuite à plat ce qui se passe vraiment : qui fait quoi, dans quel ordre, avec quelle information. Le schéma doit tenir sur une page, et chacun doit s'y reconnaître.</p>
+        <p>Tant que les équipes ne sont pas d'accord sur cette description, il est trop tôt pour parler de solution.</p>
+      </div>
+      <div class="schema" role="img" aria-label="Schéma en couloirs : le demandeur crée la demande, le responsable la valide, la gestion la contrôle puis la saisit.">
+        <div class="couloirs">
+          <span class="couloirs__nom r1">Demandeur</span><span class="couloirs__case c1">Crée la demande</span>
+          <span class="couloirs__nom r2">Responsable</span><span class="couloirs__case c2">Valide</span>
+          <span class="couloirs__nom r3">Gestion</span><span class="couloirs__paire"><span class="couloirs__case c3">Contrôle</span><span class="couloirs__case c4">Saisit</span></span>
+        </div>
+      </div>
+    </li>
+
+    <li class="balise">
+      <div class="balise__texte">
+        <p class="balise__n">Balise 2</p>
+        <h3>Repérer ce qui bloque</h3>
+        <p>Sur ce schéma, je cherche les attentes, les ressaisies et les décisions prises sur une donnée dont personne n'est vraiment sûr.</p>
+        <p>Ce dernier point pèse lourd. Une décision vaut ce que vaut la donnée derrière elle, et mes missions de gouvernance de données, notamment pour le ministère des Armées, m'ont rendu exigeant là-dessus.</p>
+      </div>
+      <div class="schema" role="img" aria-label="Schéma : entre la demande et la saisie, la validation est un point d'attente et le contrôle impose une ressaisie.">
+        <ol class="flux"><li>Demande</li><li class="flux--alerte">Validation<small>attente</small></li><li class="flux--alerte">Contrôle<small>ressaisie</small></li><li>Saisie</li></ol>
+      </div>
+    </li>
+
+    <li class="balise">
+      <div class="balise__texte">
+        <p class="balise__n">Balise 3</p>
+        <h3>Simplifier, puis automatiser</h3>
+        <p>Dans cet ordre. Je retire d'abord les étapes qui ne servent plus à personne : automatiser une étape inutile la rend seulement plus rapide.</p>
+        <p>Vient ensuite le choix de ce qu'on confie à la machine. C'est la partie la plus délicate. Je l'ai compris pendant mon DUT, sur un prototype de cabine d'avion pilotée par IA : décider ce qu'on n'automatiserait pas s'est révélé plus difficile que de coder le reste. Une technologie vaut par l'usage qu'elle sert.</p>
+      </div>
+      <div class="schema" role="img" aria-label="Schéma avant et après : cinq étapes avant, trois après, dont une saisie automatisée et une validation qui reste humaine.">
+        <p class="flux__titre">Avant</p>
+        <ol class="flux"><li>Demande</li><li>Relance</li><li>Validation</li><li>Contrôle</li><li>Saisie</li></ol>
+        <p class="flux__titre">Après</p>
+        <ol class="flux"><li>Demande</li><li>Validation<small>reste humaine</small></li><li class="flux--auto">Saisie<small>automatisée</small></li></ol>
+      </div>
+    </li>
+
+    <li class="balise balise--arrivee">
+      <div class="balise__texte">
+        <p class="balise__n">Arrivée</p>
+        <h3>Accompagner les équipes</h3>
+        <p>Un nouveau processus que personne n'adopte ne change rien. Je forme, j'anime des ateliers et des webinaires, et je suis le plan d'action dans la durée.</p>
+        <p>La mission est finie quand la nouvelle façon de faire tient sans moi.</p>
+      </div>
+      <div class="schema" role="img" aria-label="Schéma : formation, puis premiers usages, puis pratique installée.">
+        <ol class="flux"><li>Formation</li><li>Premiers usages</li><li class="flux--auto">Pratique installée</li></ol>
+      </div>
+    </li>
+
+  </ol>
 </section>
 
-<section class="convictions" aria-labelledby="t-convictions">
-  <h2 id="t-convictions" class="convictions__titre">Ce que le terrain m'a appris</h2>
-  <ol class="convictions__liste">
-    <li>
-      <p class="convictions__phrase">Un processus mal conçu se repère aux contournements que les gens inventent pour s'en sortir.</p>
-      <p>C'est la meilleure source de diagnostic que je connaisse.</p>
-    </li>
-    <li>
-      <p class="convictions__phrase">Une technologie vaut par l'usage qu'elle sert.</p>
-      <p>L'IA m'intéresse quand elle règle un problème précis pour quelqu'un de précis.</p>
-    </li>
-    <li>
-      <p class="convictions__phrase">Choisir quoi ne pas automatiser est plus difficile que d'automatiser.</p>
-      <p>Je l'ai appris pendant mon DUT, sur un prototype de cabine d'avion pilotée par IA.</p>
-    </li>
-    <li>
-      <p class="convictions__phrase">Une décision vaut ce que vaut la donnée derrière elle.</p>
-      <p>La gouvernance de données, notamment pour le ministère des Armées, m'a rendu exigeant sur ce point.</p>
-    </li>
-  </ol>
+<section class="reperes" aria-label="Employeurs">
+  <p>Aujourd'hui chez <strong>PwC</strong>, après <strong>Accenture</strong>, <strong>ENGIE</strong> et <strong>SUEZ</strong>. <a class="lien" href="{{ SITEURL }}/cv/">Le parcours détaillé</a></p>
 </section>
 
 <section class="bloc" aria-labelledby="t-ailleurs">
@@ -99,7 +160,7 @@
         </a>
       </li>
     </ul>
-    <p class="bloc__suite">La carte en haut de cette page est un clin d'œil à la course d'orientation, que je pratique.</p>
+    <p class="bloc__suite">Les balises de cette page viennent de la course d'orientation, que je pratique.</p>
   </div>
 </section>
 

@@ -73,6 +73,7 @@ Vitrine personnelle de Pierre : sa vie, son parcours, et les sujets qui l'intér
 | BDR-052 | 2026-11-14 | Refonte complète : identité « carte de course » (papier froid, encre, orange balise, Archivo + Atkinson Hyperlegible Next), navigation globale, accueil professionnel sans mention de la maladie, pages Projets, Mentions légales et 404, robots/sitemap/en-têtes de sécurité | actif (non poussé, en attente de validation de Pierre) |
 | BDR-053 | 2026-11-14 | Guide déplacé vers `/rectocolite-hemorragique/` (301), retiré de l'accueil, référencement (titres, données structurées, lastmod), schémas lisibles sur mobile, galerie avec visionneuse intégrée | actif (non poussé) |
 | BDR-054 | 2026-11-15 | Accueil allégé (plus de « Ce que je fais » ni de liste d'employeurs), carte = étapes d'une mission, aucune date d'études, prototype de cabine rattaché au DUT, récit « fil rouge » et frise retirés du Parcours | actif |
+| BDR-055 | 2026-11-15 | Accueil = la méthode de Pierre, balise par balise, avec un schéma par étape ; schémas en HTML (`.flux`, `.couloirs`) sur Accueil et Projets ; aquarium connecté à la place des combles ; photo d'aviron sur le Parcours | actif |
 
 ## Entrées
 
@@ -506,3 +507,12 @@ Accueil : bordures (`border-bottom`/`border-top`) retirées entre et autour des 
 **Pourquoi :** demande explicite de Pierre le 2026-11-15.
 **Alternatives envisagées :** garder la frise avec la seule ligne Expérience : écartée, elle redisait la liste placée juste dessous.
 **Statut :** actif. Corrige BDR-052 sur ces points.
+
+
+### BDR-055 — L'accueil détaille la méthode ; schémas en HTML ; aquarium connecté
+
+**Date :** 2026-11-15
+**Décision :** (1) L'accueil ne résume plus les autres pages. Après la carte, il détaille les cinq étapes d'une mission (observer, décrire, repérer, simplifier puis automatiser, accompagner), chacune avec deux paragraphes et un schéma. Les quatre convictions sont fondues dans ces étapes, le bloc sombre disparaît. (2) Les schémas explicatifs sont écrits en HTML et CSS, pas en SVG : composant `.flux` (cases reliées par des flèches, horizontal sur grand écran, vertical sur mobile) et `.couloirs` (qui fait quoi). Ils restent lisibles à 375 px et pour les lecteurs d'écran. Variantes : `flux--ecart` (contournement), `flux--alerte` (blocage), `flux--auto` (résultat ou étape automatisée). (3) Page Projets réécrite : chaque section explique le principe en mots simples puis le montre en schéma. Le projet de ventilation des combles est retiré à la demande de Pierre, remplacé par l'aquarium connecté (mesure pH, température, conductivité ; distributeur à disque et servomoteur ; stade conception), d'après `Projets/Aquario Discus - Domotique`. (4) La photo d'aviron fournie par Pierre va dans la section « Sport et engagements » du Parcours (`content/images/aviron.webp`, 55 Ko).
+**Pourquoi :** demande de Pierre du 2026-11-15 : accueil ni redite ni résumé, plus précis et original ; pages qui prennent le temps d'expliquer, avec des schémas sur les sujets techniques.
+**Alternatives envisagées :** schémas en SVG comme sur le guide : écartés, leurs étiquettes deviennent illisibles sur mobile (voir BDR-053). Photo d'aviron dans la galerie : impossible depuis le dépôt, la galerie se construit depuis l'album Immich « Mon site ».
+**Statut :** actif. Les exemples des schémas de l'accueil (demande, validation, fichier à côté) sont illustratifs, rédigés par moi à partir des formulations de Pierre : à valider par lui. Les nouvelles photos Immich ne sont pas dans l'album partagé (4 photos, dernière modification le 2026-09-10) : c'est à Pierre de les y ajouter.

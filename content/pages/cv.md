@@ -109,9 +109,15 @@ Description: Le parcours de Pierre Thenaisie : consultant chez PwC après Accent
 
 <h2 id="engagements">Sport et engagements</h2>
 
-<div class="prose">
+<div class="prose photo-texte">
+<figure>
+<img src="/images/aviron.webp" alt="Pierre Thenaisie à l'entraînement en skiff, sur un plan d'eau" width="900" height="1195" loading="lazy">
+<figcaption>En skiff, à l'entraînement.</figcaption>
+</figure>
+<div>
 <p>Douze ans de basketball dont deux en Nationale 3, dix ans d'athlétisme jusqu'aux championnats de France juniors en saut en longueur. Aujourd'hui la course à pied, la course d'orientation et l'aviron. Le sport de compétition m'a appris la répétition et la patience bien avant que le travail ne me les redemande.</p>
 <p>Côté associatif : président du BDE du Pôle Léonard de Vinci, vice-président information et communication du Bureau National des Élèves Ingénieurs, responsable événementiel de mon club d'aviron.</p>
+</div>
 </div>
 
 <h2 id="certifications">Certifications</h2>
