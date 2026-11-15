@@ -135,6 +135,7 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
 
 .carte { border: 1.5px solid var(--encre); background: var(--blanc); }
 .carte svg { width: 100%; aspect-ratio: 1000 / 640; }
+.carte__titre { padding: 10px 16px; border-bottom: 1.5px solid var(--encre); font-family: var(--f-titre); font-weight: 700; }
 .carte__courbe { fill: none; stroke: var(--courbe); stroke-width: 1.3; }
 .carte__courbe--maitresse { stroke: var(--courbe-2); stroke-width: 2.4; }
 .carte__trace {
@@ -144,7 +145,6 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
 }
 @keyframes tracer { from { stroke-dashoffset: 1; } }
 .carte__depart, .carte__poste { fill: none; stroke: var(--balise); stroke-width: 4; stroke-linejoin: miter; }
-.carte__ici { fill: var(--balise); stroke: var(--encre); stroke-width: 3; }
 .carte__etiquette text {
   font-family: var(--f-titre); font-size: 26px; font-weight: 550; fill: var(--encre);
   paint-order: stroke; stroke: var(--blanc); stroke-width: 7px; stroke-linejoin: round;
@@ -169,30 +169,16 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
   border-top: 1.5px solid var(--encre);
 }
 .convictions + .bloc { border-top: 0; }
+.reperes { margin: 0 var(--bord); padding: 26px 0 30px; border-top: 1.5px solid var(--encre); font-size: 1.1875rem; }
+.reperes strong { font-family: var(--f-titre); font-weight: 750; }
+.reperes .lien { margin-left: 10px; white-space: nowrap; }
 .bloc__titre, .convictions__titre {
   font-stretch: 75%; font-weight: 800;
   font-size: clamp(1.75rem, 2.6vw, 2.375rem); line-height: 1.05;
 }
-.chapo { font-size: 1.3125rem; line-height: 1.45; max-width: 32em; }
 .bloc__suite { margin-top: 32px; max-width: 40em; color: var(--encre-2); }
 
-.metier { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 40px; margin-top: 36px; }
-.metier > div { padding: 22px 0 24px; border-top: 1px solid var(--filet); }
-.metier dt { font-family: var(--f-titre); font-weight: 700; font-size: 1.1875rem; }
-.metier dd { margin-top: 6px; color: var(--encre-2); }
 
-.postes { list-style: none; }
-.postes li {
-  display: grid;
-  grid-template-columns: 11.5rem 12rem minmax(0, 1fr);
-  gap: 4px 24px; align-items: baseline;
-  padding: 20px 0;
-  border-top: 1px solid var(--filet);
-}
-.postes li:first-child { border-top: 0; padding-top: 0; }
-.postes__date { font-family: var(--f-titre); font-weight: 500; font-variant-numeric: tabular-nums; color: var(--encre-2); }
-.postes__nom { font-family: var(--f-titre); font-stretch: 75%; font-weight: 800; font-size: 1.75rem; line-height: 1.1; }
-.postes__role { color: var(--encre-2); }
 
 .convictions {
   background: var(--encre); color: var(--papier);
@@ -396,39 +382,6 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
 
 /* ---------- parcours ---------- */
 
-/* Frise : deux pistes sur une échelle de mois (janvier 2020 = 0,
-   décembre 2026 = 84). Chaque barre porte --s (début) et --e (fin). */
-.frise { margin: 40px 0 12px; display: none; }
-.frise__axe, .frise__piste { margin-left: 7.5rem; }
-.frise__axe { display: grid; grid-template-columns: repeat(7, 1fr); font-family: var(--f-titre); font-weight: 550; font-size: 0.9375rem; font-variant-numeric: tabular-nums; color: var(--encre-2); }
-.frise__axe span { padding: 0 0 8px 6px; border-left: 1px solid var(--filet); }
-.frise__ligne { position: relative; border-top: 1px solid var(--filet); }
-.frise__ligne:last-child { border-bottom: 1px solid var(--filet); }
-.frise__nom { position: absolute; left: 0; top: 50%; translate: 0 -50%; font-family: var(--f-titre); font-weight: 700; }
-.frise__piste {
-  position: relative; height: 68px;
-  background: repeating-linear-gradient(to right, var(--filet) 0 1px, transparent 1px calc(100% / 7));
-}
-.frise__barre {
-  position: absolute; top: 12px; height: 44px;
-  left: calc(var(--s) / 84 * 100%); width: calc((var(--e) - var(--s)) / 84 * 100% - 2px);
-  display: flex; align-items: center; padding: 0 8px; overflow: hidden; white-space: nowrap;
-  font-family: var(--f-titre); font-stretch: 80%; font-weight: 700; font-size: 0.9688rem;
-  border: 1.5px solid var(--encre); background: var(--blanc); color: var(--encre);
-}
-.frise__barre--plein { background: var(--encre); color: var(--papier); }
-.frise__barre--ici { background: var(--balise); border-color: var(--encre); }
-.frise__barre--ouvert { border-left-style: dashed; }
-.b-dut { --s: 0; --e: 8; }
-.b-esilv { --s: 8; --e: 30; }
-.b-emn { --s: 44; --e: 68; }
-.b-suez { --s: 2; --e: 8; top: 12px; }
-.b-engie { --s: 32; --e: 42; }
-.b-acn { --s: 42; --e: 71; }
-.b-pwc { --s: 71; --e: 83; }
-.frise__note { margin-top: 10px; font-size: 0.9375rem; color: var(--encre-2); }
-@media (min-width: 900px) { .frise { display: block; } }
-
 .entree { display: grid; grid-template-columns: 58px minmax(0, 1fr); gap: 0 22px; padding: 26px 0 28px; border-top: 1px solid var(--filet); }
 .entree:first-of-type { border-top: 0; padding-top: 4px; }
 .logo-chip {
@@ -451,12 +404,6 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
 .competences > div { padding: 18px 0 22px; border-top: 1px solid var(--filet); }
 .competences dt { font-family: var(--f-titre); font-weight: 700; font-size: 1.125rem; }
 .competences dd { margin-top: 6px; color: var(--encre-2); }
-
-.recit { margin-top: 12px; }
-.recit__item { padding: 26px 0 6px; border-top: 1px solid var(--filet); margin-top: 26px; }
-.recit__date { font-family: var(--f-titre); font-weight: 550; color: var(--balise-texte); }
-.recit__item h3 { font-weight: 750; font-size: 1.4375rem; line-height: 1.2; margin: 2px 0 10px; }
-.recit__item p + p { margin-top: 0.9em; }
 
 /* ---------- projets ---------- */
 
@@ -532,8 +479,6 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
   .etapes li:nth-child(-n+2) { border-top: 0; }
   .etapes__n { font-family: var(--f-titre); font-weight: 800; margin-right: 4px; color: var(--balise-texte); }
   .bloc { grid-template-columns: minmax(0, 1fr); }
-  .postes li { grid-template-columns: minmax(0, 1fr); }
-  .postes li:first-child { padding-top: 0; }
   .ailleurs a { grid-template-columns: minmax(0, 1fr); }
   .convictions__liste { grid-template-columns: minmax(0, 1fr); }
 }
@@ -543,7 +488,6 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
   .site-header { padding-top: 14px; padding-bottom: 12px; }
   .site-nav { gap: 4px 20px; width: 100%; }
   .site-nav .site-nav__contact { margin-left: auto; }
-  .metier, .competences, .advice-grid { grid-template-columns: minmax(0, 1fr); }
   .toc ol { columns: 1; }
   .site-footer { grid-template-columns: minmax(0, 1fr); }
   .figure { padding: 16px 12px 14px; margin-inline: -8px; }

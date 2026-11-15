@@ -112,3 +112,6 @@ Pierre a poussé (`87210a0`), confirmé le disclaimer RCH corrigé, mais signal�
 Même session, deuxième passe (BDR-053). Galerie : texte réduit à une ligne, première photo en grand, visionneuse dans la page testée par clic simulé (page de test + `--virtual-time-budget`), plus de nouvel onglet. Guide : adresse `/rectocolite-hemorragique/` avec redirection 301, retiré de l'accueil, schémas refaits pour le mobile, sept sources revérifiées par `curl`. Référencement : titres, données structurées validées en JSON, `lastmod`. La quatrième photo de l'album local ne répond plus (400) : bloc de `galerie.md` périmé, régénéré au prochain build. Toujours rien de poussé.
 
 Fin de session : commit `8f9f10a` créé en local à la demande de Pierre, `git push` refusé (aucun identifiant GitHub dans la session, vérification des accès bloquée). Push à faire par Pierre. Audit final fait sur le build local, pas sur le site en ligne.
+
+
+2026-11-15 — Retours de Pierre sur la refonte (BDR-054) : accueil allégé, carte recentrée sur les étapes d'une mission, dates d'études supprimées partout, prototype de cabine rattaché au DUT, récit « fil rouge » et frise retirés du Parcours pour ne rien répéter entre les pages, plus aucun récit sur les débuts chez SUEZ. Vérifié par build et captures 1440 et 375 px, détecteur à 0. Commité en local, push toujours à faire par Pierre.

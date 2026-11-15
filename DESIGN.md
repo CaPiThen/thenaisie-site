@@ -37,5 +37,8 @@ Le parcours de Pierre se lit comme une course d'orientation, un sport qu'il prat
 
 - L'accueil parle du métier. Le guide sur la rectocolite hémorragique n'y figure pas : il se trouve par la recherche et par le pied de page.
 - La galerie montre les photos sans expliquer la technique derrière.
+- Aucune date sur les formations. Les dates des emplois restent.
+- Pas de répétition entre l'accueil et les autres pages : l'accueil résume, les pages détaillent.
+- La carte de l'accueil montre les étapes d'une mission, pas les employeurs.
 - Aucun chiffre ni fait qui ne vienne de Pierre ou d'une source citée.
 - Aucun script ni style en ligne dans les gabarits : la CSP de `content/extra/_headers` les bloquerait.

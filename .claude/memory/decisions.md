@@ -72,6 +72,7 @@ Vitrine personnelle de Pierre : sa vie, son parcours, et les sujets qui l'intér
 | BDR-051 | 2026-08-10 | Migration GitHub Pages → Cloudflare Workers Builds (assets-only via `wrangler.jsonc`) ; OVH et GitHub Pages abandonnés | actif |
 | BDR-052 | 2026-11-14 | Refonte complète : identité « carte de course » (papier froid, encre, orange balise, Archivo + Atkinson Hyperlegible Next), navigation globale, accueil professionnel sans mention de la maladie, pages Projets, Mentions légales et 404, robots/sitemap/en-têtes de sécurité | actif (non poussé, en attente de validation de Pierre) |
 | BDR-053 | 2026-11-14 | Guide déplacé vers `/rectocolite-hemorragique/` (301), retiré de l'accueil, référencement (titres, données structurées, lastmod), schémas lisibles sur mobile, galerie avec visionneuse intégrée | actif (non poussé) |
+| BDR-054 | 2026-11-15 | Accueil allégé (plus de « Ce que je fais » ni de liste d'employeurs), carte = étapes d'une mission, aucune date d'études, prototype de cabine rattaché au DUT, récit « fil rouge » et frise retirés du Parcours | actif |
 
 ## Entrées
 
@@ -496,3 +497,12 @@ Accueil : bordures (`border-bottom`/`border-top`) retirées entre et autour des 
 **Pourquoi :** demandes de Pierre du 2026-11-14 : galerie plus simple à lire, mieux intégrée et sans nouvel onglet, guide trouvable depuis un moteur de recherche plutôt que depuis l'accueil, étiquettes des schémas lisibles, bonnes pratiques de référencement.
 **Alternatives envisagées :** garder `/maladie/` : écarté, l'adresse ne contient pas le terme recherché. Retirer aussi le lien du pied de page : écarté, sans aucun lien interne Google explore mal la page. Bibliothèque de visionneuse : écartée, `<dialog>` natif suffit et la CSP interdit les scripts tiers. Balisage FAQ : écarté, Google ne l'affiche plus que pour les sites officiels de santé et d'État.
 **Statut :** actif, non poussé. Reste à faire par Pierre après mise en ligne : Google Search Console (validation du domaine par DNS, envoi du sitemap, demande d'indexation du guide), lien vers le site depuis son profil LinkedIn.
+
+
+### BDR-054 — Accueil allégé, aucune date d'études, pas de répétition entre pages
+
+**Date :** 2026-11-15
+**Décision :** Règles de contenu données par Pierre, à tenir sur tout le site. (1) Aucune date sur les formations : ni sur la page Parcours, ni sur la carte, ni dans un texte qui permettrait de la déduire. Les dates des emplois restent. (2) Le prototype de cabine d'avion pilotée par IA (24h de l'Innovation Aéronautique) date du DUT, pas de l'ESILV. (3) Pas de répétition entre l'accueil et les autres pages : l'accueil garde le titre, la carte, une ligne d'employeurs, les quatre convictions et les liens ; le détail vit sur Parcours et Projets. (4) Ne jamais raconter que « tout a commencé chez SUEZ » : SUEZ reste une ligne d'expérience, sans récit. (5) La carte de l'accueil ne cite plus les entreprises : elle montre les étapes d'une mission (observer le terrain, décrire le réel, repérer ce qui bloque, simplifier et automatiser, accompagner les équipes). Conséquences : section « Ce que je fais » et liste « Où j'ai travaillé » retirées de l'accueil, frise et récit « fil rouge » retirés du Parcours, remplacés par une courte section « Sport et engagements ».
+**Pourquoi :** demande explicite de Pierre le 2026-11-15.
+**Alternatives envisagées :** garder la frise avec la seule ligne Expérience : écartée, elle redisait la liste placée juste dessous.
+**Statut :** actif. Corrige BDR-052 sur ces points.

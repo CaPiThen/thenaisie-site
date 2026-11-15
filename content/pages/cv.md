@@ -1,10 +1,8 @@
 Title: Parcours
 Slug: cv
 Seotitle: Parcours et CV de Pierre Thenaisie, consultant chez PwC
-Subtitle: Quatre entreprises, deux diplômes, un même sujet : comprendre comment une organisation fonctionne pour l'aider à mieux tourner.
+Subtitle: Quatre entreprises, un même sujet : comprendre comment une organisation fonctionne pour l'aider à mieux tourner.
 Description: Le parcours de Pierre Thenaisie : consultant chez PwC après Accenture, ENGIE et SUEZ, ingénieur ESILV et diplômé de l'EM Normandie. Expériences, formation, compétences.
-
-<p class="lead">J'accompagne les organisations dans l'analyse et la modernisation de leurs processus métier. Je m'appuie sur le numérique, la donnée et l'IA pour trouver ce qui peut être simplifié, fiabilisé ou automatisé.</p>
 
 <nav class="toc" aria-label="Sommaire">
 <span class="toc-label">Sur cette page</span>
@@ -12,32 +10,11 @@ Description: Le parcours de Pierre Thenaisie : consultant chez PwC après Accent
 <li><a href="#experience">Expérience</a></li>
 <li><a href="#formation">Formation</a></li>
 <li><a href="#competences">Compétences</a></li>
-<li><a href="#fil-rouge">Le fil rouge</a></li>
+<li><a href="#engagements">Sport et engagements</a></li>
 <li><a href="#certifications">Certifications</a></li>
 <li><a href="#contact">Me contacter</a></li>
 </ol>
 </nav>
-
-<div class="frise large" aria-hidden="true">
-  <div class="frise__axe"><span>2020</span><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>2025</span><span>2026</span></div>
-  <div class="frise__ligne">
-    <span class="frise__nom">Formation</span>
-    <div class="frise__piste">
-      <span class="frise__barre frise__barre--ouvert b-dut">DUT</span>
-      <span class="frise__barre b-esilv">ESILV</span>
-      <span class="frise__barre b-emn">EM Normandie</span>
-    </div>
-  </div>
-  <div class="frise__ligne">
-    <span class="frise__nom">Expérience</span>
-    <div class="frise__piste">
-      <span class="frise__barre frise__barre--plein b-suez">SUEZ</span>
-      <span class="frise__barre frise__barre--plein b-engie">ENGIE</span>
-      <span class="frise__barre frise__barre--plein b-acn">Accenture</span>
-      <span class="frise__barre frise__barre--ici b-pwc">PwC</span>
-    </div>
-  </div>
-</div>
 
 <h2 id="experience">Expérience</h2>
 
@@ -90,7 +67,6 @@ Description: Le parcours de Pierre Thenaisie : consultant chez PwC après Accent
 
 <div class="entree">
   <span class="logo-chip" data-mono="EMN"><img src="/theme/images/logos/em-normandie.png" alt="Logo EM Normandie" loading="lazy" width="58" height="58"></span>
-  <div class="entree__date">2023 à 2025</div>
   <h3>Programme Grande École, Master 2</h3>
   <div class="entree__lieu">EM Normandie Business School, en alternance.</div>
   <p>Gestion de projet, changement organisationnel, contrôle interne, pilotage de la performance, innovation et intelligence économique. Qualification à la Creative Week de Barcelone pour un projet entrepreneurial de formation en grande entreprise.</p>
@@ -98,18 +74,16 @@ Description: Le parcours de Pierre Thenaisie : consultant chez PwC après Accent
 
 <div class="entree">
   <span class="logo-chip" data-mono="ESI"><img src="/theme/images/logos/esilv.png" alt="Logo ESILV" loading="lazy" width="58" height="58"></span>
-  <div class="entree__date">2020 à 2022</div>
   <h3>Diplôme d'ingénieur, spécialité Data et IA</h3>
   <div class="entree__lieu">ESILV, École Supérieure d'Ingénieurs Léonard de Vinci, Paris La Défense.</div>
-  <p>Mathématiques, physique, sciences de l'ingénieur et informatique. Développement d'une webapp fondée sur l'IA pour transmettre les conseils d'experts en permaculture aux débutants. Qualification aux 24h de l'Innovation Aéronautique avec un prototype de cabine d'avion gérée par IA, devant un jury de 200 chefs d'entreprise.</p>
+  <p>Mathématiques, physique, sciences de l'ingénieur et informatique. Développement d'une webapp fondée sur l'IA pour transmettre les conseils d'experts en permaculture aux débutants.</p>
 </div>
 
 <div class="entree">
   <span class="logo-chip" data-mono="UT"></span>
-  <div class="entree__date">Jusqu'en 2020</div>
   <h3>DUT Mesures Physiques</h3>
   <div class="entree__lieu">Université de Tours, Blois.</div>
-  <p>Formation généraliste tournée vers l'industrie, la recherche et la physique appliquée.</p>
+  <p>Formation généraliste tournée vers l'industrie, la recherche et la physique appliquée. Qualification aux 24h de l'Innovation Aéronautique avec un prototype de cabine d'avion gérée par IA, devant un jury de 200 chefs d'entreprise.</p>
 </div>
 
 <h2 id="competences">Compétences</h2>
@@ -133,64 +107,11 @@ Description: Le parcours de Pierre Thenaisie : consultant chez PwC après Accent
   </div>
 </dl>
 
-<h2 id="fil-rouge">Le fil rouge</h2>
+<h2 id="engagements">Sport et engagements</h2>
 
 <div class="prose">
-<p>Un CV se lit en colonnes : des dates, des titres, des employeurs. Il dit assez mal ce qui relie ces lignes entre elles. Mon fil rouge tient en une phrase : j'ai toujours cherché à comprendre comment un système tient debout avant d'essayer de l'améliorer. Ce système a été un réseau de chauffage urbain, une direction des ressources humaines, une maison.</p>
-<p>Voici le parcours raconté autrement, projet par projet.</p>
-</div>
-
-<div class="recit prose">
-
-<div class="recit__item">
-<span class="recit__date">2020, Blois</span>
-<h3>Un réseau de chauffage</h3>
-<p>Mon premier vrai projet, chez SUEZ : proposer l'amélioration et la rénovation d'un réseau de chauffage existant. J'étais en DUT Mesures Physiques, j'apprenais surtout à mesurer. J'ai découvert qu'entre une mesure juste et une décision utile, il y a tout un travail de traduction.</p>
-</div>
-
-<div class="recit__item">
-<span class="recit__date">2020 à 2022, Paris La Défense</span>
-<h3>L'IA comme outil</h3>
-<p>À l'ESILV, spécialité Data et IA, deux projets m'ont marqué pour la même raison : l'IA y servait un usage, elle n'en était jamais le sujet.</p>
-<p>Le premier est une webapp qui transmet les conseils d'experts en permaculture à des débutants. Le sujet est agricole, la difficulté est humaine : comment rendre transmissible un savoir tacite, tenu par quelques passionnés ? Le second est un prototype de cabine d'avion de ligne pilotée par IA, présenté aux 24h de l'Innovation Aéronautique devant deux cents chefs d'entreprise. Trouver quoi automatiser, et surtout quoi laisser à l'humain, s'est révélé plus difficile que de le coder.</p>
-<p>J'en ai gardé une conviction : une technologie vaut par l'usage réel qu'elle sert.</p>
-</div>
-
-<div class="recit__item">
-<span class="recit__date">2022 à 2023, La Défense</span>
-<h3>De l'objet technique à l'organisation</h3>
-<p>Chez ENGIE GBS, j'ai suivi le déploiement d'un projet d'industrialisation adossé à la stratégie du groupe, et travaillé sur les processus des fonctions support. Changement d'échelle : le facteur limitant devenait la coordination entre les équipes.</p>
-<p>J'y ai appris quelque chose qui m'a resservi partout depuis. Un processus mal conçu se lit rarement dans un document. Il se lit dans les contournements que les gens inventent pour s'en sortir, et ces contournements sont la meilleure source de diagnostic qui existe.</p>
-</div>
-
-<div class="recit__item">
-<span class="recit__date">2023 à 2025, Paris</span>
-<h3>La confiance dans la donnée</h3>
-<p>Chez Accenture, deux ans et demi entre TotalEnergies, Schneider Electric, EDF et le ministère des Armées. La mission au contact du ministère a été la plus formatrice : amélioration continue et gouvernance des données, dans un environnement où la fiabilité de l'information conditionne tout le reste.</p>
-<p>En parallèle, l'équipe Risques et Conformité et le déploiement d'eFront ERM chez des clients de l'assurance et de la banque. Deux mondes, une même question : à quelles conditions peut-on faire confiance à une donnée ?</p>
-</div>
-
-<div class="recit__item">
-<span class="recit__date">2023 à 2025, en alternance</span>
-<h3>Le management pour compléter l'ingénieur</h3>
-<p>Master Grande École à l'EM Normandie, en alternance. Un choix délibéré : j'avais la culture technique, il me manquait le vocabulaire et les outils de l'organisation, du contrôle interne au pilotage de la performance.</p>
-<p>Le projet entrepreneurial qualifié pour la Creative Week de Barcelone portait sur la formation des salariés en grande entreprise. Encore une histoire de transmission de savoir, comme la permaculture trois ans plus tôt.</p>
-</div>
-
-<div class="recit__item">
-<span class="recit__date">En continu, à la maison</span>
-<h3>Le laboratoire personnel</h3>
-<p>Je construis chez moi une infrastructure auto-hébergée : Home Assistant pour l'orchestration, un NAS comme socle de données, des services en conteneurs, des protocoles qui doivent cohabiter proprement. C'est le seul endroit où je peux concevoir une architecture complète, la casser, la réparer et la faire durer, sans comité de pilotage.</p>
-<p>Ce que j'apprends là finit par servir au travail, et l'inverse est vrai aussi. Le détail est sur la page <a href="/projets/">Projets</a>.</p>
-</div>
-
-<div class="recit__item">
-<span class="recit__date">En parallèle</span>
-<h3>Le sport et le collectif</h3>
 <p>Douze ans de basketball dont deux en Nationale 3, dix ans d'athlétisme jusqu'aux championnats de France juniors en saut en longueur. Aujourd'hui la course à pied, la course d'orientation et l'aviron. Le sport de compétition m'a appris la répétition et la patience bien avant que le travail ne me les redemande.</p>
-<p>Le collectif aussi : président du BDE du Pôle Léonard de Vinci, vice-président information et communication du Bureau National des Élèves Ingénieurs, responsable événementiel de mon club d'aviron.</p>
-</div>
-
+<p>Côté associatif : président du BDE du Pôle Léonard de Vinci, vice-président information et communication du Bureau National des Élèves Ingénieurs, responsable événementiel de mon club d'aviron.</p>
 </div>
 
 <h2 id="certifications">Certifications</h2>

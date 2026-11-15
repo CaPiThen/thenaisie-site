@@ -10,14 +10,14 @@
 {% endblock %}
 {% block content %}
 
-<!-- PREMIER ECRAN : le métier en une phrase, deux actions, et la carte du
-     parcours. Les étapes de la carte sont doublées par une liste textuelle
+<!-- PREMIER ECRAN : le métier en une phrase, deux actions, et la carte d'une mission
+     type. Les étapes de la carte sont doublées par une liste textuelle
      (.etapes) : c'est elle que lisent les lecteurs d'écran et les mobiles,
      où les étiquettes de la carte seraient illisibles. -->
 <section class="hero">
   <div class="hero__texte">
     <h1>Consultant en transformation des processus métier.</h1>
-    <p class="hero__intro">Je m'appelle Pierre Thenaisie. Ingénieur de formation, passé ensuite par une école de management, j'aide les entreprises à voir comment leurs processus tournent vraiment, puis à les simplifier et à les automatiser. Je travaille aujourd'hui chez PwC.</p>
+    <p class="hero__intro">Je m'appelle Pierre Thenaisie. Ingénieur de formation, passé ensuite par une école de management, j'aide les entreprises à voir comment leurs processus tournent vraiment, puis à les simplifier et à les automatiser.</p>
     <p class="hero__actions">
       <a class="btn btn--plein" href="{{ SITEURL }}/cv/">Voir mon parcours</a>
       <a class="btn" href="mailto:contact@thenaisiepierre.fr">M'écrire</a>
@@ -26,86 +26,38 @@
   </div>
 
   <div class="carte">
+    <p class="carte__titre">Une mission, du départ à l'arrivée</p>
     <svg viewBox="0 0 1000 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
       <path class="carte__courbe" d="{{ HERO_CONTOURS_D }}"/>
       <path class="carte__courbe carte__courbe--maitresse" d="{{ HERO_CONTOURS_INDEX_D }}"/>
-      <!-- Itinéraire : départ (triangle), postes (cercles), position actuelle (cercle plein). -->
-      <path class="carte__trace" pathLength="1" d="M96 470 L232 318 M263 284 L438 172 M487 170 L548 372 M586 381 L748 266"/>
+      <!-- Itinéraire : départ (triangle), postes (cercles), arrivée (double cercle). -->
+      <path class="carte__trace" pathLength="1" d="M96 470 L232 318 M263 284 L438 172 M487 170 L548 372 M586 381 L744 268"/>
       <path class="carte__depart" d="M70 510 L44 465 L96 465 Z"/>
       <circle class="carte__poste" cx="248" cy="301" r="23"/>
       <circle class="carte__poste" cx="462" cy="158" r="23"/>
       <circle class="carte__poste" cx="564" cy="394" r="23"/>
-      <circle class="carte__ici" cx="768" cy="252" r="23"/>
+      <circle class="carte__poste" cx="768" cy="252" r="27"/>
+      <circle class="carte__poste" cx="768" cy="252" r="17"/>
       <g class="carte__etiquette">
-        <text x="112" y="512"><tspan class="carte__num">Départ</tspan><tspan x="112" dy="28">SUEZ, Blois, 2020</tspan></text>
-        <text x="284" y="296"><tspan class="carte__num">1</tspan><tspan x="284" dy="28">ESILV, 2020</tspan></text>
-        <text x="498" y="140"><tspan class="carte__num">2</tspan><tspan x="498" dy="28">ENGIE, 2022</tspan></text>
-        <text x="600" y="412"><tspan class="carte__num">3</tspan><tspan x="600" dy="28">Accenture, 2023</tspan></text>
-        <text x="768" y="178" text-anchor="middle"><tspan class="carte__num">4</tspan><tspan x="768" dy="28">PwC, depuis 2025</tspan></text>
+        <text x="112" y="512"><tspan class="carte__num">Départ</tspan><tspan x="112" dy="28">Observer le terrain</tspan></text>
+        <text x="284" y="296"><tspan class="carte__num">1</tspan><tspan x="284" dy="28">Décrire le réel</tspan></text>
+        <text x="498" y="134"><tspan class="carte__num">2</tspan><tspan x="498" dy="28">Repérer ce qui bloque</tspan></text>
+        <text x="600" y="418"><tspan class="carte__num">3</tspan><tspan x="600" dy="28">Simplifier, automatiser</tspan></text>
+        <text x="962" y="196" text-anchor="end"><tspan class="carte__num">Arrivée</tspan><tspan x="962" dy="28">Accompagner les équipes</tspan></text>
       </g>
     </svg>
     <ol class="etapes">
-      <li><span class="etapes__n">Départ</span> SUEZ, Blois, 2020</li>
-      <li><span class="etapes__n">1</span> ESILV, 2020</li>
-      <li><span class="etapes__n">2</span> ENGIE, 2022</li>
-      <li><span class="etapes__n">3</span> Accenture, 2023</li>
-      <li><span class="etapes__n">4</span> PwC, depuis 2025</li>
+      <li><span class="etapes__n">Départ</span> Observer le terrain</li>
+      <li><span class="etapes__n">1</span> Décrire le réel</li>
+      <li><span class="etapes__n">2</span> Repérer ce qui bloque</li>
+      <li><span class="etapes__n">3</span> Simplifier, automatiser</li>
+      <li><span class="etapes__n">Arrivée</span> Accompagner les équipes</li>
     </ol>
   </div>
 </section>
 
-<section class="bloc" aria-labelledby="t-metier">
-  <h2 id="t-metier" class="bloc__titre">Ce que je fais</h2>
-  <div class="bloc__corps">
-    <p class="chapo">J'interviens là où un processus coûte plus qu'il ne devrait : trop d'étapes, des données peu fiables, des tâches qui se répètent à la main.</p>
-    <dl class="metier">
-      <div>
-        <dt>Analyse de processus</dt>
-        <dd>Décrire ce qui se fait réellement, repérer où ça bloque, proposer une version plus simple à faire tourner.</dd>
-      </div>
-      <div>
-        <dt>Pilotage de projet</dt>
-        <dd>Structurer un plan d'action, coordonner les acteurs, produire les supports qui aident à décider.</dd>
-      </div>
-      <div>
-        <dt>Données et IA</dt>
-        <dd>Gouvernance de la donnée, automatisation, IA générative. Des leviers que je mobilise pour un usage précis.</dd>
-      </div>
-      <div>
-        <dt>Conduite du changement</dt>
-        <dd>Former, animer des ateliers et des webinaires, suivre les plans d'action jusqu'à ce que la nouvelle pratique tienne.</dd>
-      </div>
-    </dl>
-  </div>
-</section>
-
-<section class="bloc" aria-labelledby="t-ou">
-  <h2 id="t-ou" class="bloc__titre">Où j'ai travaillé</h2>
-  <div class="bloc__corps">
-    <ol class="postes">
-      <li>
-        <span class="postes__date">Depuis décembre 2025</span>
-        <span class="postes__nom">PwC</span>
-        <span class="postes__role">Consultant en transformation des processus métier. Client : L'Oréal.</span>
-      </li>
-      <li>
-        <span class="postes__date">2023 à 2025</span>
-        <span class="postes__nom">Accenture</span>
-        <span class="postes__role">Consultant Talent Development Operations. Clients : TotalEnergies, Schneider Electric, EDF, ministère des Armées.</span>
-      </li>
-      <li>
-        <span class="postes__date">2022 à 2023</span>
-        <span class="postes__nom">ENGIE GBS</span>
-        <span class="postes__role">Chargé de projets Transformation, fonctions support.</span>
-      </li>
-      <li>
-        <span class="postes__date">2020</span>
-        <span class="postes__nom">SUEZ</span>
-        <span class="postes__role">Chef de projet, rénovation d'un réseau de chauffage.</span>
-      </li>
-    </ol>
-    <p class="bloc__suite">Formation : diplôme d'ingénieur ESILV, spécialité Data et IA, puis Programme Grande École de l'EM Normandie en alternance. <a class="lien" href="{{ SITEURL }}/cv/">Le parcours détaillé</a></p>
-  </div>
+<section class="reperes" aria-label="Employeurs">
+  <p>Aujourd'hui chez <strong>PwC</strong>, après <strong>Accenture</strong>, <strong>ENGIE</strong> et <strong>SUEZ</strong>. <a class="lien" href="{{ SITEURL }}/cv/">Le parcours détaillé</a></p>
 </section>
 
 <section class="convictions" aria-labelledby="t-convictions">
@@ -121,7 +73,7 @@
     </li>
     <li>
       <p class="convictions__phrase">Choisir quoi ne pas automatiser est plus difficile que d'automatiser.</p>
-      <p>Je l'ai appris sur un prototype de cabine d'avion pilotée par IA, à l'ESILV.</p>
+      <p>Je l'ai appris pendant mon DUT, sur un prototype de cabine d'avion pilotée par IA.</p>
     </li>
     <li>
       <p class="convictions__phrase">Une décision vaut ce que vaut la donnée derrière elle.</p>
@@ -137,7 +89,7 @@
       <li>
         <a href="{{ SITEURL }}/projets/">
           <span class="ailleurs__nom">Projets personnels</span>
-          <span class="ailleurs__texte">Une infrastructure auto-hébergée, de la domotique et des automatisations. Le terrain où je teste ce que je recommande ensuite.</span>
+          <span class="ailleurs__texte">Ce que je construis chez moi, et où je teste ce que je recommande ensuite.</span>
         </a>
       </li>
       <li>
@@ -147,7 +99,7 @@
         </a>
       </li>
     </ul>
-    <p class="bloc__suite">Côté sport : dix ans d'athlétisme, douze de basketball, et aujourd'hui la course à pied, l'aviron et la course d'orientation. La carte en haut de cette page vient de là.</p>
+    <p class="bloc__suite">La carte en haut de cette page est un clin d'œil à la course d'orientation, que je pratique.</p>
   </div>
 </section>
 
