@@ -175,6 +175,9 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
   font-stretch: 75%; font-weight: 800;
   font-size: clamp(1.75rem, 2.6vw, 2.375rem); line-height: 1.05;
 }
+.bloc__corps--photo { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 20rem); gap: 28px clamp(28px, 4vw, 56px); align-items: start; }
+.bloc__corps--photo > div { grid-column: 1; grid-row: 1; }
+.bloc__photo { grid-column: 2; grid-row: 1; width: 100%; height: auto; }
 .bloc__suite { margin-top: 32px; max-width: 40em; color: var(--encre-2); }
 
 
@@ -317,6 +320,10 @@ h1, h2, h3, h4 { font-family: var(--f-titre); text-wrap: balance; }
   font-stretch: 75%; font-weight: 800;
   font-size: clamp(2.75rem, 6.4vw, 5.5rem); line-height: 0.96; letter-spacing: -0.012em;
 }
+/* Portrait en tête de page (métadonnée Portrait) : à droite du titre. */
+.page-tete--portrait { display: grid; grid-template-columns: minmax(0, 1fr) clamp(140px, 17vw, 220px); column-gap: clamp(20px, 4vw, 56px); align-items: end; }
+.page-tete--portrait > * { grid-column: 1; }
+.page-tete--portrait .page-tete__portrait { grid-column: 2; grid-row: 1 / span 3; width: 100%; height: auto; border: 1.5px solid var(--encre); }
 .page-tete .page-tete__signature { margin-top: 14px; font-size: 1rem; }
 .page-tete p { margin-top: 20px; max-width: 38em; font-size: 1.25rem; line-height: 1.5; color: var(--encre-2); }
 
@@ -551,6 +558,9 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
   .etapes li:nth-child(-n+2) { border-top: 0; }
   .etapes__n { font-family: var(--f-titre); font-weight: 800; margin-right: 4px; color: var(--balise-texte); }
   .bloc { grid-template-columns: minmax(0, 1fr); }
+  .bloc__corps--photo { grid-template-columns: minmax(0, 1fr); }
+  .bloc__corps--photo > div, .bloc__photo { grid-column: 1; grid-row: auto; }
+  .bloc__photo { max-width: 26rem; }
   .ailleurs a { grid-template-columns: minmax(0, 1fr); }
 }
 
@@ -560,6 +570,7 @@ sup a { padding: 0 2px; font-weight: 700; color: var(--balise-texte); text-decor
   .site-nav { gap: 4px 20px; width: 100%; }
   .site-nav .site-nav__contact { margin-left: auto; }
   .toc ol { columns: 1; }
+  .page-tete--portrait { grid-template-columns: minmax(0, 1fr) 96px; align-items: start; }
   .site-footer { grid-template-columns: minmax(0, 1fr); }
   /* Schémas : les flux passent à la verticale, flèches vers le bas. */
   .flux { flex-direction: column; align-items: flex-start; gap: 24px; }

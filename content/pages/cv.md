@@ -1,5 +1,7 @@
 Title: Parcours
 Slug: cv
+Portrait: images/portrait.webp
+Portraitalt: Portrait de Pierre Thenaisie
 Seotitle: Parcours et CV de Pierre Thenaisie, consultant chez PwC
 Subtitle: Quatre entreprises, un même sujet : comprendre comment une organisation fonctionne pour l'aider à mieux tourner.
 Description: Le parcours de Pierre Thenaisie : consultant chez PwC après Accenture, ENGIE et SUEZ, ingénieur ESILV et diplômé de l'EM Normandie. Expériences, formation, compétences.

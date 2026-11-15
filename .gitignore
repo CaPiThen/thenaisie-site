@@ -2,3 +2,9 @@ output/
 __pycache__/
 *.pyc
 .pelican/
+
+# Photos originales déposées à la racine : seules les versions allégées de content/images sont publiées.
+/*.jpg
+/*.jpeg
+/*.png
+/*.heic

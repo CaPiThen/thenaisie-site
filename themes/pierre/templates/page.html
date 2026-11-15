@@ -20,7 +20,8 @@
 {% endblock %}
 {% block content %}
 
-<header class="page-tete">
+<header class="page-tete{% if page.portrait %} page-tete--portrait{% endif %}">
+  {% if page.portrait %}<img class="page-tete__portrait" src="{{ SITEURL }}/{{ page.portrait }}" alt="{{ page.portraitalt }}" width="420" height="485">{% endif %}
   <h1>{{ page.title }}</h1>
   {% if page.subtitle %}<p>{{ page.subtitle }}</p>{% endif %}
   {% if page.schema == 'article' %}<p class="page-tete__signature">Par Pierre Thenaisie. Mis à jour le <time datetime="{{ (page.modified or page.date).strftime('%Y-%m-%d') }}">{{ (page.modified or page.date).strftime('%d/%m/%Y') }}</time>.</p>{% endif %}
