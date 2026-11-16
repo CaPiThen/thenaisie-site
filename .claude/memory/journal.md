@@ -125,3 +125,5 @@ Même jour, retours suivants : double filet en tête des Mentions légales corri
 2026-11-15, fin de journée (BDR-056) : toutes les adresses e-mail retirées du site, contact par LinkedIn uniquement. Portrait entier en haut de l'accueil, carte déplacée en tête de la méthode. Légende de la photo d'aviron corrigée (huit de pointe). Vérifié par build, recherche de `mailto` dans la sortie (aucun) et captures 1440 et 375 px.
 
 Photo de l'accueil recadrée modérément à la demande de Pierre (1000x1120, plafond noir retiré, table et bouteilles gardées). Sources des trois photos supprimées du NAS avec son accord.
+
+2026-11-16 : photo de l'accueil recadrée plus serré à la demande de Pierre (700x800, repartie de la version entière du commit 677a5cc).
